@@ -13,48 +13,47 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: James Hamann
-name: James Hamann
-email: jameshamann0@gmail.com
-description: Software Developer
+title: Gilbert Anderson
+name: Gilbert Anderson
+email: gilbertandersonwork@gmail.com
+description: Software Engineer
 
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
 
-project_one: Searcher
-project_one_description: An iOS/Android App which allows users to search ratings and reviews for TVShows and Movies.
-project_one_url: https://github.com/jameshamann/searcher-reactnative
-project_one_icon: local_movies
+project_one: Jekyll Material Theme
+project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
+project_one_url: https://github.com/jameshamann/jekyll-material-theme
+project_one_icon: web
 
+project_two: Temp
+project_two_description: Temp
+project_two_url: https://github.com/gilbertanderson/temp
+project_two_icon: local_movies
 
-project_two: Jekyll Material Theme
-project_two_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
-project_two_url: https://github.com/jameshamann/jekyll-material-theme
-project_two_icon: web
-
-project_three: Turfy
-project_three_description: A group project building an iOS app for location based messaging using XCode, Swift 3 and Firebase.
-project_three_url: https://github.com/Lawrence-Dawson/turfy
+project_three: Temp
+project_three_description: Temp
+project_three_url: https://github.com/gilbertanderson/temp
 project_three_icon: location_on
 
 project_four: Pict
-project_four_description: An Instagram clone that allows users to comment, as well as like and dislike photos. Built using Ruby on Rails, PostgreSQL, Bootstrap, RSpec and Capybara.
-project_four_url: https://github.com/jameshamann/pict
+project_four_description: A library app that allows users to like and dislike books while also filtering through a list of books. Built using AngularJS.
+project_four_url: https://github.com/gilbertanderson/sample-angular-app
 project_button: Github
 project_four_icon: photo_camera
 
 
-github: https://github.com/jameshamann/jekyll-material-theme
+github: https://github.com/gilbertanderson/gilbertanderson.github.io
 medium: https://medium.com
 
 
 
 baseurl: / # if your site is located at /blog or /home, enter it here, otherwise leave it as '/'
-url: https://jameshamann.com # the url of your site
-medium: https://medium.com/@jameshamann/
-github:  https://github.com/jameshamann
+url: https://gilbertjanderson.com # the url of your site
+medium: https://medium.com/@gilbertjanderson/
+github:  https://github.com/gilbertanderson
 
-google_analytics_tracking_id: UA-110869900-1 # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
+google_analytics_tracking_id: UA-temp # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
 
 cookies_banner: show # The value "show" will show the cookies banner, the value "none" will hide the banner.
 
