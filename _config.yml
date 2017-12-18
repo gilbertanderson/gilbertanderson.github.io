@@ -49,9 +49,9 @@ medium: https://medium.com
 
 
 baseurl: / # if your site is located at /blog or /home, enter it here, otherwise leave it as '/'
-url: https://jameshamann.com # the url of your site
-medium: https://medium.com/@jameshamann/
-github:  https://github.com/jameshamann
+url: https://gilbertanderson.github.io # the url of your site
+medium: https://medium.com/@gilbertanderson/
+github:  https://github.com/gilbertanderson
 
 google_analytics_tracking_id: UA-temp # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
 
