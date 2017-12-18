@@ -1,53 +1,73 @@
-title: Your awesome title
-name: Your Name
-email: your-email@example.com
-description: Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: James Hamann
+name: James Hamann
+email: jameshamann0@gmail.com
+description: Software Developer
 
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
 
-project_one: "First Project"
-project_one_description: Describe your project!
-project_one_url: https://github.com/jameshamann/jekyll-material-theme
-project_one_icon: location_on
+project_one: Searcher
+project_one_description: An iOS/Android App which allows users to search ratings and reviews for TVShows and Movies.
+project_one_url: https://github.com/jameshamann/searcher-reactnative
+project_one_icon: local_movies
 
-project_two: Second Project
-project_two_description: Describe your project!
+
+project_two: Jekyll Material Theme
+project_two_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
 project_two_url: https://github.com/jameshamann/jekyll-material-theme
-project_two_icon: photo_camera
+project_two_icon: web
 
+project_three: Turfy
+project_three_description: A group project building an iOS app for location based messaging using XCode, Swift 3 and Firebase.
+project_three_url: https://github.com/Lawrence-Dawson/turfy
+project_three_icon: location_on
 
-project_three: Third Project
-project_three_description: Describe your project!
-project_three_url: https://github.com/jameshamann/jekyll-material-theme
-project_three_icon: hotel
-
-
-project_four: Fourth Project
-project_four_description: Describe your project!
-project_four_url: https://github.com/jameshamann/jekyll-material-theme
-project_four_icon: restaurant
-
-
+project_four: Pict
+project_four_description: An Instagram clone that allows users to comment, as well as like and dislike photos. Built using Ruby on Rails, PostgreSQL, Bootstrap, RSpec and Capybara.
+project_four_url: https://github.com/jameshamann/pict
 project_button: Github
+project_four_icon: photo_camera
+
 
 github: https://github.com/jameshamann/jekyll-material-theme
 medium: https://medium.com
 
-baseurl: # if your site is located at /blog or /home, enter it here, otherwise leave it as '/'
-url: http://localhost:4000/ #the url of your site
 
-google_analytics_tracking_id: # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
+
+baseurl: / # if your site is located at /blog or /home, enter it here, otherwise leave it as '/'
+url: https://jameshamann.com # the url of your site
+medium: https://medium.com/@jameshamann/
+github:  https://github.com/jameshamann
+
+google_analytics_tracking_id: UA-110869900-1 # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
 
 cookies_banner: show # The value "show" will show the cookies banner, the value "none" will hide the banner.
 
 cookie_accept_message: Thanks!
 
+
+
 # Build settings
 markdown: kramdown
-# theme: minima
+
 permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-assets
+  - jekyll-sass-converter
   - jekyll-minifier
