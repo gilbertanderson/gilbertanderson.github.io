@@ -3,8 +3,6 @@ by jameshamann/jekyll-material-theme
 
 A Jekyll Theme based on [Material Design](https://material.io/) using [Materialize](http://materializecss.com/).
 
-<a href="https://imgur.com/3PKshVo"><img src="https://i.imgur.com/3PKshVo.gif" title="source: imgur.com" /></a>
-
 <a href="https://imgur.com/hlB1MOw"><img src="https://i.imgur.com/hlB1MOw.gif" title="source: imgur.com" /></a>
 
 <a href="https://imgur.com/D9DSyuk"><img src="https://i.imgur.com/D9DSyuk.gif" title="source: imgur.com" /></a>
