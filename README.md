@@ -1,4 +1,5 @@
-# Jekyll Material Theme by jameshamann/jekyll-material-theme
+# Jekyll Material Theme 
+by jameshamann/jekyll-material-theme
 
 A Jekyll Theme based on [Material Design](https://material.io/) using [Materialize](http://materializecss.com/).
 
