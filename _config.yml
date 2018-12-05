@@ -18,7 +18,7 @@ name: Gilbert Anderson
 email: gilbertandersonwork@gmail.com
 description: Software Engineer & Project Manager
 
-display_footer: inital  #change this to 'none' if you want to hide the footer copyright text
+display_footer: inital  # change this to 'none' if you want to hide the footer copyright text
 
 theme: jekyll-material-theme
 
