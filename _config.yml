@@ -28,7 +28,7 @@ parallax_image_two: assets/images/startup3.jpg
 # Settings for the porfolio section
 
 portfolio_heading: Portfolio
-portfolio_type: carousel #cards or carousel
+portfolio_type: carousel # cards or carousel
 
 project_one: Jekyll Material Theme
 project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
