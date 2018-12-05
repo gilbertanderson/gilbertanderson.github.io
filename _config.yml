@@ -16,7 +16,7 @@
 title: Gilbert Anderson
 name: Gilbert Anderson
 email: gilbertandersonwork@gmail.com
-description: Software Engineer
+description: Software Engineer & Project Manager
 
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
@@ -24,23 +24,23 @@ parallax_image_two: assets/images/startup3.jpg
 project_one: Jekyll Material Theme
 project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
 project_one_url: https://github.com/jameshamann/jekyll-material-theme
+project_button: Github
 project_one_icon: web
 
-project_two: Temp
-project_two_description: Temp
-project_two_url: https://github.com/gilbertanderson/temp
-project_two_icon: local_movies
+project_two: Dive Log
+project_two_description: Capstone Project - Asset tracker
+project_two_url: https://github.com/gilbertanderson/WOS_Dive_Log
+project_two_icon: web
 
-project_three: Temp
-project_three_description: Temp
-project_three_url: https://github.com/gilbertanderson/temp
+project_three: React Test App
+project_three_description: App to show off features of ReactJS
+project_three_url: https://github.com/gilbertanderson/React-Test-App
 project_three_icon: location_on
 
-project_four: Pict
-project_four_description: A library app that allows users to like and dislike books while also filtering through a list of books. Built using AngularJS.
+project_four: AngularJS Sample App
+project_four_description: An app that allows users to like and dislike books while also filtering through a list built using AngularJS.
 project_four_url: https://github.com/gilbertanderson/sample-angular-app
-project_button: Github
-project_four_icon: photo_camera
+project_four_icon: web
 
 
 github: https://github.com/gilbertanderson/gilbertanderson.github.io
