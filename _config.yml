@@ -41,7 +41,7 @@ project_two_description: Capstone Project - Asset tracker
 project_two_url: https://github.com/gilbertanderson/WOS_Dive_Log
 project_two_icon: web
 
-project_three: React Test App
+project_three: ReactJS Test App
 project_three_description: App to show off features of ReactJS
 project_three_url: https://github.com/gilbertanderson/React-Test-App
 project_three_icon: location_on
