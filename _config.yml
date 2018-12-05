@@ -18,14 +18,23 @@ name: Gilbert Anderson
 email: gilbertandersonwork@gmail.com
 description: Software Engineer & Project Manager
 
+display_footer: inital  #change this to 'none' if you want to hide the footer copyright text
+
+theme: jekyll-material-theme
+
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
+
+# Settings for the porfolio section
+
+portfolio_heading: Portfolio
+portfolio_type: cards #cards or carousel
 
 project_one: Jekyll Material Theme
 project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
 project_one_url: https://github.com/jameshamann/jekyll-material-theme
 project_button: Github
-project_one_icon: web
+project_one_icon: web  # these are from materiailize css, the full collection is here: http://materializecss.com/icons.html
 
 project_two: Dive Log
 project_two_description: Capstone Project - Asset tracker
@@ -42,11 +51,118 @@ project_four_description: An app that allows users to like and dislike books whi
 project_four_url: https://github.com/gilbertanderson/sample-angular-app
 project_four_icon: web
 
+# Skill icons from https://konpa.github.io/devicon/
+skills:
+  - name: amazonwebservices
+  - name: android
+  - name: angularjs
+  - name: apache
+  - name: appcelerator
+  - name: apple
+  - name: atom
+  - name: babel
+  - name: backbonejs
+  - name: bitbucket
+  - name: bootstrap
+  - name: bower
+  - name: c
+  - name: chrome
+  - name: codeigniter
+  - name: coffescript
+  - name: confluence
+  - name: cplusplus
+  - name: csharp
+  - name: css3
+  - name: cucumber
+  - name: d3js
+  - name: debian
+  - name: devicon
+  - name: django
+  - name: docker
+  - name: doctrine
+  - name: dot-net
+  - name: drupal
+  - name: erlang
+  - name: facebook
+  - name: firefox
+  - name: foundation
+  - name: gatling
+  - name: gimp
+  - name: git
+  - name: github
+  - name: gitlab
+  - name: go
+  - name: google
+  - name: gradle
+  - name: grunt
+  - name: gulp
+  - name: heroku
+  - name: html5
+  - name: ie10
+  - name: illustrator
+  - name: inkscape
+  - name: itellij
+  - name: java
+  - name: jasmine
+  - name: javascript
+  - name: laravel
+  - name: less
+  - name: linux
+  - name: meteor
+  - name: mocha
+  - name: mongodb
+  - name: moodle
+  - name: mysql
+  - name: nginx
+  - name: nodejs
+  - name: nodewebkit
+  - name: oracle
+  - name: photoshop
+  - name: php
+  - name: phpstorm
+  - name: protractor
+  - name: postgresql
+  - name: python
+  - name: pycharm
+  - name: rails
+  - name: react
+  - name: redhat
+  - name: redis
+  - name: ruby
+  - name: rubymine
+  - name: safari
+  - name: sass
+  - name: sequelize
+  - name: slack
+  - name: sourcetree
+  - name: ssh
+  - name: swift
+  - name: symfony
+  - name: tomcat
+  - name: travis
+  - name: trello
+  - name: twitter
+  - name: typescript
+  - name: ubuntu
+  - name: vim
+  - name: visualstudio
+  - name: vuejs
+  - name: webpack
+  - name: webstorm
+  - name: windows8
+  - name: wordpress
+  - name: yii
+  - name: zend
+  - name: ansible
+    uri: https://upload.wikimedia.org/wikipedia/fr/thumb/4/4b/Ansible_logo.png/220px-Ansible_logo.png # Add external icon, for internal icon use uri: /assets/my_icon.jpg
+
+icon_size: 50 # font-size of icons in px
+colored: colored # Leave blank for black and white icons
+
+project_button: Github
 
 github: https://github.com/gilbertanderson/gilbertanderson.github.io
 medium: https://medium.com
-
-
 
 baseurl: / # if your site is located at /blog or /home, enter it here, otherwise leave it as '/'
 url: https://gilbertanderson.github.io # the url of your site
@@ -57,13 +173,13 @@ google_analytics_tracking_id: UA-130517979-1 # This looks something like UA-0000
 
 cookies_banner: show # The value "show" will show the cookies banner, the value "none" will hide the banner.
 
-cookie_accept_message: Thanks!
+cookie_accept_message: Thanks! # The pop-up dialog that appears after accepting the cookie notice.
 
+syntax_highlighting: true # include the css for syntax highlighting
 
 
 # Build settings
 markdown: kramdown
-
 permalink: pretty
 plugins:
   - jekyll-feed
