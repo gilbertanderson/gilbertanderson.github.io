@@ -34,7 +34,7 @@ project_one: Jekyll Material Theme
 project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
 project_one_url: https://github.com/jameshamann/jekyll-material-theme
 project_button: Github
-project_one_icon: web  # these are from materiailize css, the full collection is here: http://materializecss.com/icons.html
+project_one_icon: typewriter # these are from materiailize css, the full collection is here: http://materializecss.com/icons.html
 
 project_two: Dive Log
 project_two_description: Capstone Project - Asset tracker
