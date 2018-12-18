@@ -1,6 +1,6 @@
 {% include head.html %}
 
-  <div id="home" class="section scrollspy">
+<div id="home" class="section scrollspy">
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -10,7 +10,6 @@
           <h5 class="header col s12 light">{{ site.description }}</h5>
         </div>
         <br><br>
-
       </div>
     </div>
     <div class="parallax"><img src="{{ site.parallax_image_one }}" alt="Unsplashed background img 1"></div>
@@ -24,14 +23,9 @@
 
 <div class="container" style="padding:20px;">
   <div id="portfolio" class="section scrollspy">
-
   <h3 style="text-align:center;">Portfolio</h3>
-
-{% include portfolio_cards.html %}
-
-</div>
-
-
+  {% include portfolio_cards.html %}
+  </div>
 </div>
 
 <div class="container" style="padding:20px;">
@@ -59,7 +53,7 @@
   <div id="contact" class="section scrollspy">
   <h3 style="text-align:center;">Contact</h3>
   {% include contact.html %}
-</div>
+  </div>
 </div>
 
 
