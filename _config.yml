@@ -16,7 +16,7 @@
 title: Gilbert Anderson
 name: Gilbert Anderson
 email: gilbertandersonwork@gmail.com
-description: Software Engineer & Project Manager
+description: Software Engineer & UX Designer
 
 display_footer: inital  # change this to 'none' if you want to hide the footer copyright text
 
@@ -30,26 +30,29 @@ parallax_image_two: assets/images/startup3.jpg
 portfolio_heading: Portfolio
 portfolio_type: carousel # cards or carousel
 
-project_one: Jekyll Material Theme
-project_one_description: A Jekyll Gem Theme based on Material Design using Materialize, currently being used on this site.
-project_one_url: https://github.com/jameshamann/jekyll-material-theme
-project_button: Github
+project_one: UX Designs
+project_one_description: UI dashboard design for Web App
+project_one_url: https://drive.google.com/drive/folders/1MnmX9snQavMeDixlCBSKPtAXgSdJKyxu?usp=sharing
+project_button: Google Drive
 project_one_icon: typewriter # these are from materiailize css, the full collection is here: http://materializecss.com/icons.html
 
 project_two: Dive Log
 project_two_description: Capstone Project - Asset tracker
 project_two_url: https://github.com/gilbertanderson/WOS_Dive_Log
-project_two_icon: startup
+project_button: Github
+project_two_icon: typewriter
 
 project_three: ReactJS Test App
 project_three_description: App to show off features of ReactJS
 project_three_url: https://github.com/gilbertanderson/React-Test-App
+project_button: Github
 project_three_icon: laptop_red
 
 project_four: AngularJS Sample App
 project_four_description: An app that allows users to like and dislike books while also filtering through a list built using AngularJS.
 project_four_url: https://github.com/gilbertanderson/sample-angular-app
-project_four_icon: laptop
+project_button: Github
+project_four_icon: laptop_red
 
 # Skill icons from https://konpa.github.io/devicon/
 skills:
@@ -64,7 +67,6 @@ skills:
   - name: bitbucket
   - name: bootstrap
   - name: bower
-  - name: c
   - name: chrome
   - name: coffescript
   - name: confluence
@@ -82,12 +84,7 @@ skills:
   - name: git
   - name: github
   - name: gitlab
-  - name: go
   - name: google
-  - name: gradle
-  - name: grunt
-  - name: gulp
-  - name: heroku
   - name: html5
   - name: illustrator
   - name: itellij
@@ -96,7 +93,6 @@ skills:
   - name: javascript
   - name: less
   - name: linux
-  - name: meteor
   - name: mocha
   - name: mongodb
   - name: mysql
@@ -109,11 +105,8 @@ skills:
   - name: python
   - name: react
   - name: redhat
-  - name: ruby
-  - name: safari
   - name: sass
   - name: slack
-  - name: sourcetree
   - name: ssh
   - name: swift
   - name: tomcat
