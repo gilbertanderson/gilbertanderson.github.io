@@ -113,6 +113,7 @@ skills:
   - name: vuejs
   - name: webpack
   - name: webstorm
+  - name: windows
   - name: wordpress
 
 icon_size: 50 # font-size of icons in px
