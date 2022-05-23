@@ -28,11 +28,11 @@ parallax_image_two: assets/images/startup3.jpg
 # Settings for the porfolio section
 
 portfolio_heading: Portfolio
-portfolio_type: carousel # cards or carousel
+portfolio_type: cards # cards or carousel
 
 project_one: UX Designs
 project_one_description: UI dashboard design for Web App
-project_one_url: https://drive.google.com/drive/folders/1MnmX9snQavMeDixlCBSKPtAXgSdJKyxu?usp=sharing
+project_one_url: https://github.com/gilbertanderson/StrikeWorks-Games-Website
 project_button: Google Drive
 project_one_icon: typewriter # these are from materiailize css, the full collection is here: http://materializecss.com/icons.html
 
