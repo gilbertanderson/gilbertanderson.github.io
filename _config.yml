@@ -59,7 +59,6 @@ skills:
   - name: amazonwebservices
   - name: android
   - name: angularjs
-  - name: apache
   - name: apple
   - name: atom
   - name: babel
@@ -75,9 +74,7 @@ skills:
   - name: css3
   - name: cucumber
   - name: d3js
-  - name: django
   - name: docker
-  - name: dot-net
   - name: drupal
   - name: facebook
   - name: firefox
@@ -109,9 +106,6 @@ skills:
   - name: slack
   - name: ssh
   - name: swift
-  - name: tomcat
-  - name: trello
-  - name: twitter
   - name: typescript
   - name: ubuntu
   - name: vim
@@ -119,7 +113,6 @@ skills:
   - name: vuejs
   - name: webpack
   - name: webstorm
-  - name: windows10
   - name: wordpress
 
 icon_size: 50 # font-size of icons in px
