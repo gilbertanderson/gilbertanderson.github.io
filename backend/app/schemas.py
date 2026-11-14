@@ -5,6 +5,8 @@ TypeScript types from that file, so a change here shows up as a type error
 in the React code that uses it.
 """
 
+from typing import Literal
+
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
 
 HEX_COLOR = r"^#[0-9A-Fa-f]{6}$"
@@ -22,6 +24,8 @@ class Site(Strict):
     url: HttpUrl
     accent: str = Field(default="#2E4BE0", pattern=HEX_COLOR)
     accent_on_dark: str = Field(default="#9DB0FF", pattern=HEX_COLOR)
+    banner: str | None = Field(default=None, description="Profile banner, path under frontend/public.")
+    avatar: str | None = Field(default=None, description="Profile photo, path under frontend/public.")
     resume: str | None = Field(default=None, description="Path under frontend/public, e.g. /Resume.docx.")
 
 
@@ -35,6 +39,7 @@ class Project(Strict):
     kind: str = Field(min_length=1, description="Short category tag, e.g. 'React'.")
     description: str = Field(min_length=1)
     url: HttpUrl
+    category: Literal["design", "development"] = "development"
     link_label: str = "View on GitHub"
     image: str | None = Field(default=None, description="Path under frontend/public, e.g. /projects/dive-log.png.")
 
@@ -51,6 +56,12 @@ class Role(Strict):
     highlights: list[str] = Field(min_length=1)
 
 
+class HowBuilt(Strict):
+    heading: str = Field(min_length=1)
+    blurb: str = ""
+    points: list[str] = Field(min_length=1)
+
+
 class ContactSection(Strict):
     heading: str = Field(min_length=1)
     blurb: str = ""
@@ -63,6 +74,7 @@ class SiteContent(Strict):
     experience: list[Role] = []
     tools: list[ToolGroup]
     credentials: list[ToolGroup] = []
+    how_built: HowBuilt | None = None
     contact: ContactSection
 
 

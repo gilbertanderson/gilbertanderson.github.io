@@ -39,6 +39,10 @@ export type Site = {
   url: string;
   accent?: string;
   accent_on_dark?: string;
+  /** Profile banner, path under frontend/public. */
+  banner?: string | null;
+  /** Profile photo, path under frontend/public. */
+  avatar?: string | null;
   /** Path under frontend/public, e.g. /Resume.docx. */
   resume?: string | null;
 };
@@ -52,6 +56,7 @@ export type Project = {
   kind: string;
   description: string;
   url: string;
+  category?: "design" | "development";
   link_label?: string;
   /** Path under frontend/public, e.g. /projects/dive-log.png. */
   image?: string | null;
@@ -67,6 +72,11 @@ export type ToolGroup = {
   group: string;
   items: string[];
 };
+export type HowBuilt = {
+  heading: string;
+  blurb?: string;
+  points: string[];
+};
 export type ContactSection = {
   heading: string;
   blurb?: string;
@@ -78,6 +88,7 @@ export type SiteContent = {
   experience?: Role[];
   tools: ToolGroup[];
   credentials?: ToolGroup[];
+  how_built?: HowBuilt | null;
   contact: ContactSection;
 };
 export type ContactReceipt = {
