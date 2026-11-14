@@ -1,0 +1,77 @@
+# Everything the site says lives here. Edit it, then rebuild (npm run build in
+# frontend/). The backend validates it against app/schemas.py, so a typo or a
+# missing field fails the build with a clear message instead of a broken page.
+
+[site]
+name = "Gilbert Anderson"
+title = "Software Engineer & UX Designer"
+headline = "I design interfaces and build the software behind them."
+# A short bio, two or three sentences. Leave empty to hide it.
+bio = ""
+url = "https://gilbertanderson.github.io/"
+accent = "#2E4BE0"
+accent_on_dark = "#9DB0FF"
+
+[[links]]
+label = "GitHub"
+url = "https://github.com/gilbertanderson"
+
+[[links]]
+label = "Medium"
+url = "https://medium.com/@gilbertanderson"
+
+# Add `image = "/projects/<file>.png"` to a project (file in frontend/public/projects/)
+# to replace its typographic tile with a screenshot.
+
+[[projects]]
+title = "UX Designs"
+kind = "UX design"
+description = "UI dashboard design for a web app."
+url = "https://github.com/gilbertanderson/StrikeWorks-Games-Website"
+link_label = "View designs"
+
+[[projects]]
+title = "Dive Log"
+kind = "Capstone"
+description = "Capstone project: an asset tracker."
+url = "https://github.com/gilbertanderson/WOS_Dive_Log"
+
+[[projects]]
+title = "ReactJS Test App"
+kind = "React"
+description = "An app that shows off the features of ReactJS."
+url = "https://github.com/gilbertanderson/React-Test-App"
+
+[[projects]]
+title = "AngularJS Sample App"
+kind = "AngularJS"
+description = "Lets people like and dislike books while filtering through a list, built with AngularJS."
+url = "https://github.com/gilbertanderson/sample-angular-app"
+
+[[tools]]
+group = "Frontend"
+items = ["React", "Angular", "Vue", "TypeScript", "JavaScript", "HTML5", "CSS3", "Sass", "Less", "Bootstrap", "D3.js", "Webpack"]
+
+[[tools]]
+group = "Backend & languages"
+items = ["Python", "FastAPI", "Node.js", "Java", "C#", "C++", "Swift"]
+
+[[tools]]
+group = "Data"
+items = ["PostgreSQL", "MySQL", "MongoDB", "Oracle"]
+
+[[tools]]
+group = "Platform & ops"
+items = ["AWS", "Docker", "Linux", "Ubuntu", "Red Hat", "Git", "GitHub", "GitLab", "Bitbucket"]
+
+[[tools]]
+group = "Testing"
+items = ["Cucumber", "Protractor"]
+
+[[tools]]
+group = "Design & tools"
+items = ["Photoshop", "Illustrator", "Visual Studio", "IntelliJ", "WebStorm", "Vim", "Confluence", "Slack"]
+
+[contact]
+heading = "Let’s build something."
+blurb = "Send a note about a role, a project or a question — I’ll get back to you."

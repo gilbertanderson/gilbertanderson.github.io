@@ -1,0 +1,67 @@
+"""Pydantic models: the single source of truth for the site's data shapes.
+
+FastAPI turns these into openapi.json, and the frontend generates its
+TypeScript types from that file, so a change here shows up as a type error
+in the React code that uses it.
+"""
+
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+
+HEX_COLOR = r"^#[0-9A-Fa-f]{6}$"
+
+
+class Strict(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+class Site(Strict):
+    name: str = Field(min_length=1)
+    title: str = Field(min_length=1, description="Short role line shown above the headline.")
+    headline: str = Field(min_length=1)
+    bio: str = ""
+    url: HttpUrl
+    accent: str = Field(default="#2E4BE0", pattern=HEX_COLOR)
+    accent_on_dark: str = Field(default="#9DB0FF", pattern=HEX_COLOR)
+
+
+class Link(Strict):
+    label: str = Field(min_length=1)
+    url: HttpUrl
+
+
+class Project(Strict):
+    title: str = Field(min_length=1)
+    kind: str = Field(min_length=1, description="Short category tag, e.g. 'React'.")
+    description: str = Field(min_length=1)
+    url: HttpUrl
+    link_label: str = "View on GitHub"
+    image: str | None = Field(default=None, description="Path under frontend/public, e.g. /projects/dive-log.png.")
+
+
+class ToolGroup(Strict):
+    group: str = Field(min_length=1)
+    items: list[str] = Field(min_length=1)
+
+
+class ContactSection(Strict):
+    heading: str = Field(min_length=1)
+    blurb: str = ""
+
+
+class SiteContent(Strict):
+    site: Site
+    links: list[Link]
+    projects: list[Project] = Field(min_length=1)
+    tools: list[ToolGroup]
+    contact: ContactSection
+
+
+class ContactMessage(Strict):
+    name: str = Field(min_length=1, max_length=200)
+    email: str = Field(min_length=3, max_length=320, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    message: str = Field(min_length=1, max_length=5000)
+
+
+class ContactReceipt(BaseModel):
+    ok: bool
+    detail: str
