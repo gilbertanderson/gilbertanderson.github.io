@@ -48,12 +48,6 @@ kind = "Claude Code skill"
 description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with icons, Storybook stories and a MUI Figma plugin round-trip."
 url = "https://github.com/gilbertanderson/design2code"
 
-[[projects]]
-title = "This portfolio"
-kind = "React + FastAPI"
-description = "This site: React, TypeScript and Redux Toolkit on the front, FastAPI and Pydantic behind it, typed end to end through OpenAPI."
-url = "https://github.com/gilbertanderson/gilbertanderson.github.io"
-
 [[tools]]
 group = "Frontend"
 items = ["React", "Angular", "Vue", "TypeScript", "JavaScript", "HTML5", "CSS3", "Sass", "Less", "Bootstrap", "D3.js", "Webpack"]
