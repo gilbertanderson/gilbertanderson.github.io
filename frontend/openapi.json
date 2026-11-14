@@ -177,6 +177,35 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "HowBuilt": {
+        "properties": {
+          "heading": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Heading"
+          },
+          "blurb": {
+            "type": "string",
+            "title": "Blurb",
+            "default": ""
+          },
+          "points": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Points"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "heading",
+          "points"
+        ],
+        "title": "HowBuilt"
+      },
       "Link": {
         "properties": {
           "label": {
@@ -224,6 +253,15 @@
             "minLength": 1,
             "format": "uri",
             "title": "Url"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "design",
+              "development"
+            ],
+            "title": "Category",
+            "default": "development"
           },
           "link_label": {
             "type": "string",
@@ -332,6 +370,30 @@
             "title": "Accent On Dark",
             "default": "#9DB0FF"
           },
+          "banner": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Banner",
+            "description": "Profile banner, path under frontend/public."
+          },
+          "avatar": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Avatar",
+            "description": "Profile photo, path under frontend/public."
+          },
           "resume": {
             "anyOf": [
               {
@@ -397,6 +459,16 @@
             "type": "array",
             "title": "Credentials",
             "default": []
+          },
+          "how_built": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HowBuilt"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "contact": {
             "$ref": "#/components/schemas/ContactSection"

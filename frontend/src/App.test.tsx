@@ -29,20 +29,20 @@ beforeEach(() => {
 });
 
 describe('App', () => {
-  it('renders the headline and every project from the content file', () => {
+  it('renders the profile and every project from the content file', () => {
     renderApp();
-    expect(screen.getByRole('heading', { level: 1, name: content.site.headline })).toBeInTheDocument();
-    const work = screen.getByRole('region', { name: 'Selected work' });
+    expect(screen.getByRole('heading', { level: 1, name: content.site.name })).toBeInTheDocument();
+    const work = screen.getByRole('region', { name: 'Projects' });
     for (const p of content.projects) {
-      expect(within(work).getByRole('heading', { level: 3, name: p.title })).toBeInTheDocument();
+      expect(within(work).getByRole('heading', { level: 4, name: p.title })).toBeInTheDocument();
     }
   });
 
   it('links each project to its repository', () => {
     renderApp();
-    const work = screen.getByRole('region', { name: 'Selected work' });
+    const work = screen.getByRole('region', { name: 'Projects' });
     const hrefs = within(work).getAllByRole('link').map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual(content.projects.map((p) => p.url));
+    expect([...hrefs].sort()).toEqual(content.projects.map((p) => p.url).sort());
   });
 
   it('hides the contact form when no backend is configured', () => {

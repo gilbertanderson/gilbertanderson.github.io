@@ -17,17 +17,17 @@ function Groups({ groups }: { groups: ToolGroup[] }) {
 
 export default function Tools({ groups, credentials }: { groups: ToolGroup[]; credentials?: ToolGroup[] }) {
   return (
-    <section id="tools" className="band band-white" aria-labelledby="tools-h">
-      <div className="container section">
+    <>
+      <section id="tools" className="card pad" aria-labelledby="tools-h">
         <h2 id="tools-h">Skills</h2>
         <Groups groups={groups} />
-        {credentials?.length ? (
-          <>
-            <h2 id="cred-h" className="subhead">Education &amp; certifications</h2>
-            <Groups groups={credentials} />
-          </>
-        ) : null}
-      </div>
-    </section>
+      </section>
+      {credentials?.length ? (
+        <section id="education" className="card pad" aria-labelledby="cred-h">
+          <h2 id="cred-h">Education &amp; certifications</h2>
+          <Groups groups={credentials} />
+        </section>
+      ) : null}
+    </>
   );
 }

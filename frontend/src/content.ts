@@ -3,4 +3,5 @@
 import type { SiteContent } from './client/siteApi';
 import data from './content.json';
 
-export const content: SiteContent = data;
+// JSON imports widen the "design" | "development" literals to string, hence the cast.
+export const content = data as SiteContent;

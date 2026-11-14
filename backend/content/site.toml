@@ -12,6 +12,8 @@ url = "https://gilbertanderson.github.io/"
 accent = "#2E4BE0"
 accent_on_dark = "#9DB0FF"
 resume = "/Gilbert_Anderson_Resume.docx"
+banner = "/profile/banner.svg"
+avatar = "/profile/avatar.svg"
 
 [[links]]
 label = "GitHub"
@@ -29,6 +31,8 @@ title = "Terminal Guidance"
 kind = "VR game site"
 description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, pilot of Artemis II. Dark aerospace theme with blue and orange accents."
 url = "https://github.com/gilbertanderson/MockGameWebsite-VR-TerminalGuidance"
+category = "design"
+image = "/projects/terminal-guidance.svg"
 link_label = "View on GitHub"
 
 [[projects]]
@@ -36,18 +40,22 @@ title = "Share Crops"
 kind = "Web app"
 description = "A community garden exchange app."
 url = "https://github.com/gilbertanderson/share-crops-app"
+image = "/projects/share-crops.svg"
 
 [[projects]]
 title = "Disaster Drive"
 kind = "Unity game"
 description = "A simply fun driving game, built in C# with Unity."
 url = "https://github.com/gilbertanderson/Disaster-Drive-Game"
+image = "/projects/disaster-drive.svg"
 
 [[projects]]
 title = "design2code"
 kind = "Claude Code skill"
 description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with icons, Storybook stories and a MUI Figma plugin round-trip."
 url = "https://github.com/gilbertanderson/design2code"
+category = "design"
+image = "/projects/design2code.svg"
 
 [[experience]]
 company = "CACI International Inc (U.S. Navy Program)"
@@ -134,6 +142,17 @@ items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General St
 [[credentials]]
 group = "Certifications"
 items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "LSU Certified Java Developer"]
+
+[how_built]
+heading = "How this site is built"
+blurb = "This portfolio doubles as a working example of the stack I build with."
+points = [
+  "React 19, TypeScript and Redux Toolkit on the front end, built with Vite.",
+  "FastAPI and Pydantic on the back end, with the content validated at build time.",
+  "RTK Query hooks and types generated from FastAPI's OpenAPI schema, so API changes surface as type errors.",
+  "Postgres-backed contact endpoint, with pytest, Vitest and MSW tests.",
+  "GitHub Actions runs both test suites and deploys to GitHub Pages on every merge.",
+]
 
 [contact]
 heading = "Let’s build something."

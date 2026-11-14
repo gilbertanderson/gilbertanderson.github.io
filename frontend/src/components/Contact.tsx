@@ -6,14 +6,14 @@ type Props = { contact: ContactSection; links: Link[]; formEnabled: boolean };
 
 export default function Contact({ contact, links, formEnabled }: Props) {
   return (
-    <section id="contact" className="band band-dark" aria-labelledby="contact-h">
-      <div className="container section contact">
+    <section id="contact" className="card pad" aria-labelledby="contact-h">
+      <div className="contact">
         <div className="contact-intro">
           <h2 id="contact-h">{contact.heading}</h2>
-          {contact.blurb ? <p className="on-dark-muted">{contact.blurb}</p> : null}
+          {contact.blurb ? <p className="muted">{contact.blurb}</p> : null}
           <div className="actions">
             {links.map((l) => (
-              <a key={l.label} className="btn btn-ghost-dark" href={l.url} target="_blank" rel="noreferrer">{l.label}</a>
+              <a key={l.label} className="btn btn-outline" href={l.url} target="_blank" rel="noreferrer">{l.label}</a>
             ))}
           </div>
         </div>
@@ -57,10 +57,10 @@ export function ContactForm() {
         <textarea id="c-msg" name="message" rows={5} required maxLength={5000} />
       </div>
       <div className="form-foot">
-        <button className="btn btn-accent-dark" type="submit" disabled={isLoading}>
+        <button className="btn btn-primary" type="submit" disabled={isLoading}>
           {isLoading ? 'Sending…' : 'Send message'} <ArrowRight width={16} height={16} />
         </button>
-        <p role="status" className="on-dark-muted form-status">
+        <p role="status" className="muted form-status">
           {isSuccess ? data?.detail : null}
           {isError ? 'Something went wrong. Please try again, or reach me on GitHub.' : null}
         </p>
