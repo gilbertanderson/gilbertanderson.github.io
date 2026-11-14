@@ -24,29 +24,35 @@ url = "https://medium.com/@gilbertanderson"
 # to replace its typographic tile with a screenshot.
 
 [[projects]]
-title = "UX Designs"
-kind = "UX design"
-description = "UI dashboard design for a web app."
-url = "https://github.com/gilbertanderson/StrikeWorks-Games-Website"
-link_label = "View designs"
+title = "Terminal Guidance"
+kind = "VR game site"
+description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, pilot of Artemis II. Dark aerospace theme with blue and orange accents."
+url = "https://github.com/gilbertanderson/MockGameWebsite-VR-TerminalGuidance"
+link_label = "View on GitHub"
 
 [[projects]]
-title = "Dive Log"
-kind = "Capstone"
-description = "Capstone project: an asset tracker."
-url = "https://github.com/gilbertanderson/WOS_Dive_Log"
+title = "Share Crops"
+kind = "Web app"
+description = "A community garden exchange app."
+url = "https://github.com/gilbertanderson/share-crops-app"
 
 [[projects]]
-title = "ReactJS Test App"
-kind = "React"
-description = "An app that shows off the features of ReactJS."
-url = "https://github.com/gilbertanderson/React-Test-App"
+title = "Disaster Drive"
+kind = "Unity game"
+description = "A simply fun driving game, built in C# with Unity."
+url = "https://github.com/gilbertanderson/Disaster-Drive-Game"
 
 [[projects]]
-title = "AngularJS Sample App"
-kind = "AngularJS"
-description = "Lets people like and dislike books while filtering through a list, built with AngularJS."
-url = "https://github.com/gilbertanderson/sample-angular-app"
+title = "design2code"
+kind = "Claude Code skill"
+description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with icons, Storybook stories and a MUI Figma plugin round-trip."
+url = "https://github.com/gilbertanderson/design2code"
+
+[[projects]]
+title = "This portfolio"
+kind = "React + FastAPI"
+description = "This site: React, TypeScript and Redux Toolkit on the front, FastAPI and Pydantic behind it, typed end to end through OpenAPI."
+url = "https://github.com/gilbertanderson/gilbertanderson.github.io"
 
 [[tools]]
 group = "Frontend"
