@@ -11,6 +11,11 @@ export default function Hero({ site, links }: { site: Site; links: Link[] }) {
       {site.bio ? <p className="lede">{site.bio}</p> : null}
       <div className="actions">
         <a className="btn btn-dark" href="#work">See my work <ArrowDown /></a>
+        {site.resume ? (
+          <a className="btn btn-outline" href={site.resume} download>
+            Resume <ArrowDown width={16} height={16} />
+          </a>
+        ) : null}
         {github ? (
           <a className="btn btn-outline" href={github.url} target="_blank" rel="noreferrer">
             GitHub <ArrowUpRight width={16} height={16} />

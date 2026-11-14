@@ -22,6 +22,7 @@ class Site(Strict):
     url: HttpUrl
     accent: str = Field(default="#2E4BE0", pattern=HEX_COLOR)
     accent_on_dark: str = Field(default="#9DB0FF", pattern=HEX_COLOR)
+    resume: str | None = Field(default=None, description="Path under frontend/public, e.g. /Resume.docx.")
 
 
 class Link(Strict):
@@ -43,6 +44,13 @@ class ToolGroup(Strict):
     items: list[str] = Field(min_length=1)
 
 
+class Role(Strict):
+    company: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    period: str = Field(min_length=1, description="Display text, e.g. 'Jul 2023 – Jul 2025'.")
+    highlights: list[str] = Field(min_length=1)
+
+
 class ContactSection(Strict):
     heading: str = Field(min_length=1)
     blurb: str = ""
@@ -52,7 +60,9 @@ class SiteContent(Strict):
     site: Site
     links: list[Link]
     projects: list[Project] = Field(min_length=1)
+    experience: list[Role] = []
     tools: list[ToolGroup]
+    credentials: list[ToolGroup] = []
     contact: ContactSection
 
 

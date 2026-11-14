@@ -39,6 +39,8 @@ export type Site = {
   url: string;
   accent?: string;
   accent_on_dark?: string;
+  /** Path under frontend/public, e.g. /Resume.docx. */
+  resume?: string | null;
 };
 export type Link = {
   label: string;
@@ -54,6 +56,13 @@ export type Project = {
   /** Path under frontend/public, e.g. /projects/dive-log.png. */
   image?: string | null;
 };
+export type Role = {
+  company: string;
+  title: string;
+  /** Display text, e.g. 'Jul 2023 – Jul 2025'. */
+  period: string;
+  highlights: string[];
+};
 export type ToolGroup = {
   group: string;
   items: string[];
@@ -66,7 +75,9 @@ export type SiteContent = {
   site: Site;
   links: Link[];
   projects: Project[];
+  experience?: Role[];
   tools: ToolGroup[];
+  credentials?: ToolGroup[];
   contact: ContactSection;
 };
 export type ContactReceipt = {
