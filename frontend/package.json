@@ -1,0 +1,42 @@
+{
+  "name": "gilbertanderson-site",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "export": "cd ../backend && python -m scripts.export",
+    "gen:client": "node -e \"require('fs').mkdirSync('src/client',{recursive:true})\" && rtk-query-codegen-openapi openapi-config.cjs",
+    "gen": "npm run export && npm run gen:client",
+    "dev": "npm run gen && vite",
+    "dev:vite": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run gen && tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "2.8.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-redux": "9.2.0"
+  },
+  "overrides": {
+    "oazapfts": "6.1.0"
+  },
+  "devDependencies": {
+    "@rtk-query/codegen-openapi": "2.0.0",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/node": "22.15.29",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "@vitejs/plugin-react": "4.5.0",
+    "jsdom": "26.1.0",
+    "msw": "2.8.4",
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.1.4"
+  }
+}

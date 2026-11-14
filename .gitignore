@@ -1,4 +1,19 @@
-*.gem
-.bundle
-.sass-cache
-Gemfile.lock
+# Python
+backend/.venv/
+backend/data/
+backend/.env
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Generated at build time by backend/scripts/export.py
+frontend/src/content.json
+frontend/public/sitemap.xml
+frontend/public/robots.txt
+
+.DS_Store
+

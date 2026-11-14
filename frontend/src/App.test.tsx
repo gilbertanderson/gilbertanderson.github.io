@@ -1,0 +1,72 @@
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { http, HttpResponse } from 'msw';
+import { Provider } from 'react-redux';
+import { beforeEach, describe, expect, it } from 'vitest';
+import App from './App';
+import { content } from './content';
+import { makeStore } from './store/store';
+import { API, received, server } from './test/server';
+
+function renderApp(contactEnabled = true) {
+  return render(
+    <Provider store={makeStore()}>
+      <App content={content} contactEnabled={contactEnabled} />
+    </Provider>,
+  );
+}
+
+async function fillForm() {
+  const user = userEvent.setup();
+  await user.type(screen.getByLabelText('Name'), 'Ada');
+  await user.type(screen.getByLabelText('Email'), 'ada@example.com');
+  await user.type(screen.getByLabelText('Message'), 'Hello there');
+  await user.click(screen.getByRole('button', { name: /send message/i }));
+}
+
+beforeEach(() => {
+  received.length = 0;
+});
+
+describe('App', () => {
+  it('renders the headline and every project from the content file', () => {
+    renderApp();
+    expect(screen.getByRole('heading', { level: 1, name: content.site.headline })).toBeInTheDocument();
+    const work = screen.getByRole('region', { name: 'Selected work' });
+    for (const p of content.projects) {
+      expect(within(work).getByRole('heading', { level: 3, name: p.title })).toBeInTheDocument();
+    }
+  });
+
+  it('links each project to its repository', () => {
+    renderApp();
+    const work = screen.getByRole('region', { name: 'Selected work' });
+    const hrefs = within(work).getAllByRole('link').map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(content.projects.map((p) => p.url));
+  });
+
+  it('hides the contact form when no backend is configured', () => {
+    renderApp(false);
+    expect(screen.queryByRole('button', { name: /send message/i })).not.toBeInTheDocument();
+    const contact = screen.getByRole('region', { name: content.contact.heading });
+    expect(within(contact).getByRole('link', { name: 'GitHub' })).toBeInTheDocument();
+  });
+});
+
+describe('Contact form', () => {
+  it('sends the message through the API and confirms', async () => {
+    renderApp();
+    await fillForm();
+    expect(await screen.findByText('Thanks — message sent.')).toBeInTheDocument();
+    expect(received).toEqual([{ name: 'Ada', email: 'ada@example.com', message: 'Hello there' }]);
+    expect(screen.getByLabelText('Name')).toHaveValue('');
+  });
+
+  it('shows an error and keeps the text when the API fails', async () => {
+    server.use(http.post(`${API}/api/contact`, () => HttpResponse.json({ detail: 'down' }, { status: 503 })));
+    renderApp();
+    await fillForm();
+    expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
+    expect(screen.getByLabelText('Message')).toHaveValue('Hello there');
+  });
+});
