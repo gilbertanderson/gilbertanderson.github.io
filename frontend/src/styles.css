@@ -173,3 +173,13 @@ a { color: inherit; }
 /* Footer */
 .site-footer { background: var(--dark); color: #9ea2ab; border-top: 1px solid #2c2f37; }
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 28px; font-size: 14px; }
+
+/* Experience */
+.roles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.role { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 32px 0; border-top: 1px solid var(--line); }
+.role-period { margin: 4px 0 0; color: var(--muted, #5b5f6a); font-size: 14px; }
+.role h3 { margin: 0 0 4px; }
+.role-company { margin: 0 0 14px; font-weight: 600; color: var(--accent); }
+.role-points { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+@media (max-width: 720px) { .role { grid-template-columns: 1fr; gap: 8px; } }
+.subhead { margin-top: 64px; }

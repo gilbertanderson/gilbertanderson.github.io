@@ -253,6 +253,43 @@
         ],
         "title": "Project"
       },
+      "Role": {
+        "properties": {
+          "company": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Company"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Title"
+          },
+          "period": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Period",
+            "description": "Display text, e.g. 'Jul 2023 \u2013 Jul 2025'."
+          },
+          "highlights": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Highlights"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "company",
+          "title",
+          "period",
+          "highlights"
+        ],
+        "title": "Role"
+      },
       "Site": {
         "properties": {
           "name": {
@@ -294,6 +331,18 @@
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "title": "Accent On Dark",
             "default": "#9DB0FF"
+          },
+          "resume": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resume",
+            "description": "Path under frontend/public, e.g. /Resume.docx."
           }
         },
         "additionalProperties": false,
@@ -326,12 +375,28 @@
             "minItems": 1,
             "title": "Projects"
           },
+          "experience": {
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "type": "array",
+            "title": "Experience",
+            "default": []
+          },
           "tools": {
             "items": {
               "$ref": "#/components/schemas/ToolGroup"
             },
             "type": "array",
             "title": "Tools"
+          },
+          "credentials": {
+            "items": {
+              "$ref": "#/components/schemas/ToolGroup"
+            },
+            "type": "array",
+            "title": "Credentials",
+            "default": []
           },
           "contact": {
             "$ref": "#/components/schemas/ContactSection"

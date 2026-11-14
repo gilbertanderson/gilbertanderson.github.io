@@ -4,13 +4,14 @@
 
 [site]
 name = "Gilbert Anderson"
-title = "Software Engineer & UX Designer"
+title = "Forward Deployed Engineer · UX/UI & AI Lead"
 headline = "I design interfaces and build the software behind them."
 # A short bio, two or three sentences. Leave empty to hide it.
-bio = ""
+bio = "10+ years building secure, data-driven applications for the U.S. Department of Defense and Intelligence Community. I embed with mission teams and turn analyst workflows into self-service platforms, with React, TypeScript, BI tooling and hands-on LLM integration."
 url = "https://gilbertanderson.github.io/"
 accent = "#2E4BE0"
 accent_on_dark = "#9DB0FF"
+resume = "/Gilbert_Anderson_Resume.docx"
 
 [[links]]
 label = "GitHub"
@@ -48,29 +49,91 @@ kind = "Claude Code skill"
 description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with icons, Storybook stories and a MUI Figma plugin round-trip."
 url = "https://github.com/gilbertanderson/design2code"
 
-[[tools]]
-group = "Frontend"
-items = ["React", "Angular", "Vue", "TypeScript", "JavaScript", "HTML5", "CSS3", "Sass", "Less", "Bootstrap", "D3.js", "Webpack"]
+[[experience]]
+company = "CACI International Inc (U.S. Navy Program)"
+title = "Lead UI Software Engineer"
+period = "Jun 2026 – Present"
+highlights = [
+  "Built 15+ automated Power BI and Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
+  "Shipped self-service analytics portals for 100+ non-technical users, reducing ad-hoc engineering requests by 50%.",
+  "Integrated Claude, OpenAI GPT and AWS Bedrock into engineering workflows, raising team velocity by 25%.",
+]
+
+[[experience]]
+company = "Gridiron IT (CACI / ODNI / CIA)"
+title = "Senior Full Stack Engineer"
+period = "Feb 2026 – Mar 2026"
+highlights = [
+  "Built REST and GraphQL integrations for Tableau and Power BI reporting.",
+  "Developed secure API services so analysts can consume, visualize and export intelligence data on their own.",
+]
+
+[[experience]]
+company = "StrikeWorks Studio"
+title = "Founder & Senior UI Software Engineer"
+period = "Jul 2020 – Present"
+highlights = [
+  "Built a React/D3.js visualization suite for enterprise clients, lifting dashboard engagement 25% and cutting data processing latency 30%.",
+  "Standardized reusable dashboard components across federal and commercial programs, halving new-client integration time.",
+  "Implemented secure CSV/JSON exports of 10,000+ rows per request with full compliance to client security standards.",
+]
+
+[[experience]]
+company = "Opalsoft / Casepoint, NGA Office of Inspector General"
+title = "Forward Deployed Engineer"
+period = "Jan 2025 – Oct 2025"
+highlights = [
+  "Primary embedded engineer for the Casepoint eDiscovery platform serving 200+ users.",
+  "Trained 50+ investigators and auditors, reducing support tickets by 20%.",
+  "Delivered security patches and UI enhancements under strict accreditation, holding 99.9% availability.",
+]
+
+[[experience]]
+company = "Department of Defense (DTRA)"
+title = "Senior Fullstack / UI Developer"
+period = "Jul 2023 – Jul 2025"
+highlights = [
+  "Improved Core Web Vitals by 35% with lazy loading and code splitting.",
+  "Moved deployments from weekly to daily and cut build failures by 60% by streamlining AWS CI/CD.",
+  "Built React, Angular and Vue components and reusable UI libraries for ISR mission systems.",
+]
+
+[[experience]]
+company = "Plarium USA (Rumble Entertainment)"
+title = "Technical Product Manager / DevOps Manager / Scrum Master"
+period = "Jun 2022 – Mar 2023"
+highlights = [
+  "Led UI, web and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
+  "Ran UI performance tuning and A/B testing, and strengthened security with WAF, Okta and 2FA.",
+]
 
 [[tools]]
-group = "Backend & languages"
-items = ["Python", "FastAPI", "Node.js", "Java", "C#", "C++", "Swift"]
+group = "AI & LLM"
+items = ["Anthropic Claude", "OpenAI GPT", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling", "MCP", "Prompt engineering", "LangGraph"]
 
 [[tools]]
-group = "Data"
-items = ["PostgreSQL", "MySQL", "MongoDB", "Oracle"]
+group = "Frontend & UX"
+items = ["React", "Next.js", "Angular", "Vue", "Redux", "TypeScript", "JavaScript", "MUI", "Storybook", "Figma", "Adobe XD", "508 / WCAG"]
 
 [[tools]]
-group = "Platform & ops"
-items = ["AWS", "Docker", "Linux", "Ubuntu", "Red Hat", "Git", "GitHub", "GitLab", "Bitbucket"]
+group = "Analytics & BI"
+items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts"]
 
 [[tools]]
-group = "Testing"
-items = ["Cucumber", "Protractor"]
+group = "Backend & data"
+items = ["Python", "FastAPI", "REST", "GraphQL", "OpenAPI", "PostgreSQL", "MongoDB", "SQL Server", "Neo4j", "ElasticSearch", "Firebase"]
 
 [[tools]]
-group = "Design & tools"
-items = ["Photoshop", "Illustrator", "Visual Studio", "IntelliJ", "WebStorm", "Vim", "Confluence", "Slack"]
+group = "Cloud & DevOps"
+items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab"]
+
+[[credentials]]
+group = "Education"
+items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General Studies, Computer Studies", "USAF/ANG Cybersecurity, Client Systems Technician"]
+
+[[credentials]]
+group = "Certifications"
+items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "LSU Certified Java Developer"]
 
 [contact]
 heading = "Let’s build something."

@@ -5,7 +5,8 @@ export default function Header({ name }: { name: string }) {
         <a className="wordmark" href="#top">{name}</a>
         <div className="nav-links">
           <a href="#work">Work</a>
-          <a href="#tools">Tools</a>
+          <a href="#experience">Experience</a>
+          <a href="#tools">Skills</a>
           <a className="btn btn-accent btn-sm" href="#contact">Get in touch</a>
         </div>
       </nav>
