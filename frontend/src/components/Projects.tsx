@@ -3,7 +3,7 @@ import { ArrowRight } from './Icons';
 
 function Thumb({ project }: { project: Project }) {
   if (project.image) {
-    return <img className="card-thumb" src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" />;
+    return <img className="card-thumb" src={project.image} alt={`Preview of ${project.title}`} loading="lazy" />;
   }
   // No screenshot yet: a typographic tile, so the grid still reads as finished.
   return (
