@@ -32,6 +32,7 @@ kind = "VR game site"
 description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, pilot of Artemis II. Dark aerospace theme with blue and orange accents."
 url = "https://github.com/gilbertanderson/MockGameWebsite-VR-TerminalGuidance"
 category = "design"
+image = "/projects/terminal-guidance.svg"
 link_label = "View on GitHub"
 
 [[projects]]
@@ -39,12 +40,14 @@ title = "Share Crops"
 kind = "Web app"
 description = "A community garden exchange app."
 url = "https://github.com/gilbertanderson/share-crops-app"
+image = "/projects/share-crops.svg"
 
 [[projects]]
 title = "Disaster Drive"
 kind = "Unity game"
 description = "A simply fun driving game, built in C# with Unity."
 url = "https://github.com/gilbertanderson/Disaster-Drive-Game"
+image = "/projects/disaster-drive.svg"
 
 [[projects]]
 title = "design2code"
@@ -52,6 +55,7 @@ kind = "Claude Code skill"
 description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with icons, Storybook stories and a MUI Figma plugin round-trip."
 url = "https://github.com/gilbertanderson/design2code"
 category = "design"
+image = "/projects/design2code.svg"
 
 [[experience]]
 company = "CACI International Inc (U.S. Navy Program)"
