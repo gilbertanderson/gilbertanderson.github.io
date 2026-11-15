@@ -23,6 +23,10 @@ url = "https://github.com/gilbertanderson"
 label = "Medium"
 url = "https://medium.com/@gilbertanderson"
 
+[[links]]
+label = "LinkedIn"
+url = "https://www.linkedin.com/in/gilbertanderson"
+
 # Add `image = "/projects/<file>.png"` to a project (file in frontend/public/projects/)
 # to replace its typographic tile with a screenshot.
 
