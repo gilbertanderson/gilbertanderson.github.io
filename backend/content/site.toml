@@ -156,11 +156,12 @@ items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", 
 heading = "How this site is built"
 blurb = "This portfolio doubles as a working example of the stack I build with."
 points = [
-  "React 19, TypeScript and Redux Toolkit on the front end, built with Vite.",
+  "React 19, TypeScript, MUI and Redux Toolkit on the front end, built with Vite.",
   "FastAPI and Pydantic on the back end, with the content validated at build time.",
   "RTK Query hooks and types generated from FastAPI's OpenAPI schema, so API changes surface as type errors.",
   "Postgres-backed contact endpoint, with pytest, Vitest and MSW tests.",
   "GitHub Actions runs both test suites and deploys to GitHub Pages on every merge.",
+  "Claude's large language models assisted with development, including code, tests and content, with every change reviewed before it shipped.",
 ]
 
 [contact]
