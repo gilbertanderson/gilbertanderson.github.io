@@ -13,7 +13,7 @@ accent = "#2E4BE0"
 accent_on_dark = "#9DB0FF"
 resume = "/Gilbert_Anderson_Resume.docx"
 banner = "/profile/banner.svg"
-avatar = "/profile/avatar.svg"
+avatar = "/profile/avatar.jpg"
 
 [[links]]
 label = "GitHub"
