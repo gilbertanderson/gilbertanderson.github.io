@@ -42,7 +42,8 @@ describe('App', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
     const hrefs = within(work).getAllByRole('link').map((a) => a.getAttribute('href'));
-    expect([...hrefs].sort()).toEqual(content.projects.map((p) => p.url).sort());
+    const expected = content.projects.flatMap((p) => [p.url, ...(p.article_url ? [p.article_url] : [])]);
+    expect([...hrefs].sort()).toEqual(expected.sort());
   });
 
   it('hides the contact form when no backend is configured', () => {

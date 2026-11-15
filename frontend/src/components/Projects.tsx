@@ -24,6 +24,11 @@ function Group({ label, projects }: { label: string; projects: Project[] }) {
               <a className="text-link" href={p.url} target="_blank" rel="noreferrer">
                 {p.link_label ?? 'View on GitHub'} <ArrowRight width={16} height={16} />
               </a>
+              {p.article_url ? (
+                <a className="text-link" href={p.article_url} target="_blank" rel="noreferrer">
+                  Read the write-up <ArrowRight width={16} height={16} />
+                </a>
+              ) : null}
             </div>
           </li>
         ))}
