@@ -1,25 +1,30 @@
 import type { FormEvent } from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { useSendContactMutation, type ContactSection, type Link } from '../client/siteApi';
 import { ArrowRight } from './Icons';
+import Section from './Section';
 
 type Props = { contact: ContactSection; links: Link[]; formEnabled: boolean };
 
 export default function Contact({ contact, links, formEnabled }: Props) {
   return (
-    <section id="contact" className="card pad" aria-labelledby="contact-h">
-      <div className="contact">
-        <div className="contact-intro">
-          <h2 id="contact-h">{contact.heading}</h2>
-          {contact.blurb ? <p className="muted">{contact.blurb}</p> : null}
-          <div className="actions">
+    <Section id="contact" title={contact.heading}>
+      <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: { xs: '1fr', md: formEnabled ? '1fr 1.2fr' : '1fr' } }}>
+        <Stack spacing={2}>
+          {contact.blurb ? <Typography color="text.secondary">{contact.blurb}</Typography> : null}
+          <Stack direction="row" useFlexGap spacing={1} sx={{ flexWrap: 'wrap' }}>
             {links.map((l) => (
-              <a key={l.label} className="btn btn-outline" href={l.url} target="_blank" rel="noreferrer">{l.label}</a>
+              <Button key={l.label} variant="outlined" href={l.url} target="_blank" rel="noreferrer">{l.label}</Button>
             ))}
-          </div>
-        </div>
+          </Stack>
+        </Stack>
         {formEnabled ? <ContactForm /> : null}
-      </div>
-    </section>
+      </Box>
+    </Section>
   );
 }
 
@@ -41,30 +46,21 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={onSubmit} onChange={() => (isSuccess || isError) && reset()}>
-      <div className="field-row">
-        <div className="field">
-          <label htmlFor="c-name">Name</label>
-          <input id="c-name" name="name" type="text" autoComplete="name" required maxLength={200} />
-        </div>
-        <div className="field">
-          <label htmlFor="c-email">Email</label>
-          <input id="c-email" name="email" type="email" autoComplete="email" required maxLength={320} />
-        </div>
-      </div>
-      <div className="field">
-        <label htmlFor="c-msg">Message</label>
-        <textarea id="c-msg" name="message" rows={5} required maxLength={5000} />
-      </div>
-      <div className="form-foot">
-        <button className="btn btn-primary" type="submit" disabled={isLoading}>
-          {isLoading ? 'Sending…' : 'Send message'} <ArrowRight width={16} height={16} />
-        </button>
-        <p role="status" className="muted form-status">
+    <Stack component="form" spacing={2} onSubmit={onSubmit} onChange={() => (isSuccess || isError) && reset()}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+        <TextField id="c-name" name="name" label="Name" autoComplete="name" fullWidth slotProps={{ htmlInput: { required: true, maxLength: 200 } }} />
+        <TextField id="c-email" name="email" type="email" label="Email" autoComplete="email" fullWidth slotProps={{ htmlInput: { required: true, maxLength: 320 } }} />
+      </Stack>
+      <TextField id="c-msg" name="message" label="Message" multiline minRows={5} fullWidth slotProps={{ htmlInput: { required: true, maxLength: 5000 } }} />
+      <Stack direction="row" spacing={2} alignItems="center">
+        <Button variant="contained" type="submit" disabled={isLoading} endIcon={<ArrowRight width={16} height={16} />}>
+          {isLoading ? 'Sending…' : 'Send message'}
+        </Button>
+        <Typography role="status" variant="body2" color="text.secondary">
           {isSuccess ? data?.detail : null}
           {isError ? 'Something went wrong. Please try again, or reach me on GitHub.' : null}
-        </p>
-      </div>
-    </form>
+        </Typography>
+      </Stack>
+    </Stack>
   );
 }

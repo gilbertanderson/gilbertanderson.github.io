@@ -1,4 +1,9 @@
-import type { CSSProperties } from 'react';
+import { useMemo } from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import Stack from '@mui/material/Stack';
+import { ThemeProvider } from '@mui/material/styles';
 import type { SiteContent } from './client/siteApi';
 import { CONTACT_ENABLED } from './config';
 import About from './components/About';
@@ -10,6 +15,7 @@ import HowBuilt from './components/HowBuilt';
 import Profile from './components/Profile';
 import Projects from './components/Projects';
 import Tools from './components/Tools';
+import { makeTheme } from './theme';
 
 type Props = { content: SiteContent; contactEnabled?: boolean };
 
@@ -17,25 +23,31 @@ const REPO = 'https://github.com/gilbertanderson/gilbertanderson.github.io';
 
 export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props) {
   const { site, links, projects, experience, tools, credentials, how_built, contact } = content;
-  const theme = {
-    '--accent': site.accent ?? '#2E4BE0',
-    '--accent-on-dark': site.accent_on_dark ?? '#9DB0FF',
-  } as CSSProperties;
+  const theme = useMemo(() => makeTheme(site.accent ?? undefined), [site.accent]);
 
   return (
-    <div style={theme}>
-      <a className="skip-link" href="#main">Skip to content</a>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box
+        component="a"
+        href="#main"
+        sx={{ position: 'absolute', left: 8, top: -48, zIndex: 2000, bgcolor: 'background.paper', p: 1, borderRadius: 1, '&:focus': { top: 8 } }}
+      >
+        Skip to content
+      </Box>
       <Header name={site.name} />
-      <main id="main" className="feed">
-        <Profile site={site} links={links} />
-        {site.bio ? <About bio={site.bio} /> : null}
-        {experience?.length ? <Experience roles={experience} resume={site.resume} /> : null}
-        <Projects projects={projects} />
-        <Tools groups={tools} credentials={credentials} />
-        {how_built ? <HowBuilt data={how_built} repo={REPO} /> : null}
-        <Contact contact={contact} links={links} formEnabled={contactEnabled} />
-      </main>
+      <Container component="main" id="main" maxWidth="md" sx={{ py: 3 }}>
+        <Stack spacing={2.5}>
+          <Profile site={site} links={links} />
+          <Projects projects={projects} />
+          {site.bio ? <About bio={site.bio} /> : null}
+          {experience?.length ? <Experience roles={experience} resume={site.resume} /> : null}
+          <Tools groups={tools} credentials={credentials} />
+          {how_built ? <HowBuilt data={how_built} repo={REPO} /> : null}
+          <Contact contact={contact} links={links} formEnabled={contactEnabled} />
+        </Stack>
+      </Container>
       <Footer name={site.name} />
-    </div>
+    </ThemeProvider>
   );
 }
