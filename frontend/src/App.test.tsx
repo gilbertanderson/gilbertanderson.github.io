@@ -38,6 +38,16 @@ describe('App', () => {
     }
   });
 
+  it('nests several positions under one company', () => {
+    renderApp();
+    const exp = screen.getByRole('region', { name: 'Experience' });
+    const caci = content.experience!.find((r) => r.positions?.length)!;
+    expect(within(exp).getByRole('heading', { level: 3, name: caci.company })).toBeInTheDocument();
+    for (const p of caci.positions!) {
+      expect(within(exp).getByRole('heading', { level: 4, name: p.title })).toBeInTheDocument();
+    }
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });

@@ -1,14 +1,17 @@
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import type { HowBuilt as HowBuiltData } from '../client/siteApi';
+import Section from './Section';
 
 export default function HowBuilt({ data, repo }: { data: HowBuiltData; repo?: string }) {
   return (
-    <section id="built" className="card pad" aria-labelledby="built-h">
-      <h2 id="built-h">{data.heading}</h2>
-      {data.blurb ? <p className="muted">{data.blurb}</p> : null}
-      <ul className="role-points">
+    <Section id="built" title={data.heading}>
+      {data.blurb ? <Typography color="text.secondary">{data.blurb}</Typography> : null}
+      <Box component="ul" sx={{ mt: 1, pl: 2.5 }}>
         {data.points.map((p) => <li key={p}>{p}</li>)}
-      </ul>
-      {repo ? <a className="text-link" href={repo} target="_blank" rel="noreferrer">View the source</a> : null}
-    </section>
+      </Box>
+      {repo ? <Button href={repo} target="_blank" rel="noreferrer" sx={{ mt: 1 }}>View the source</Button> : null}
+    </Section>
   );
 }

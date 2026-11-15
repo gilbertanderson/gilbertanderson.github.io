@@ -63,12 +63,21 @@ export type Project = {
   /** Path under frontend/public, e.g. /projects/dive-log.png. */
   image?: string | null;
 };
+export type Position = {
+  title: string;
+  period: string;
+  /** Optional line under the title, e.g. the program or employer. */
+  note?: string | null;
+  highlights: string[];
+};
 export type Role = {
   company: string;
-  title: string;
   /** Display text, e.g. 'Jul 2023 – Jul 2025'. */
   period: string;
-  highlights: string[];
+  title?: string | null;
+  highlights?: string[];
+  /** Several titles at one company, newest first. */
+  positions?: Position[];
 };
 export type ToolGroup = {
   group: string;

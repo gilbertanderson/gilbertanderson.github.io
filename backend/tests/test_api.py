@@ -59,3 +59,16 @@ def test_cors_allows_dev_server(client):
 )
 def test_normalize_url(raw, expected):
     assert normalize_url(raw) == expected
+
+
+def test_role_needs_title_or_positions():
+    from pydantic import ValidationError
+
+    from app.schemas import Role
+
+    ok = Role(company="X", period="2020", positions=[{"title": "A", "period": "2020", "highlights": ["did it"]}])
+    assert ok.positions[0].title == "A"
+    with pytest.raises(ValidationError):
+        Role(company="X", period="2020")
+    with pytest.raises(ValidationError):
+        Role(company="X", period="2020", title="A", highlights=["h"], positions=[{"title": "B", "period": "2020", "highlights": ["h"]}])

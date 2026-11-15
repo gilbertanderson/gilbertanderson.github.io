@@ -229,6 +229,49 @@
         ],
         "title": "Link"
       },
+      "Position": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Title"
+          },
+          "period": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Period"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note",
+            "description": "Optional line under the title, e.g. the program or employer."
+          },
+          "highlights": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Highlights"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "period",
+          "highlights"
+        ],
+        "title": "Position",
+        "description": "One title held at a company, shown nested under it like LinkedIn does."
+      },
       "Project": {
         "properties": {
           "title": {
@@ -313,33 +356,46 @@
             "minLength": 1,
             "title": "Company"
           },
-          "title": {
-            "type": "string",
-            "minLength": 1,
-            "title": "Title"
-          },
           "period": {
             "type": "string",
             "minLength": 1,
             "title": "Period",
             "description": "Display text, e.g. 'Jul 2023 \u2013 Jul 2025'."
           },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
           "highlights": {
             "items": {
               "type": "string"
             },
             "type": "array",
-            "minItems": 1,
-            "title": "Highlights"
+            "title": "Highlights",
+            "default": []
+          },
+          "positions": {
+            "items": {
+              "$ref": "#/components/schemas/Position"
+            },
+            "type": "array",
+            "title": "Positions",
+            "description": "Several titles at one company, newest first.",
+            "default": []
           }
         },
         "additionalProperties": false,
         "type": "object",
         "required": [
           "company",
-          "title",
-          "period",
-          "highlights"
+          "period"
         ],
         "title": "Role"
       },

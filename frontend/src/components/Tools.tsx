@@ -1,32 +1,31 @@
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import type { ToolGroup } from '../client/siteApi';
+import Section from './Section';
 
 function Groups({ groups }: { groups: ToolGroup[] }) {
   return (
-    <div className="tool-grid">
+    <Box sx={{ display: 'grid', gap: 2.5, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
       {groups.map((g) => (
-        <div key={g.group} className="tool-group">
-          <h3>{g.group}</h3>
-          <ul className="chips">
-            {g.items.map((t) => <li key={t}>{t}</li>)}
-          </ul>
-        </div>
+        <Box key={g.group}>
+          <Typography variant="h3" component="h3" sx={{ mb: 1 }}>{g.group}</Typography>
+          <Stack component="ul" direction="row" useFlexGap spacing={0.75} sx={{ flexWrap: 'wrap', listStyle: 'none', m: 0, p: 0 }}>
+            {g.items.map((t) => <Chip key={t} component="li" label={t} size="small" variant="outlined" />)}
+          </Stack>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 }
 
 export default function Tools({ groups, credentials }: { groups: ToolGroup[]; credentials?: ToolGroup[] }) {
   return (
     <>
-      <section id="tools" className="card pad" aria-labelledby="tools-h">
-        <h2 id="tools-h">Skills</h2>
-        <Groups groups={groups} />
-      </section>
+      <Section id="tools" title="Skills"><Groups groups={groups} /></Section>
       {credentials?.length ? (
-        <section id="education" className="card pad" aria-labelledby="cred-h">
-          <h2 id="cred-h">Education &amp; certifications</h2>
-          <Groups groups={credentials} />
-        </section>
+        <Section id="education" title="Education & certifications"><Groups groups={credentials} /></Section>
       ) : null}
     </>
   );
