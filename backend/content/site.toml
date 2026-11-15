@@ -63,13 +63,24 @@ image = "/projects/design2code.svg"
 article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
 
 [[experience]]
-company = "CACI International Inc (U.S. Navy, ODNI and CIA programs)"
-title = "Lead UI Software Engineer"
+company = "CACI International Inc"
 period = "Feb 2026 – Present"
+
+[[experience.positions]]
+title = "Lead UI Software Engineer"
+period = "Mar 2026 – Present"
+note = "U.S. Navy program"
 highlights = [
   "Built 15+ automated Power BI and Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
   "Shipped self-service analytics portals for 100+ non-technical users, reducing ad-hoc engineering requests by 50%.",
   "Integrated Claude, OpenAI GPT and AWS Bedrock into engineering workflows, raising team velocity by 25%.",
+]
+
+[[experience.positions]]
+title = "Senior Full Stack Engineer"
+period = "Feb 2026 – Mar 2026"
+note = "Gridiron IT · ODNI and CIA programs"
+highlights = [
   "Built REST and GraphQL integrations for Tableau and Power BI reporting.",
   "Developed secure API services so analysts can consume, visualize and export intelligence data on their own.",
 ]

@@ -7,7 +7,7 @@ in the React code that uses it.
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 HEX_COLOR = r"^#[0-9A-Fa-f]{6}$"
 
@@ -50,11 +50,30 @@ class ToolGroup(Strict):
     items: list[str] = Field(min_length=1)
 
 
+class Position(Strict):
+    """One title held at a company, shown nested under it like LinkedIn does."""
+
+    title: str = Field(min_length=1)
+    period: str = Field(min_length=1)
+    note: str | None = Field(default=None, description="Optional line under the title, e.g. the program or employer.")
+    highlights: list[str] = Field(min_length=1)
+
+
 class Role(Strict):
     company: str = Field(min_length=1)
-    title: str = Field(min_length=1)
     period: str = Field(min_length=1, description="Display text, e.g. 'Jul 2023 – Jul 2025'.")
-    highlights: list[str] = Field(min_length=1)
+    title: str | None = None
+    highlights: list[str] = []
+    positions: list[Position] = Field(default=[], description="Several titles at one company, newest first.")
+
+    @model_validator(mode="after")
+    def _title_or_positions(self) -> "Role":
+        if self.positions:
+            if self.title or self.highlights:
+                raise ValueError("use either title/highlights or positions, not both")
+        elif not (self.title and self.highlights):
+            raise ValueError("a role needs a title and highlights, or a list of positions")
+        return self
 
 
 class HowBuilt(Strict):
