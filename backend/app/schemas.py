@@ -22,8 +22,8 @@ class Site(Strict):
     headline: str = Field(min_length=1)
     bio: str = ""
     url: HttpUrl
-    accent: str = Field(default="#2E4BE0", pattern=HEX_COLOR)
-    accent_on_dark: str = Field(default="#9DB0FF", pattern=HEX_COLOR)
+    accent: str = Field(default="#0B63CE", pattern=HEX_COLOR)
+    accent_on_dark: str = Field(default="#6CB2FF", pattern=HEX_COLOR)
     banner: str | None = Field(default=None, description="Profile banner, path under frontend/public.")
     avatar: str | None = Field(default=None, description="Profile photo, path under frontend/public.")
     resume: str | None = Field(default=None, description="Path under frontend/public, e.g. /Resume.docx.")

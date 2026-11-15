@@ -23,7 +23,7 @@ const REPO = 'https://github.com/gilbertanderson/gilbertanderson.github.io';
 
 export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props) {
   const { site, links, projects, experience, tools, credentials, how_built, contact } = content;
-  const theme = useMemo(() => makeTheme(site.accent ?? undefined), [site.accent]);
+  const theme = useMemo(() => makeTheme(site.accent, site.accent_on_dark), [site.accent, site.accent_on_dark]);
 
   return (
     <ThemeProvider theme={theme}>

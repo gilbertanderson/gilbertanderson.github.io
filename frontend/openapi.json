@@ -457,13 +457,13 @@
             "type": "string",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "title": "Accent",
-            "default": "#2E4BE0"
+            "default": "#0B63CE"
           },
           "accent_on_dark": {
             "type": "string",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "title": "Accent On Dark",
-            "default": "#9DB0FF"
+            "default": "#6CB2FF"
           },
           "banner": {
             "anyOf": [

@@ -48,6 +48,14 @@ describe('App', () => {
     }
   });
 
+  it('toggles dark mode from the header', async () => {
+    renderApp();
+    const user = userEvent.setup();
+    await user.click(screen.getByRole('button', { name: 'Switch to dark mode' }));
+    expect(screen.getByRole('button', { name: 'Switch to light mode' })).toBeInTheDocument();
+    expect(document.documentElement).toHaveAttribute('data-mui-color-scheme', 'dark');
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });

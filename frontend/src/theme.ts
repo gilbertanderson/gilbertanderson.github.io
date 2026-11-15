@@ -2,13 +2,26 @@ import { createTheme } from '@mui/material/styles';
 
 const display = '"Space Grotesk", Inter, system-ui, sans-serif';
 
-export function makeTheme(accent = '#2E4BE0') {
+export function makeTheme(accent = '#0B63CE', accentOnDark = '#6CB2FF') {
   return createTheme({
-    palette: {
-      primary: { main: accent },
-      background: { default: '#F7F7F5', paper: '#FFFFFF' },
-      text: { primary: '#1B1B1A', secondary: '#55554F' },
-      divider: '#E4E3DE',
+    cssVariables: { colorSchemeSelector: 'data-mui-color-scheme' },
+    colorSchemes: {
+      light: {
+        palette: {
+          primary: { main: accent },
+          background: { default: '#F7F7F5', paper: '#FFFFFF' },
+          text: { primary: '#1B1B1A', secondary: '#55554F' },
+          divider: '#E4E3DE',
+        },
+      },
+      dark: {
+        palette: {
+          primary: { main: accentOnDark, contrastText: '#0E1020' },
+          background: { default: '#101113', paper: '#1A1B1E' },
+          text: { primary: '#ECECEA', secondary: '#A9A9A3' },
+          divider: '#2E3035',
+        },
+      },
     },
     shape: { borderRadius: 12 },
     typography: {

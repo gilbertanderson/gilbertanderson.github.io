@@ -2,8 +2,11 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { useColorScheme } from '@mui/material/styles';
+import { Moon, Sun } from './Icons';
 
 const links = [
   ['Projects', '#work'],
@@ -11,6 +14,23 @@ const links = [
   ['Experience', '#experience'],
   ['Skills', '#tools'],
 ] as const;
+
+function ThemeToggle() {
+  const { mode, systemMode, setMode } = useColorScheme();
+  if (!mode) return null;
+  const dark = (mode === 'system' ? systemMode : mode) === 'dark';
+  return (
+    <IconButton
+      size="small"
+      color="inherit"
+      aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      onClick={() => setMode(dark ? 'light' : 'dark')}
+      sx={{ color: 'text.secondary' }}
+    >
+      {dark ? <Sun /> : <Moon />}
+    </IconButton>
+  );
+}
 
 export default function Header({ name }: { name: string }) {
   return (
@@ -27,6 +47,7 @@ export default function Header({ name }: { name: string }) {
               </Button>
             ))}
           </Box>
+          <ThemeToggle />
         </Toolbar>
       </Container>
     </AppBar>
