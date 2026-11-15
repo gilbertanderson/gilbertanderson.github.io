@@ -85,6 +85,8 @@ class HowBuilt(Strict):
 class ContactSection(Strict):
     heading: str = Field(min_length=1)
     blurb: str = ""
+    email: str | None = Field(default=None, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    phone: str | None = Field(default=None, description="Display text, e.g. '504-233-3599'.")
 
 
 class SiteContent(Strict):

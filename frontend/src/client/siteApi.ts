@@ -91,6 +91,9 @@ export type HowBuilt = {
 export type ContactSection = {
   heading: string;
   blurb?: string;
+  email?: string | null;
+  /** Display text, e.g. '504-233-3599'. */
+  phone?: string | null;
 };
 export type SiteContent = {
   site: Site;
