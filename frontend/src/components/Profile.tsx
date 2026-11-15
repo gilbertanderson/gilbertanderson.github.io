@@ -27,12 +27,12 @@ export default function Profile({ site, links }: { site: Site; links: Link[] }) 
         <Stack direction="row" useFlexGap spacing={1} sx={{ mt: 2, flexWrap: 'wrap' }}>
           <Button variant="contained" href="#work">See my work</Button>
           <Button variant="outlined" href="#contact">Contact</Button>
-          {site.resume ? (
-            <Button variant="outlined" href={site.resume} download endIcon={<ArrowDown width={16} height={16} />}>Resume</Button>
-          ) : null}
           {links.map((l) => (
             <Button key={l.label} variant="outlined" href={l.url} target="_blank" rel="noreferrer">{l.label}</Button>
           ))}
+          {site.resume ? (
+            <Button variant="outlined" href={site.resume} download endIcon={<ArrowDown width={16} height={16} />}>Resume</Button>
+          ) : null}
         </Stack>
       </Box>
     </Paper>
