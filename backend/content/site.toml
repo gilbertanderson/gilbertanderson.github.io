@@ -126,7 +126,7 @@ highlights = [
 
 [[tools]]
 group = "AI & LLM"
-items = ["Anthropic Claude", "OpenAI GPT", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling", "MCP", "Prompt engineering", "LangGraph"]
+items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling", "MCP", "Prompt engineering", "LangGraph"]
 
 [[tools]]
 group = "Frontend & UX"
