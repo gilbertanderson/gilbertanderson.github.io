@@ -61,7 +61,7 @@ article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-
 [[experience]]
 company = "CACI International Inc (U.S. Navy Program)"
 title = "Lead UI Software Engineer"
-period = "Jun 2026 – Present"
+period = "Mar 2026 – Present"
 highlights = [
   "Built 15+ automated Power BI and Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
   "Shipped self-service analytics portals for 100+ non-technical users, reducing ad-hoc engineering requests by 50%.",
