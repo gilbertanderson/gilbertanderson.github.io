@@ -56,6 +56,7 @@ description = "Turns Figma design tokens into MUI, Tailwind, SCSS or CSS, with i
 url = "https://github.com/gilbertanderson/design2code"
 category = "design"
 image = "/projects/design2code.svg"
+article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
 
 [[experience]]
 company = "CACI International Inc (U.S. Navy Program)"

@@ -41,6 +41,7 @@ class Project(Strict):
     url: HttpUrl
     category: Literal["design", "development"] = "development"
     link_label: str = "View on GitHub"
+    article_url: HttpUrl | None = Field(default=None, description="Optional write-up, e.g. a blog post about the project.")
     image: str | None = Field(default=None, description="Path under frontend/public, e.g. /projects/dive-log.png.")
 
 
