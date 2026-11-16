@@ -17,7 +17,7 @@ async def lifespan(_: FastAPI):
 app = FastAPI(title="Gilbert Anderson Site API", version="2.0.0", lifespan=lifespan)
 
 # The Vite dev server, the live site, plus any extra origins from CORS_ORIGINS.
-origins = ["http://localhost:5173", "https://gilbertanderson.github.io"]
+origins = ["http://localhost:5173", "https://gilbertanderson.com", "https://gilbertanderson.github.io"]
 origins += [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
 
 app.add_middleware(
