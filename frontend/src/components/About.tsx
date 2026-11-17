@@ -2,12 +2,9 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Section from './Section';
 
-/** The first sentence is the lede; the rest sits below it in a quieter weight. */
+/** Paragraphs are separated by a blank line; the first is the lede, shown larger. */
 export default function About({ bio }: { bio: string }) {
-  const sentences = bio.match(/[^.!?]+[.!?]+(\s|$)/g)?.map((s) => s.trim()) ?? [bio];
-  const [lede, ...rest] = sentences;
-  const paragraphs: string[] = [];
-  for (let i = 0; i < rest.length; i += 2) paragraphs.push(rest.slice(i, i + 2).join(' '));
+  const [lede, ...rest] = bio.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
   return (
     <Section id="about" title="About" n="02">
       <Stack spacing={3} sx={{ maxWidth: 820 }}>
@@ -16,7 +13,7 @@ export default function About({ bio }: { bio: string }) {
         >
           {lede}
         </Typography>
-        {paragraphs.map((p) => (
+        {rest.map((p) => (
           <Typography key={p} color="text.secondary" sx={{ textWrap: 'pretty' }}>{p}</Typography>
         ))}
       </Stack>
