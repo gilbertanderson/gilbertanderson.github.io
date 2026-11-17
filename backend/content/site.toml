@@ -6,6 +6,7 @@
 name = "Gilbert Anderson"
 title = "Forward Deployed Engineer · UX/UI & AI Lead"
 headline = "I design interfaces and build the software behind them."
+headline_highlights = ["interfaces", "software"]
 # A short bio, two or three sentences. Leave empty to hide it.
 bio = "I'm a Forward Deployed Engineer and UX/UI & AI lead with 10+ years of experience building secure, data-driven applications for the U.S. Department of Defense and Intelligence Community. I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support. My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I hold an active TS/SCI clearance with CI polygraph."
 url = "https://gilbertanderson.com/"
@@ -151,6 +152,12 @@ items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General St
 [[credentials]]
 group = "Certifications"
 items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "LSU Certified Java Developer"]
+
+[[writing]]
+title = "I Taught Claude Code to Turn a Figma File Into a Design System"
+summary = "design2code is a Claude Code skill that takes a Figma file and produces theme files, React icons and Storybook stories. Here is why I built it, and what it does."
+url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
+source = "Medium"
 
 [how_built]
 heading = "How this site is built"

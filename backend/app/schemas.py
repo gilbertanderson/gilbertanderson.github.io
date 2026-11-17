@@ -20,6 +20,7 @@ class Site(Strict):
     name: str = Field(min_length=1)
     title: str = Field(min_length=1, description="Short role line shown above the headline.")
     headline: str = Field(min_length=1)
+    headline_highlights: list[str] = Field(default=[], description="Words in the headline shown in the accent color.")
     bio: str = ""
     url: HttpUrl
     accent: str = Field(default="#0B63CE", pattern=HEX_COLOR)
@@ -76,6 +77,13 @@ class Role(Strict):
         return self
 
 
+class Article(Strict):
+    title: str = Field(min_length=1)
+    summary: str = ""
+    url: HttpUrl
+    source: str = Field(default="", description="Where it was published, e.g. 'Medium'.")
+
+
 class HowBuilt(Strict):
     heading: str = Field(min_length=1)
     blurb: str = ""
@@ -96,6 +104,7 @@ class SiteContent(Strict):
     experience: list[Role] = []
     tools: list[ToolGroup]
     credentials: list[ToolGroup] = []
+    writing: list[Article] = []
     how_built: HowBuilt | None = None
     contact: ContactSection
 

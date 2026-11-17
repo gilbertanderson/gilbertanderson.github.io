@@ -31,7 +31,7 @@ beforeEach(() => {
 describe('App', () => {
   it('renders the profile and every project from the content file', () => {
     renderApp();
-    expect(screen.getByRole('heading', { level: 1, name: content.site.name })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: new RegExp(content.site.name) })).toBeInTheDocument();
     const work = screen.getByRole('region', { name: 'Projects' });
     for (const p of content.projects) {
       expect(within(work).getByRole('heading', { level: 4, name: p.title })).toBeInTheDocument();
@@ -54,6 +54,15 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: 'Switch to dark mode' }));
     expect(screen.getByRole('button', { name: 'Switch to light mode' })).toBeInTheDocument();
     expect(document.documentElement).toHaveAttribute('data-mui-color-scheme', 'dark');
+  });
+
+  it('lists writing with a link to each article', () => {
+    renderApp();
+    const writing = screen.getByRole('region', { name: 'Writing' });
+    for (const a of content.writing ?? []) {
+      expect(within(writing).getByRole('heading', { level: 3, name: a.title })).toBeInTheDocument();
+      expect(within(writing).getByRole('link', { name: /read on/i })).toHaveAttribute('href', a.url);
+    }
   });
 
   it('links each project to its repository', () => {

@@ -95,6 +95,40 @@
   },
   "components": {
     "schemas": {
+      "Article": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Title"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary",
+            "default": ""
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Url"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "description": "Where it was published, e.g. 'Medium'.",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "url"
+        ],
+        "title": "Article"
+      },
       "ContactMessage": {
         "properties": {
           "name": {
@@ -441,6 +475,15 @@
             "minLength": 1,
             "title": "Headline"
           },
+          "headline_highlights": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Headline Highlights",
+            "description": "Words in the headline shown in the accent color.",
+            "default": []
+          },
           "bio": {
             "type": "string",
             "title": "Bio",
@@ -553,6 +596,14 @@
             },
             "type": "array",
             "title": "Credentials",
+            "default": []
+          },
+          "writing": {
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            },
+            "type": "array",
+            "title": "Writing",
             "default": []
           },
           "how_built": {

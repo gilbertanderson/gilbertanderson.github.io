@@ -35,6 +35,8 @@ export type Site = {
   /** Short role line shown above the headline. */
   title: string;
   headline: string;
+  /** Words in the headline shown in the accent color. */
+  headline_highlights?: string[];
   bio?: string;
   url: string;
   accent?: string;
@@ -83,6 +85,13 @@ export type ToolGroup = {
   group: string;
   items: string[];
 };
+export type Article = {
+  title: string;
+  summary?: string;
+  url: string;
+  /** Where it was published, e.g. 'Medium'. */
+  source?: string;
+};
 export type HowBuilt = {
   heading: string;
   blurb?: string;
@@ -102,6 +111,7 @@ export type SiteContent = {
   experience?: Role[];
   tools: ToolGroup[];
   credentials?: ToolGroup[];
+  writing?: Article[];
   how_built?: HowBuilt | null;
   contact: ContactSection;
 };
