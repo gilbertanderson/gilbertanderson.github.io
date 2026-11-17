@@ -139,7 +139,7 @@ items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highc
 
 [[tools]]
 group = "Backend & data"
-items = ["Python", "FastAPI", "REST", "GraphQL", "OpenAPI", "PostgreSQL", "MongoDB", "SQL Server", "Neo4j", "ElasticSearch", "Firebase"]
+items = ["Python", "FastAPI", "REST", "GraphQL", "OpenAPI", "PostgreSQL", "MongoDB", "SQL Server", "Neo4j", "ElasticSearch", "Firebase", "C++", ".NET"]
 
 [[tools]]
 group = "Cloud & DevOps"
