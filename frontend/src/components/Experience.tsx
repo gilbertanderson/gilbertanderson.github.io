@@ -1,58 +1,23 @@
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import type { Role } from '../client/siteApi';
+import { mono } from '../theme';
 import Section from './Section';
+import TextLink from './TextLink';
 
-function Bullets({ items }: { items: string[] }) {
-  return (
-    <Box component="ul" sx={{ m: 0, mt: 1, pl: 2.5, color: 'text.secondary' }}>
-      {items.map((h) => <li key={h}>{h}</li>)}
-    </Box>
-  );
-}
+type Row = { title: string; meta: string; highlights: string[] };
 
-function RoleItem({ role }: { role: Role }) {
-  const positions = role.positions ?? [];
-  return (
-    <Stack component="li" direction="row" spacing={2}>
-      <Avatar variant="rounded" aria-hidden="true" sx={{ bgcolor: 'primary.main', fontWeight: 700 }}>
-        {role.company.charAt(0)}
-      </Avatar>
-      <Box sx={{ minWidth: 0, flex: 1 }}>
-        {positions.length > 0 ? (
-          <>
-            <Typography variant="h3" component="h3">{role.company}</Typography>
-            <Typography variant="body2" color="text.secondary">{role.period}</Typography>
-            <Box component="ol" sx={{ listStyle: 'none', m: 0, mt: 2, p: 0, pl: 2.5, borderLeft: 2, borderColor: 'divider' }}>
-              {positions.map((p) => (
-                <Box component="li" key={`${p.title}-${p.period}`} sx={{ position: 'relative', '& + &': { mt: 2.5 } }}>
-                  <Box
-                    aria-hidden="true"
-                    sx={{ position: 'absolute', left: -31, top: 6, width: 10, height: 10, borderRadius: '50%', bgcolor: 'primary.main', border: 2, borderColor: 'background.paper' }}
-                  />
-                  <Typography variant="h3" component="h4">{p.title}</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {p.period}{p.note ? ` · ${p.note}` : ''}
-                  </Typography>
-                  <Bullets items={p.highlights} />
-                </Box>
-              ))}
-            </Box>
-          </>
-        ) : (
-          <>
-            <Typography variant="h3" component="h3">{role.title}</Typography>
-            <Typography sx={{ fontWeight: 500 }}>{role.company}</Typography>
-            <Typography variant="body2" color="text.secondary">{role.period}</Typography>
-            <Bullets items={role.highlights ?? []} />
-          </>
-        )}
-      </Box>
-    </Stack>
-  );
+/** One row per position; a flat role becomes a single position with no meta line. */
+function rowsFor(role: Role): Row[] {
+  if (role.positions?.length) {
+    return role.positions.map((p) => ({
+      title: p.title,
+      meta: [p.period, p.note].filter(Boolean).join(' · '),
+      highlights: p.highlights,
+    }));
+  }
+  return [{ title: role.title ?? '', meta: '', highlights: role.highlights ?? [] }];
 }
 
 export default function Experience({ roles, resume }: { roles: Role[]; resume?: string | null }) {
@@ -60,11 +25,34 @@ export default function Experience({ roles, resume }: { roles: Role[]; resume?: 
     <Section
       id="experience"
       title="Experience"
-      action={resume ? <Button size="small" href={resume} download>Full resume (.docx)</Button> : undefined}
+      n="03"
+      action={resume ? <TextLink href={resume} download sx={{ fontSize: 15 }}>Full resume (.docx)</TextLink> : undefined}
     >
-      <Stack component="ol" spacing={3} sx={{ listStyle: 'none', m: 0, p: 0 }}>
-        {roles.map((r) => <RoleItem key={`${r.company}-${r.period}`} role={r} />)}
-      </Stack>
+      <Box component="ol" sx={{ m: 0, p: 0, listStyle: 'none' }}>
+        {roles.map((role) => (
+          <Box
+            component="li"
+            key={`${role.company}-${role.period}`}
+            sx={{ display: 'flex', flexWrap: 'wrap', gap: '12px 40px', py: 4, borderTop: 1, borderColor: 'divider', '&:first-of-type': { pt: 0, borderTop: 0 } }}
+          >
+            <Typography sx={{ flex: '0 0 170px', fontFamily: mono, fontSize: 13, color: 'text.secondary', lineHeight: 1.6 }}>{role.period}</Typography>
+            <Stack spacing={2.75} sx={{ flex: '1 1 340px', minWidth: 0 }}>
+              <Typography variant="h3" component="h3">{role.company}</Typography>
+              {rowsFor(role).map((row) => (
+                <Stack key={row.title} spacing={0.75}>
+                  <Typography variant="h4" component="h4" sx={{ fontFamily: 'inherit', fontSize: 17, fontWeight: 600, letterSpacing: 0, lineHeight: 1.4 }}>
+                    {row.title}
+                  </Typography>
+                  {row.meta ? <Typography sx={{ fontFamily: mono, fontSize: 12, color: 'text.secondary' }}>{row.meta}</Typography> : null}
+                  <Box component="ul" sx={{ m: 0, mt: 0.75, pl: 2.5, color: 'text.secondary', display: 'flex', flexDirection: 'column', gap: 0.75 }}>
+                    {row.highlights.map((h) => <li key={h}>{h}</li>)}
+                  </Box>
+                </Stack>
+              ))}
+            </Stack>
+          </Box>
+        ))}
+      </Box>
     </Section>
   );
 }
