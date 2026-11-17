@@ -349,11 +349,19 @@
             "title": "Description"
           },
           "url": {
-            "type": "string",
-            "maxLength": 2083,
-            "minLength": 1,
-            "format": "uri",
-            "title": "Url"
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "minLength": 1,
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url",
+            "description": "Repository or live link; leave out for unreleased work."
           },
           "category": {
             "type": "string",
@@ -402,8 +410,7 @@
         "required": [
           "title",
           "kind",
-          "description",
-          "url"
+          "description"
         ],
         "title": "Project"
       },
