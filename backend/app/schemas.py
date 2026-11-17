@@ -39,7 +39,7 @@ class Project(Strict):
     title: str = Field(min_length=1)
     kind: str = Field(min_length=1, description="Short category tag, e.g. 'React'.")
     description: str = Field(min_length=1)
-    url: HttpUrl
+    url: HttpUrl | None = Field(default=None, description="Repository or live link; leave out for unreleased work.")
     category: Literal["design", "development"] = "development"
     link_label: str = "View on GitHub"
     article_url: HttpUrl | None = Field(default=None, description="Optional write-up, e.g. a blog post about the project.")

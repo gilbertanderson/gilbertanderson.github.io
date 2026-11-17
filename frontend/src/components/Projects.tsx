@@ -47,7 +47,7 @@ function Group({ label, items }: { label: string; items: Numbered[] }) {
               <Typography variant="h4" component="h4">{p.title}</Typography>
               <Typography color="text.secondary" sx={{ textWrap: 'pretty' }}>{p.description}</Typography>
               <Stack direction="row" useFlexGap sx={{ flexWrap: 'wrap', gap: '4px 24px' }}>
-                <TextLink href={p.url} external>{p.link_label ?? 'View on GitHub'}</TextLink>
+                {p.url ? <TextLink href={p.url} external>{p.link_label ?? 'View on GitHub'}</TextLink> : null}
                 {p.article_url ? <TextLink href={p.article_url} external>Read the write-up</TextLink> : null}
               </Stack>
             </Stack>

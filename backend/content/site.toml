@@ -50,7 +50,7 @@ image = "/projects/share-crops.svg"
 [[projects]]
 title = "Disaster Drive"
 kind = "Unity game"
-description = "A simply fun driving game, built in C# with Unity."
+description = "An endless-driving game built with Unity 6 and C#. Procedural generation creates infinite, unique track segments, object recycling sustains 60+ FPS on mid-range hardware, and an MCP-based AI pipeline automates unit testing and editor scripting."
 url = "https://github.com/gilbertanderson/Disaster-Drive-Game"
 image = "/projects/disaster-drive.svg"
 
@@ -63,6 +63,11 @@ category = "design"
 image = "/projects/design2code.svg"
 article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
 
+[[projects]]
+title = "AI-Native SDLC Orchestrator"
+kind = "Agentic AI · unreleased"
+description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut manual PR preparation time by 50%, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
+
 [[experience]]
 company = "CACI International Inc"
 period = "Feb 2026 – Present"
@@ -72,9 +77,10 @@ title = "Lead UI Software Engineer"
 period = "Mar 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
-  "Built 15+ automated Power BI and Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
-  "Shipped self-service analytics portals for 100+ non-technical users, reducing ad-hoc engineering requests by 50%.",
-  "Integrated Claude, OpenAI GPT and AWS Bedrock into engineering workflows, raising team velocity by 25%.",
+  "Designed and deployed 15+ automated Power BI and Grafana dashboards, reducing manual reporting time for Navy stakeholders by 40%.",
+  "Built self-service analytics portals enabling 100+ non-technical users to search, filter, drill down, and visualize mission data independently, cutting ad-hoc engineering requests by 50%.",
+  "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
+  "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
 ]
 
 [[experience.positions]]
@@ -82,8 +88,9 @@ title = "Senior Full Stack Engineer"
 period = "Feb 2026 – Mar 2026"
 note = "Gridiron IT · ODNI and CIA programs"
 highlights = [
-  "Built REST and GraphQL integrations for Tableau and Power BI reporting.",
-  "Developed secure API services so analysts can consume, visualize and export intelligence data on their own.",
+  "Built REST and GraphQL integrations supporting Tableau and Power BI reporting environments.",
+  "Developed secure API services that enabled analysts to consume, visualize, and export intelligence data through self-service reporting tools.",
+  "Delivered software engineering support to ODNI/CIA focused on UI and API development.",
 ]
 
 [[experience]]
@@ -91,9 +98,10 @@ company = "StrikeWorks Studio"
 title = "Founder & Senior UI Software Engineer"
 period = "Jul 2020 – Present"
 highlights = [
-  "Built a React/D3.js visualization suite for enterprise clients, lifting dashboard engagement 25% and cutting data processing latency 30%.",
-  "Standardized reusable dashboard components across federal and commercial programs, halving new-client integration time.",
-  "Implemented secure CSV/JSON exports of 10,000+ rows per request with full compliance to client security standards.",
+  "Developed a custom React/D3.js visualization suite for enterprise clients, increasing dashboard engagement by 25% and reducing data processing latency by 30%.",
+  "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across multiple federal and commercial programs, cutting new client integration time by 50%.",
+  "Implemented secure data export protocols supporting high-volume CSV/JSON exports (10,000+ rows per request) with 100% compliance with client security standards.",
+  "Designed and implemented React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with SSR/CSR hybrid rendering and optimized routing and caching.",
 ]
 
 [[experience]]
@@ -101,9 +109,10 @@ company = "Opalsoft / Casepoint, NGA Office of Inspector General"
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
 highlights = [
-  "Primary embedded engineer for the Casepoint eDiscovery platform serving 200+ users.",
-  "Trained 50+ investigators and auditors, reducing support tickets by 20%.",
-  "Delivered security patches and UI enhancements under strict accreditation, holding 99.9% availability.",
+  "Served as the primary embedded engineer, managing deployment and configuration of the Casepoint eDiscovery platform for an environment of 200+ users.",
+  "Worked directly with OIG investigators, auditors, and analysts to turn day-to-day mission needs into platform changes, shortening the loop between user problem and delivered fix.",
+  "Trained 50+ investigators and auditors on platform workflows, reducing support ticket volume by 20% and accelerating adoption of new features.",
+  "Delivered security patches and UI enhancements under strict accreditation constraints while maintaining a 99.9% platform availability rate.",
 ]
 
 [[experience]]
@@ -111,9 +120,10 @@ company = "Department of Defense (DTRA)"
 title = "Senior Fullstack / UI Developer"
 period = "Jul 2023 – Jul 2025"
 highlights = [
-  "Improved Core Web Vitals by 35% with lazy loading and code splitting.",
-  "Moved deployments from weekly to daily and cut build failures by 60% by streamlining AWS CI/CD.",
-  "Built React, Angular and Vue components and reusable UI libraries for ISR mission systems.",
+  "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
+  "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
+  "Developed React, Angular, and Vue components for ISR mission systems, with secure prefetching to improve performance.",
+  "Built reusable UI libraries, improved cross-browser compatibility, and authored technical documentation supporting continuous operations and maintenance.",
 ]
 
 [[experience]]
@@ -121,25 +131,99 @@ company = "Plarium USA (Rumble Entertainment)"
 title = "Technical Product Manager / DevOps Manager / Scrum Master"
 period = "Jun 2022 – Mar 2023"
 highlights = [
-  "Led UI, web and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
-  "Ran UI performance tuning and A/B testing, and strengthened security with WAF, Okta and 2FA.",
+  "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
+  "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
+  "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
+  "Strengthened security posture using WAF, Okta, and 2FA.",
+]
+
+[[experience]]
+company = "Department of Defense (Navy)"
+title = "Senior UI/UX Web Developer"
+period = "Dec 2021 – Feb 2023"
+highlights = [
+  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
+  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
+  "Delivered responsive, accessible, and 508-compliant UI designs for mission-critical Navy applications.",
+  "Architected client-side logic supporting complex ISR workflows and data visualization.",
+]
+
+[[experience]]
+company = "National Geospatial-Intelligence Agency (NGA)"
+title = "Lead Software Engineer"
+period = "Sep 2020 – Jul 2021"
+highlights = [
+  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
+  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
+  "Developed analytical and data-driven UI tools supporting ISR missions.",
+]
+
+[[experience]]
+company = "Federal Bureau of Investigation (FBI)"
+title = "UX Designer / UI Developer"
+period = "Oct 2020 – Oct 2021"
+highlights = [
+  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
+  "Ensured cross-browser compatibility, accessibility, and consistent design across multiple teams.",
+  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
+]
+
+[[experience]]
+company = "Defense Intelligence Agency (DIA)"
+title = "Lead UI/UX Developer"
+period = "May 2018 – Aug 2019"
+highlights = [
+  "Designed business intelligence dashboards and interactive data visualizations using Kibana, Grafana, D3.js, and custom analytics frameworks supporting intelligence operations.",
+  "Developed analytical dashboards and business intelligence solutions supporting ISR missions, enabling data exploration, trend analysis, drill-down reporting, and operational decision support.",
+  "Engineered Angular/Vue modules with Spring backend integration for ISR applications.",
+  "Implemented tree shaking, lazy loading, and modular UI patterns to improve performance.",
+]
+
+[[experience]]
+company = "US Army Human Resources Command (HRC)"
+title = "Software Developer"
+period = "Aug 2017 – Apr 2018"
+highlights = [
+  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
+  "Performed TDD, integration testing, and secure code refactoring using Fortify.",
+]
+
+[[experience]]
+company = "GE Digital"
+title = "Software Engineer"
+period = "Oct 2016 – Jan 2018"
+highlights = [
+  "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
+  "Led small development teams through SDLC with a focus on UI quality and maintainability.",
+]
+
+[[experience]]
+company = "US Department of Defense (DoD)"
+title = "SharePoint Developer"
+period = "Aug 2015 – Jul 2016"
+highlights = [
+  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
 ]
 
 [[tools]]
+group = "Languages & frameworks"
+items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angular", "React", "Redux", "GraphQL", "Python", "SQL", "PostgreSQL", "Neo4j"]
+
+[[tools]]
 group = "AI & LLM"
-items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling", "MCP", "Prompt engineering", "LangGraph"]
+items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
 
 [[tools]]
 group = "Frontend & UX"
-items = ["React", "Next.js", "Angular", "Vue", "Redux", "TypeScript", "JavaScript", "MUI", "Storybook", "Figma", "Adobe XD", "508 / WCAG"]
+items = ["Next.js", "Vue", "MUI", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User testing", "508 / WCAG"]
 
 [[tools]]
 group = "Analytics & BI"
-items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts"]
+items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
-items = ["Python", "FastAPI", "REST", "GraphQL", "OpenAPI", "PostgreSQL", "MongoDB", "SQL Server", "Neo4j", "ElasticSearch", "Firebase", "C++", ".NET"]
+items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems"]
 
 [[tools]]
 group = "Cloud & DevOps"
@@ -151,7 +235,7 @@ items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General St
 
 [[credentials]]
 group = "Certifications"
-items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "LSU Certified Java Developer"]
+items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "Skillsoft Java 7 & 8, LSU Certified Java Developer"]
 
 [[writing]]
 title = "I Taught Claude Code to Turn a Figma File Into a Design System"

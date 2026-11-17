@@ -57,7 +57,8 @@ export type Project = {
   /** Short category tag, e.g. 'React'. */
   kind: string;
   description: string;
-  url: string;
+  /** Repository or live link; leave out for unreleased work. */
+  url?: string | null;
   category?: "design" | "development";
   link_label?: string;
   /** Optional write-up, e.g. a blog post about the project. */
