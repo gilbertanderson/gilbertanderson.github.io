@@ -75,6 +75,8 @@ export type Position = {
 };
 export type Role = {
   company: string;
+  /** Company logo, path under frontend/public. */
+  logo?: string | null;
   /** Display text, e.g. 'Jul 2023 – Jul 2025'. */
   period: string;
   title?: string | null;

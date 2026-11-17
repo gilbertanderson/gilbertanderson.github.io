@@ -421,6 +421,18 @@
             "minLength": 1,
             "title": "Company"
           },
+          "logo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo",
+            "description": "Company logo, path under frontend/public."
+          },
           "period": {
             "type": "string",
             "minLength": 1,

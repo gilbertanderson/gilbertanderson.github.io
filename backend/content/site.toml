@@ -76,6 +76,7 @@ description = "An agentic workflow system that automates the software developmen
 
 [[experience]]
 company = "CACI International Inc"
+logo = "/logos/caci.svg"
 period = "Feb 2026 – Present"
 
 [[experience.positions]]
@@ -123,6 +124,7 @@ highlights = [
 
 [[experience]]
 company = "Department of Defense (DTRA)"
+logo = "/logos/dtra.png"
 title = "Senior Fullstack / UI Developer"
 period = "Jul 2023 – Jul 2025"
 highlights = [

@@ -62,6 +62,7 @@ class Position(Strict):
 
 class Role(Strict):
     company: str = Field(min_length=1)
+    logo: str | None = Field(default=None, description="Company logo, path under frontend/public.")
     period: str = Field(min_length=1, description="Display text, e.g. 'Jul 2023 – Jul 2025'.")
     title: str | None = None
     highlights: list[str] = []

@@ -20,6 +20,22 @@ function rowsFor(role: Role): Row[] {
   return [{ title: role.title ?? '', meta: '', highlights: role.highlights ?? [] }];
 }
 
+/** Company logo on a light tile, or a letter monogram when there is no logo. */
+function Logo({ role }: { role: Role }) {
+  return (
+    <Box
+      aria-hidden="true"
+      sx={{ flex: '0 0 auto', width: 44, height: 44, borderRadius: '6px', border: 1, borderColor: 'divider', bgcolor: role.logo ? '#FFFFFF' : 'action.hover', display: 'grid', placeItems: 'center', overflow: 'hidden' }}
+    >
+      {role.logo ? (
+        <Box component="img" src={role.logo} alt="" loading="lazy" sx={{ width: 1, height: 1, objectFit: 'contain', p: '5px', boxSizing: 'border-box' }} />
+      ) : (
+        <Typography sx={{ fontFamily: mono, fontWeight: 500, fontSize: 16, color: 'text.secondary' }}>{role.company.charAt(0)}</Typography>
+      )}
+    </Box>
+  );
+}
+
 export default function Experience({ roles, resume }: { roles: Role[]; resume?: string | null }) {
   return (
     <Section
@@ -37,7 +53,10 @@ export default function Experience({ roles, resume }: { roles: Role[]; resume?: 
           >
             <Typography sx={{ flex: '0 0 170px', fontFamily: mono, fontSize: 13, color: 'text.secondary', lineHeight: 1.6 }}>{role.period}</Typography>
             <Stack spacing={2.75} sx={{ flex: '1 1 340px', minWidth: 0 }}>
-              <Typography variant="h3" component="h3">{role.company}</Typography>
+              <Stack direction="row" spacing={1.75} alignItems="center">
+                <Logo role={role} />
+                <Typography variant="h3" component="h3">{role.company}</Typography>
+              </Stack>
               {rowsFor(role).map((row) => (
                 <Stack key={row.title} spacing={0.75}>
                   <Typography variant="h4" component="h4" sx={{ fontFamily: 'inherit', fontSize: 17, fontWeight: 600, letterSpacing: 0, lineHeight: 1.4 }}>
