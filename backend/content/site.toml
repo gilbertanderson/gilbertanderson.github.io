@@ -114,6 +114,7 @@ highlights = [
 
 [[experience]]
 company = "StrikeWorks Studio"
+logo = "/logos/strikeworks.jpg"
 title = "Founder & Senior UI Software Engineer"
 period = "Jul 2020 – Present"
 highlights = [
@@ -125,6 +126,7 @@ highlights = [
 
 [[experience]]
 company = "Opalsoft / Casepoint, NGA Office of Inspector General"
+logo = "/logos/opexus.jpg"
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
 highlights = [
@@ -148,6 +150,7 @@ highlights = [
 
 [[experience]]
 company = "Plarium USA (Rumble Entertainment)"
+logo = "/logos/plarium.jpg"
 title = "Technical Product Manager / DevOps Manager / Scrum Master"
 period = "Jun 2022 – Mar 2023"
 highlights = [
@@ -159,6 +162,7 @@ highlights = [
 
 [[experience]]
 company = "Department of Defense (Navy)"
+logo = "/logos/navy.jpg"
 title = "Senior UI/UX Web Developer"
 period = "Dec 2021 – Feb 2023"
 highlights = [
@@ -170,6 +174,7 @@ highlights = [
 
 [[experience]]
 company = "National Geospatial-Intelligence Agency (NGA)"
+logo = "/logos/nga.jpg"
 title = "Lead Software Engineer"
 period = "Sep 2020 – Jul 2021"
 highlights = [
@@ -190,6 +195,7 @@ highlights = [
 
 [[experience]]
 company = "Defense Intelligence Agency (DIA)"
+logo = "/logos/dia.jpg"
 title = "Lead UI/UX Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
@@ -200,7 +206,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "US Army Human Resources Command (HRC)"
+company = "US Army Human Resources Command (Army)"
 title = "Software Developer"
 period = "Aug 2017 – Apr 2018"
 highlights = [
