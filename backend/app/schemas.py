@@ -42,7 +42,7 @@ class Project(Strict):
     url: HttpUrl | None = Field(default=None, description="Repository or live link; leave out for unreleased work.")
     category: Literal["design", "development"] = "development"
     link_label: str = "View on GitHub"
-    demo_url: HttpUrl | None = Field(default=None, description="Optional playable or live version.")
+    demos: list[Link] = Field(default=[], description="Playable or live versions, shown as extra links.")
     article_url: HttpUrl | None = Field(default=None, description="Optional write-up, e.g. a blog post about the project.")
     image: str | None = Field(default=None, description="Path under frontend/public, e.g. /projects/dive-log.png.")
 
