@@ -63,9 +63,11 @@ export default function Experience({ roles, resume }: { roles: Role[]; resume?: 
                     {row.title}
                   </Typography>
                   {row.meta ? <Typography sx={{ fontFamily: mono, fontSize: 12, color: 'text.secondary' }}>{row.meta}</Typography> : null}
+                  {row.highlights.length ? (
                   <Box component="ul" sx={{ m: 0, mt: 0.75, pl: 2.5, color: 'text.secondary', display: 'flex', flexDirection: 'column', gap: 0.75 }}>
                     {row.highlights.map((h) => <li key={h}>{h}</li>)}
                   </Box>
+                  ) : null}
                 </Stack>
               ))}
             </Stack>

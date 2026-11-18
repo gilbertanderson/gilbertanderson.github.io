@@ -74,8 +74,8 @@ class Role(Strict):
         if self.positions:
             if self.title or self.highlights:
                 raise ValueError("use either title/highlights or positions, not both")
-        elif not (self.title and self.highlights):
-            raise ValueError("a role needs a title and highlights, or a list of positions")
+        elif not self.title:
+            raise ValueError("a role needs a title, or a list of positions")
         return self
 
 
