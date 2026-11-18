@@ -74,6 +74,14 @@ title = "AI-Native SDLC Orchestrator"
 kind = "Agentic AI · unreleased"
 description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut manual PR preparation time by 50%, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
 
+[[projects]]
+title = "Stormers: The Two Ships"
+kind = "Browser game"
+description = "A playable slice of Stormers, a top-down tactical game in development: lay a plan for your boarding party, then press Space and watch it work or fall apart. A browser build of the Two Ships mission from the Unity prototype, re-implemented in plain JavaScript on three.js, with a headless rules test."
+url = "https://github.com/gilbertanderson/stormers-mvp"
+demo_url = "https://gilbertanderson.com/stormers-mvp/"
+image = "/projects/stormers-mvp.jpg"
+
 [[experience]]
 company = "CACI International Inc"
 logo = "/logos/caci.svg"

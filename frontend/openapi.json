@@ -377,6 +377,21 @@
             "title": "Link Label",
             "default": "View on GitHub"
           },
+          "demo_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "minLength": 1,
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Demo Url",
+            "description": "Optional playable or live version."
+          },
           "article_url": {
             "anyOf": [
               {

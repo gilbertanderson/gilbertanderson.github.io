@@ -61,6 +61,8 @@ export type Project = {
   url?: string | null;
   category?: "design" | "development";
   link_label?: string;
+  /** Optional playable or live version. */
+  demo_url?: string | null;
   /** Optional write-up, e.g. a blog post about the project. */
   article_url?: string | null;
   /** Path under frontend/public, e.g. /projects/dive-log.png. */
