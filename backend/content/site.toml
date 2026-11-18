@@ -185,6 +185,7 @@ highlights = [
 
 [[experience]]
 company = "Federal Bureau of Investigation (FBI)"
+logo = "/logos/fbi.jpg"
 title = "UX Designer / UI Developer"
 period = "Oct 2020 – Oct 2021"
 highlights = [
@@ -207,6 +208,7 @@ highlights = [
 
 [[experience]]
 company = "US Army Human Resources Command (Army)"
+logo = "/logos/army.jpg"
 title = "Software Developer"
 period = "Aug 2017 – Apr 2018"
 highlights = [
@@ -216,6 +218,7 @@ highlights = [
 
 [[experience]]
 company = "GE Digital"
+logo = "/logos/ge.jpg"
 title = "Software Engineer"
 period = "Oct 2016 – Jan 2018"
 highlights = [
@@ -225,6 +228,7 @@ highlights = [
 
 [[experience]]
 company = "US Department of Defense (Marine Forces Reserve)"
+logo = "/logos/marforres.jpg"
 title = "IT Specialist/SharePoint Developer"
 period = "Aug 2015 – Jul 2016"
 highlights = [
