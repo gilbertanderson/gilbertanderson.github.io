@@ -92,14 +92,30 @@ logo = "/logos/caci.svg"
 period = "Feb 2026 – Present"
 
 [[experience.positions]]
-title = "Lead UI Software Engineer"
-period = "Mar 2026 – Present"
+title = "Senior Software Engineer, UI Team Lead"
+period = "Jun 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
   "Designed and deployed 15+ automated Power BI and Grafana dashboards, reducing manual reporting time for Navy stakeholders by 40%.",
   "Built self-service analytics portals enabling 100+ non-technical users to search, filter, drill down, and visualize mission data independently, cutting ad-hoc engineering requests by 50%.",
   "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
+]
+
+[[experience.positions]]
+title = "Generative AI Engineer"
+period = "Mar 2026 – Present"
+note = "Part-time"
+highlights = [
+  "Supporting CACI's AI modernization efforts with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
+]
+
+[[experience.positions]]
+title = "Senior Software Engineer"
+period = "Mar 2026 – Jun 2026"
+note = "U.S. Navy program"
+highlights = [
+  "Supported the DoD Navy mission with continuous design and development using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
 ]
 
 [[experience.positions]]
@@ -139,8 +155,12 @@ highlights = [
 [[experience]]
 company = "Department of Defense (DTRA)"
 logo = "/logos/dtra.png"
+period = "Jul 2023 – Jul 2025"
+
+[[experience.positions]]
 title = "Senior Fullstack / UI Developer"
 period = "Jul 2023 – Jul 2025"
+note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
   "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
@@ -149,9 +169,24 @@ highlights = [
 ]
 
 [[experience]]
+company = "Fusion Technology LLC"
+logo = "/logos/fusion.jpg"
+title = "Software Engineer"
+period = "Oct 2024 – Jan 2025"
+
+[[experience]]
+company = "Varsity Tutors"
+logo = "/logos/varsity.jpg"
+title = "Private Tutor"
+period = "Feb 2023 – Feb 2024"
+highlights = [
+  "Taught coding and web development to all ages: coding fundamentals for children through Minecraft, WordPress storefronts for entrepreneurs, and JavaScript and Angular for software developers.",
+]
+
+[[experience]]
 company = "Plarium USA (Rumble Entertainment)"
 logo = "/logos/plarium.jpg"
-title = "Technical Product Manager / DevOps Manager / Scrum Master"
+title = "Technical Producer"
 period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
@@ -241,7 +276,7 @@ items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angu
 
 [[tools]]
 group = "AI & LLM"
-items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Microsoft Copilot", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
+items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Google Gemini", "Microsoft Copilot", "Ollama", "OpenCode", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
 
 [[tools]]
 group = "Frontend & UX"
@@ -266,6 +301,10 @@ items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General St
 [[credentials]]
 group = "Certifications"
 items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "Skillsoft Java 7 & 8, LSU Certified Java Developer"]
+
+[[credentials]]
+group = "Honors"
+items = ["Entertainment Software Association Foundation: Video Game Design and Development Scholarship (2009)"]
 
 [[writing]]
 title = "I Taught Claude Code to Turn a Figma File Into a Design System"
