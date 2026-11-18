@@ -69,7 +69,7 @@ describe('App', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
     const hrefs = within(work).getAllByRole('link').map((a) => a.getAttribute('href'));
-    const expected = content.projects.flatMap((p) => [...(p.url ? [p.url] : []), ...(p.demo_url ? [p.demo_url] : []), ...(p.article_url ? [p.article_url] : [])]);
+    const expected = content.projects.flatMap((p) => [...(p.url ? [p.url] : []), ...(p.demos ?? []).map((d) => d.url), ...(p.article_url ? [p.article_url] : [])]);
     expect([...hrefs].sort()).toEqual(expected.sort());
   });
 

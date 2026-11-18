@@ -377,20 +377,14 @@
             "title": "Link Label",
             "default": "View on GitHub"
           },
-          "demo_url": {
-            "anyOf": [
-              {
-                "type": "string",
-                "maxLength": 2083,
-                "minLength": 1,
-                "format": "uri"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Demo Url",
-            "description": "Optional playable or live version."
+          "demos": {
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "type": "array",
+            "title": "Demos",
+            "description": "Playable or live versions, shown as extra links.",
+            "default": []
           },
           "article_url": {
             "anyOf": [

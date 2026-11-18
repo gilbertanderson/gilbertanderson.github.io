@@ -78,9 +78,12 @@ image = "/projects/ai-sdlc-orchestrator.svg"
 [[projects]]
 title = "Stormers: The Two Ships"
 kind = "Browser game"
-description = "A playable slice of Stormers, a top-down tactical game in development: lay a plan for your boarding party, then press Space and watch it work or fall apart. A browser build of the Two Ships mission from the Unity prototype, re-implemented in plain JavaScript on three.js, with a headless rules test."
+description = "A playable slice of Stormers, a top-down tactical game in development: lay a plan for your boarding party, then press Space and watch it work or fall apart. Two browser builds of the Two Ships mission from the Unity prototype: a three.js version with the full deck, and a smaller Canvas 2D version with pry, axe, powder keg and smoke."
 url = "https://github.com/gilbertanderson/stormers-mvp"
-demo_url = "https://gilbertanderson.com/stormers-mvp/"
+demos = [
+  { label = "Play it (3D)", url = "https://gilbertanderson.com/stormers-mvp/" },
+  { label = "Play it (2D)", url = "https://gilbertanderson.com/stormers-mvp/two-ships-2d/" },
+]
 image = "/projects/stormers-mvp.jpg"
 
 [[experience]]
