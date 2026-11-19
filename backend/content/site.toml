@@ -212,6 +212,7 @@ highlights = [
 
 [[experience]]
 company = "GE Transportation, a Wabtec company"
+logo = "/logos/wabtec.jpg"
 title = "Senior Quality Assurance Automation Engineer"
 period = "Aug 2021 – Nov 2021"
 highlights = [
@@ -287,6 +288,7 @@ highlights = [
 
 [[experience]]
 company = "Electronic Arts (EA)"
+logo = "/logos/ea.jpg"
 title = "Compatibility and Technology (CAT) Lab Technician"
 period = "Apr 2014 – Jan 2015"
 highlights = [
