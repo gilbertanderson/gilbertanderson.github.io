@@ -96,7 +96,7 @@ title = "Senior Software Engineer, UI Team Lead"
 period = "Jun 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
-  "Designed and deployed 15+ automated Power BI and Grafana dashboards, reducing manual reporting time for Navy stakeholders by 40%.",
+  "Designed and deployed 15+ automated Grafana dashboards, reducing manual reporting time for Navy stakeholders by 40%.",
   "Built self-service analytics portals enabling 100+ non-technical users to search, filter, drill down, and visualize mission data independently, cutting ad-hoc engineering requests by 50%.",
   "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
@@ -124,7 +124,7 @@ title = "Senior Full Stack Engineer"
 period = "Feb 2026 – Mar 2026"
 note = "Gridiron IT · ODNI and CIA programs"
 highlights = [
-  "Built REST and GraphQL integrations supporting Tableau and Power BI reporting environments.",
+  "Built REST and GraphQL integrations supporting Tableau reporting environments.",
   "Developed secure API services that enabled analysts to consume, visualize, and export intelligence data through self-service reporting tools.",
   "Delivered software engineering support to ODNI/CIA focused on UI and API development.",
 ]
@@ -290,8 +290,8 @@ group = "Testing & automation"
 items = ["Selenium", "Cypress", "Playwright", "Automated testing"]
 
 [[tools]]
-group = "Analytics & BI"
-items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
+group = "Analytics & data visualization"
+items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
