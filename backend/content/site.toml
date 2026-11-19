@@ -273,7 +273,7 @@ period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
-  "Built AutoTest Cloud for end-to-end automated testing.",
+  "Built the Auto Test Cloud (ATC) app for end-to-end automated testing.",
 ]
 
 [[experience]]
