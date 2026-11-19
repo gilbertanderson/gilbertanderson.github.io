@@ -65,6 +65,16 @@ describe('App', () => {
     }
   });
 
+  it('lets visitors pick the resume format', async () => {
+    renderApp();
+    const user = userEvent.setup();
+    const hero = screen.getByRole('region', { name: new RegExp(content.site.name) });
+    await user.click(within(hero).getByRole('button', { name: /resume/i }));
+    const menu = await screen.findByRole('menu');
+    expect(within(menu).getByRole('menuitem', { name: /pdf/i })).toHaveAttribute('href', content.site.resume_pdf);
+    expect(within(menu).getByRole('menuitem', { name: /word/i })).toHaveAttribute('href', content.site.resume);
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
