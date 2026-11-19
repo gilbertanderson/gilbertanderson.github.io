@@ -75,6 +75,16 @@ describe('App', () => {
     expect(within(menu).getByRole('menuitem', { name: /word/i })).toHaveAttribute('href', content.site.resume);
   });
 
+  it('tucks long skill rows behind a "more" button', async () => {
+    renderApp();
+    const user = userEvent.setup();
+    const skills = screen.getByRole('region', { name: 'Skills' });
+    const more = within(skills).getAllByRole('button', { name: /more .* skills/i })[0];
+    expect(more).toHaveAttribute('aria-expanded', 'false');
+    await user.click(more);
+    expect(more).toHaveAttribute('aria-expanded', 'true');
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
