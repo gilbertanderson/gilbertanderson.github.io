@@ -101,7 +101,7 @@ highlights = [
   "Built self-service analytics portals enabling 100+ non-technical users to search, filter, drill down, and visualize mission data independently, cutting ad-hoc engineering requests by 50%.",
   "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
-  "Applied automated testing tools to verify UI changes before release.",
+  "Used Playwright for automated testing of UI changes before release.",
 ]
 
 [[experience.positions]]
@@ -168,7 +168,7 @@ highlights = [
   "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
   "Developed React, Angular, and Vue components for ISR mission systems, with secure prefetching to improve performance.",
   "Built reusable UI libraries, improved cross-browser compatibility, and authored technical documentation supporting continuous operations and maintenance.",
-  "Applied automated testing tools to verify UI changes before release.",
+  "Used Cypress for automated testing of UI changes before release.",
 ]
 
 [[experience]]
@@ -263,7 +263,7 @@ title = "Software Developer"
 period = "Aug 2017 – Apr 2018"
 highlights = [
   "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
-  "Performed TDD, integration testing, and secure code refactoring using Fortify.",
+  "Performed TDD, integration testing, and secure code refactoring using Fortify, including compliance testing as a Java developer (HPE/DXC).",
 ]
 
 [[experience]]
@@ -274,7 +274,7 @@ period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
-  "Built the Auto Test Cloud (ATC) app for end-to-end automated testing.",
+  "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application hosted on Predix (Cloud Foundry).",
 ]
 
 [[experience]]
@@ -312,7 +312,7 @@ items = ["Next.js", "Vue", "Material UI (MUI)", "Bootstrap", "Storybook", "Desig
 
 [[tools]]
 group = "Testing & automation"
-items = ["Selenium", "Cypress", "Playwright", "PyTest", "Automated testing"]
+items = ["Selenium", "Cypress", "Playwright", "PyTest", "Fortify", "Automated testing"]
 
 [[tools]]
 group = "Analytics & data visualization"
