@@ -36,13 +36,20 @@ function Logo({ role }: { role: Role }) {
   );
 }
 
-export default function Experience({ roles, resume }: { roles: Role[]; resume?: string | null }) {
+export default function Experience({ roles, resume, resumePdf }: { roles: Role[]; resume?: string | null; resumePdf?: string | null }) {
   return (
     <Section
       id="experience"
       title="Experience"
       n="03"
-      action={resume ? <TextLink href={resume} download sx={{ fontSize: 15 }}>Full resume (.docx)</TextLink> : undefined}
+      action={
+        resume || resumePdf ? (
+          <Stack spacing={0}>
+            {resumePdf ? <TextLink href={resumePdf} external sx={{ fontSize: 15 }}>Full resume (PDF)</TextLink> : null}
+            {resume ? <TextLink href={resume} download sx={{ fontSize: 15 }}>Full resume (.docx)</TextLink> : null}
+          </Stack>
+        ) : undefined
+      }
     >
       <Box component="ol" sx={{ m: 0, p: 0, listStyle: 'none' }}>
         {roles.map((role) => (

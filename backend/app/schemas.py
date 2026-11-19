@@ -28,6 +28,7 @@ class Site(Strict):
     banner: str | None = Field(default=None, description="Profile banner, path under frontend/public.")
     avatar: str | None = Field(default=None, description="Profile photo, path under frontend/public.")
     resume: str | None = Field(default=None, description="Path under frontend/public, e.g. /Resume.docx.")
+    resume_pdf: str | None = Field(default=None, description="PDF copy of the resume, path under frontend/public.")
 
 
 class Link(Strict):

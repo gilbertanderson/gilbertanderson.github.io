@@ -571,6 +571,18 @@
             ],
             "title": "Resume",
             "description": "Path under frontend/public, e.g. /Resume.docx."
+          },
+          "resume_pdf": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resume Pdf",
+            "description": "PDF copy of the resume, path under frontend/public."
           }
         },
         "additionalProperties": false,
