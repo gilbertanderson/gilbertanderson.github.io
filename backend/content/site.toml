@@ -200,6 +200,8 @@ highlights = [
   "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
   "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
   "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
+  "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
+  "Helped build a customer support and IT portal, including health checks for the game's services.",
 ]
 
 [[experience]]
@@ -337,7 +339,7 @@ items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Ope
 
 [[tools]]
 group = "Backend & data"
-items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
+items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
 
 [[tools]]
 group = "Cloud & DevOps"
