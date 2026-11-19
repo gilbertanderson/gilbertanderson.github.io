@@ -192,13 +192,14 @@ highlights = [
 [[experience]]
 company = "Plarium USA (Rumble Entertainment)"
 logo = "/logos/plarium.jpg"
-title = "Technical Producer"
+title = "Technical Producer / DevOps Manager"
 period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
   "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
   "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
+  "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
 ]
 
 [[experience]]
