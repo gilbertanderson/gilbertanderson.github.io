@@ -103,6 +103,7 @@ highlights = [
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
   "Used Playwright for automated testing of UI changes before release.",
   "Assisted with Chainguard secure container images and provided server-side code support in Java, Python, and Go.",
+  "Added Okta single sign-on (SSO) to the MVP dashboard application and set up OAuth 2.0 authorization for its API.",
 ]
 
 [[experience.positions]]
@@ -335,7 +336,7 @@ items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Ope
 
 [[tools]]
 group = "Backend & data"
-items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML"]
+items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
 
 [[tools]]
 group = "Cloud & DevOps"
