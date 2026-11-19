@@ -321,11 +321,11 @@ items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Ope
 
 [[tools]]
 group = "Backend & data"
-items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems"]
+items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML"]
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
 
 [[credentials]]
 group = "Education"
