@@ -294,6 +294,7 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
+  "Started working with Docker and Kubernetes in 2016, containerizing applications and deploying them to Kubernetes clusters, and have kept using both since.",
 ]
 
 [[experience]]
