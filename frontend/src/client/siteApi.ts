@@ -99,6 +99,15 @@ export type Article = {
   /** Where it was published, e.g. 'Medium'. */
   source?: string;
 };
+export type LinkedInPost = {
+  /** The post text, or your own commentary on a repost. */
+  text: string;
+  url: string;
+  /** Display date, e.g. 'Nov 2026'. */
+  date: string;
+  /** Optional one-line note, e.g. what the post is reposting. */
+  context?: string;
+};
 export type HowBuilt = {
   heading: string;
   blurb?: string;
@@ -119,6 +128,7 @@ export type SiteContent = {
   tools: ToolGroup[];
   credentials?: ToolGroup[];
   writing?: Article[];
+  linkedin_posts?: LinkedInPost[];
   how_built?: HowBuilt | null;
   contact: ContactSection;
 };
