@@ -222,6 +222,41 @@
         ],
         "title": "ContactSection"
       },
+      "Demo": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Label"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Url"
+          },
+          "hint": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hint",
+            "description": "Short note shown next to the label in the menu."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "label",
+          "url"
+        ],
+        "title": "Demo"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -416,11 +451,11 @@
           },
           "demos": {
             "items": {
-              "$ref": "#/components/schemas/Link"
+              "$ref": "#/components/schemas/Demo"
             },
             "type": "array",
             "title": "Demos",
-            "description": "Playable or live versions, shown as extra links.",
+            "description": "Playable or live versions; two or more appear as a Play it menu.",
             "default": []
           },
           "article_url": {

@@ -13,6 +13,7 @@ const links = [
   ['About', '#about'],
   ['Experience', '#experience'],
   ['Skills', '#tools'],
+  ['Contact', '#contact'],
 ] as const;
 
 function ThemeToggle() {
@@ -35,26 +36,39 @@ export default function Header({ name }: { name: string }) {
   return (
     <AppBar position="sticky" color="inherit" elevation={0} sx={{ bgcolor: 'background.default', borderBottom: 1, borderColor: 'divider' }}>
       <Wrap>
-        <Toolbar component="nav" aria-label="Main" disableGutters sx={{ minHeight: '72px !important', gap: 2 }}>
+        <Toolbar
+          component="nav"
+          aria-label="Main"
+          disableGutters
+          sx={{ minHeight: { xs: 'auto !important', sm: '72px !important' }, py: { xs: 1, sm: 0 }, columnGap: 2, rowGap: 0.5, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}
+        >
           <Typography
             component="a"
             href="#top"
-            sx={{ flex: '0 0 auto', fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.01em', color: 'text.primary', textDecoration: 'none', whiteSpace: 'nowrap' }}
+            sx={{ order: 1, mr: 'auto', flex: '0 0 auto', fontFamily: '"Space Grotesk", sans-serif', fontWeight: 700, fontSize: 19, letterSpacing: '-0.01em', color: 'text.primary', textDecoration: 'none', whiteSpace: 'nowrap' }}
           >
             {name}
           </Typography>
-          {/* On narrow phones the links scroll sideways instead of wrapping or overflowing the page. */}
+          {/*
+            On phones the links get their own full-width row under the name and scroll sideways;
+            the fade on the right edge shows there is more to swipe to. On wider screens they sit
+            in one line between the name and the theme toggle.
+          */}
           <Box
             sx={{
-              ml: 'auto',
+              order: { xs: 3, sm: 2 },
+              flexBasis: { xs: '100%', sm: 'auto' },
+              mx: { xs: -1.5, sm: 0 },
               display: 'flex',
               gap: 0.5,
               minWidth: 0,
               overflowX: 'auto',
               overscrollBehaviorX: 'contain',
               WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-x',
               scrollbarWidth: 'none',
               '&::-webkit-scrollbar': { display: 'none' },
+              maskImage: { xs: 'linear-gradient(to right, #000 82%, transparent)', sm: 'none' },
             }}
           >
             {links.map(([label, href]) => (
@@ -63,7 +77,9 @@ export default function Header({ name }: { name: string }) {
               </Button>
             ))}
           </Box>
-          <ThemeToggle />
+          <Box sx={{ order: { xs: 2, sm: 3 }, flex: '0 0 auto' }}>
+            <ThemeToggle />
+          </Box>
         </Toolbar>
       </Wrap>
     </AppBar>

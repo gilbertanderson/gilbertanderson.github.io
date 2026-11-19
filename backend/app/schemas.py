@@ -36,6 +36,12 @@ class Link(Strict):
     url: HttpUrl
 
 
+class Demo(Strict):
+    label: str = Field(min_length=1)
+    url: HttpUrl
+    hint: str | None = Field(default=None, description="Short note shown next to the label in the menu.")
+
+
 class Project(Strict):
     title: str = Field(min_length=1)
     kind: str = Field(min_length=1, description="Short category tag, e.g. 'React'.")
@@ -43,7 +49,7 @@ class Project(Strict):
     url: HttpUrl | None = Field(default=None, description="Repository or live link; leave out for unreleased work.")
     category: Literal["design", "development"] = "development"
     link_label: str = "View on GitHub"
-    demos: list[Link] = Field(default=[], description="Playable or live versions, shown as extra links.")
+    demos: list[Demo] = Field(default=[], description="Playable or live versions; two or more appear as a Play it menu.")
     article_url: HttpUrl | None = Field(default=None, description="Optional write-up, e.g. a blog post about the project.")
     image: str | None = Field(default=None, description="Path under frontend/public, e.g. /projects/dive-log.png.")
 

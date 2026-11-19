@@ -25,9 +25,17 @@ export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props
   const { site, links, projects, experience, writing, tools, credentials, how_built, contact, linkedin_posts } = content;
   const linkedinProfile = links.find((l) => /linkedin\.com/.test(l.url))?.url;
   const theme = useMemo(() => makeTheme(site.accent, site.accent_on_dark), [site.accent, site.accent_on_dark]);
+  // Follow the visitor's browser theme; browsers that report no preference get dark.
+  const defaultMode = typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'system' : 'dark';
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={theme}
+      defaultMode={defaultMode}
+      // New keys, so choices saved by the old toggle are ignored and everyone starts on their browser theme.
+      modeStorageKey="ga-color-mode"
+      colorSchemeStorageKey="ga-color-scheme"
+    >
       <CssBaseline />
       <Box
         component="a"
