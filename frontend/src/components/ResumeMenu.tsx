@@ -43,7 +43,7 @@ export default function ResumeMenu({ pdf, docx, label = 'Resume', fontSize }: Pr
         onClick={(e: MouseEvent<HTMLElement>) => setAnchor(e.currentTarget)}
         underline="always"
         color="inherit"
-        sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, minHeight: 44, fontWeight: 600, fontSize, font: 'inherit', cursor: 'pointer', textDecorationColor: 'var(--mui-palette-divider)', textUnderlineOffset: '5px', textDecorationThickness: '1.5px' }}
+        sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, minHeight: 44, fontFamily: 'inherit', fontWeight: 600, fontSize: fontSize ?? 'inherit', lineHeight: 'inherit', cursor: 'pointer', textDecorationColor: 'var(--mui-palette-divider)', textUnderlineOffset: '5px', textDecorationThickness: '1.5px' }}
       >
         {label}
         <ArrowDown width={14} height={14} />
