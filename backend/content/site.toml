@@ -283,6 +283,10 @@ group = "Frontend & UX"
 items = ["Next.js", "Vue", "MUI", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User testing", "508 / WCAG"]
 
 [[tools]]
+group = "Testing & automation"
+items = ["Selenium", "Cypress", "Playwright", "Automated testing"]
+
+[[tools]]
 group = "Analytics & BI"
 items = ["Power BI", "Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
 
