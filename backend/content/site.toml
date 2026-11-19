@@ -324,7 +324,7 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch",
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL)", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Jenkins", "GitHub Actions", "GitLab"]
 
 [[credentials]]
 group = "Education"
