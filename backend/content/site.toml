@@ -293,7 +293,7 @@ period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
-  "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application hosted on Predix (Cloud Foundry).",
+  "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
 ]
 
 [[experience]]
@@ -343,7 +343,7 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasti
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
 
 [[credentials]]
 group = "Education"
