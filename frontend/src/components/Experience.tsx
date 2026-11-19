@@ -86,7 +86,7 @@ export default function Experience({ roles, resume, resumePdf }: { roles: Role[]
       action={
         resume || resumePdf ? (
           <Stack spacing={0}>
-            {resumePdf ? <TextLink href={resumePdf} external sx={{ fontSize: 15 }}>Full resume (PDF)</TextLink> : null}
+            {resumePdf ? <TextLink href={resumePdf} download sx={{ fontSize: 15 }}>Full resume (PDF)</TextLink> : null}
             {resume ? <TextLink href={resume} download sx={{ fontSize: 15 }}>Full resume (.docx)</TextLink> : null}
           </Stack>
         ) : undefined

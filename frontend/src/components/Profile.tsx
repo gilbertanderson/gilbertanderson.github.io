@@ -67,11 +67,8 @@ export default function Profile({ site, links }: { site: Site; links: Link[] }) 
         {links.map((l) => (
           <TextLink key={l.label} href={l.url} external>{l.label}</TextLink>
         ))}
-        {site.resume_pdf ? (
-          <TextLink href={site.resume_pdf} external>Resume (PDF)</TextLink>
-        ) : site.resume ? (
-          <TextLink href={site.resume} download>Resume</TextLink>
-        ) : null}
+        {site.resume_pdf ? <TextLink href={site.resume_pdf} download>Resume (PDF)</TextLink> : null}
+        {site.resume ? <TextLink href={site.resume} download>Resume (.docx)</TextLink> : null}
       </Stack>
     </Wrap>
   );
