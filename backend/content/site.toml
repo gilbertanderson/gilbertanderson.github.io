@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support.
 
-My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor. I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -166,7 +166,7 @@ note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
   "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
-  "Developed React, Angular, and Vue components for ISR mission systems, with secure prefetching to improve performance.",
+  "Developed React, Angular, and Vue components for intelligence, surveillance, and reconnaissance (ISR) mission systems, with secure prefetching to improve performance.",
   "Built reusable UI libraries, improved cross-browser compatibility, and authored technical documentation supporting continuous operations and maintenance.",
   "Used Cypress for automated testing of UI changes before release.",
 ]
@@ -196,7 +196,7 @@ highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
   "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
-  "Strengthened security posture using WAF, Okta, and 2FA.",
+  "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
 ]
 
 [[experience]]
@@ -207,7 +207,7 @@ period = "Dec 2021 – Feb 2023"
 highlights = [
   "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
   "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
-  "Delivered responsive, accessible, and 508-compliant UI designs for mission-critical Navy applications.",
+  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
   "Architected client-side logic supporting complex ISR workflows and data visualization.",
 ]
 
@@ -309,7 +309,7 @@ items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedr
 
 [[tools]]
 group = "Frontend & UX"
-items = ["Next.js", "Vue", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User testing", "508 / WCAG"]
+items = ["Next.js", "Vue", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User testing", "Section 508 / WCAG"]
 
 [[tools]]
 group = "Testing & automation"
@@ -333,7 +333,7 @@ items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General St
 
 [[credentials]]
 group = "Certifications"
-items = ["Scrum Alliance CSM, CSD, A-CSD, CSP, CSP-D", "CompTIA A+, Security+", "Skillsoft Java 7 & 8, LSU Certified Java Developer"]
+items = ["Scrum Alliance: Certified ScrumMaster (CSM), Certified Scrum Developer (CSD), Advanced Certified Scrum Developer (A-CSD), Certified Scrum Professional (CSP), Certified Scrum Professional – Developer (CSP-D)", "CompTIA A+, Security+", "Skillsoft Java 7 & 8, LSU Certified Java Developer"]
 
 [[credentials]]
 group = "Honors"
