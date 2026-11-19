@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import type { Project } from '../client/siteApi';
 import { mono } from '../theme';
+import ChoiceMenu from './ChoiceMenu';
 import Section from './Section';
 import TextLink from './TextLink';
 
@@ -48,7 +49,9 @@ function Group({ label, items }: { label: string; items: Numbered[] }) {
               <Typography color="text.secondary" sx={{ textWrap: 'pretty' }}>{p.description}</Typography>
               <Stack direction="row" useFlexGap sx={{ flexWrap: 'wrap', gap: '4px 24px' }}>
                 {p.url ? <TextLink href={p.url} external>{p.link_label ?? 'View on GitHub'}</TextLink> : null}
-                {(p.demos ?? []).map((d) => <TextLink key={d.url} href={d.url} external>{d.label}</TextLink>)}
+                {p.demos?.length ? (
+                  <ChoiceMenu label="Play it" choices={p.demos.map((d) => ({ label: d.label, hint: d.hint ?? undefined, href: d.url, external: true }))} />
+                ) : null}
                 {p.article_url ? <TextLink href={p.article_url} external>Read the write-up</TextLink> : null}
               </Stack>
             </Stack>

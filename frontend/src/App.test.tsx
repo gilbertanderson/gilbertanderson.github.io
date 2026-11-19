@@ -51,9 +51,11 @@ describe('App', () => {
   it('toggles dark mode from the header', async () => {
     renderApp();
     const user = userEvent.setup();
-    await user.click(screen.getByRole('button', { name: 'Switch to dark mode' }));
-    expect(screen.getByRole('button', { name: 'Switch to light mode' })).toBeInTheDocument();
-    expect(document.documentElement).toHaveAttribute('data-mui-color-scheme', 'dark');
+    const toggle = screen.getByRole('button', { name: /switch to (light|dark) mode/i });
+    const toDark = /dark/i.test(toggle.getAttribute('aria-label') ?? '');
+    await user.click(toggle);
+    expect(screen.getByRole('button', { name: toDark ? 'Switch to light mode' : 'Switch to dark mode' })).toBeInTheDocument();
+    expect(document.documentElement).toHaveAttribute('data-mui-color-scheme', toDark ? 'dark' : 'light');
   });
 
   it('lists writing with a link to each article', () => {
@@ -95,11 +97,22 @@ describe('App', () => {
     expect(links.map((a) => a.getAttribute('href'))).toEqual((content.linkedin_posts ?? []).map((p) => p.url));
   });
 
+  it('offers a Play it menu with a choice per playable build', async () => {
+    renderApp();
+    const user = userEvent.setup();
+    const withDemos = content.projects.find((p) => (p.demos ?? []).length > 1);
+    if (!withDemos) return;
+    const work = screen.getByRole('region', { name: 'Projects' });
+    await user.click(within(work).getByRole('button', { name: /play it/i }));
+    const menu = await screen.findByRole('menu');
+    expect(within(menu).getAllByRole('menuitem').map((m) => m.getAttribute('href'))).toEqual((withDemos.demos ?? []).map((d) => d.url));
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
     const hrefs = within(work).getAllByRole('link').map((a) => a.getAttribute('href'));
-    const expected = content.projects.flatMap((p) => [...(p.url ? [p.url] : []), ...(p.demos ?? []).map((d) => d.url), ...(p.article_url ? [p.article_url] : [])]);
+    const expected = content.projects.flatMap((p) => [...(p.url ? [p.url] : []), ...((p.demos ?? []).length === 1 ? [p.demos![0].url] : []), ...(p.article_url ? [p.article_url] : [])]);
     expect([...hrefs].sort()).toEqual(expected.sort());
   });
 

@@ -54,6 +54,12 @@ export type Link = {
   label: string;
   url: string;
 };
+export type Demo = {
+  label: string;
+  url: string;
+  /** Short note shown next to the label in the menu. */
+  hint?: string | null;
+};
 export type Project = {
   title: string;
   /** Short category tag, e.g. 'React'. */
@@ -63,8 +69,8 @@ export type Project = {
   url?: string | null;
   category?: "design" | "development";
   link_label?: string;
-  /** Playable or live versions, shown as extra links. */
-  demos?: Link[];
+  /** Playable or live versions; two or more appear as a Play it menu. */
+  demos?: Demo[];
   /** Optional write-up, e.g. a blog post about the project. */
   article_url?: string | null;
   /** Path under frontend/public, e.g. /projects/dive-log.png. */
