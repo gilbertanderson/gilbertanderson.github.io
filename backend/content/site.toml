@@ -210,6 +210,17 @@ highlights = [
 ]
 
 [[experience]]
+company = "GE Transportation, a Wabtec company"
+title = "Senior Quality Assurance Automation Engineer"
+period = "Aug 2021 – Nov 2021"
+highlights = [
+  "Reviewed system-level and subsystem-level design requirements to ensure testability, and defined test cases and test plans from interaction matrices.",
+  "Planned testing from desktop verification and software-in-the-loop to hardware-in-the-loop, locomotive testing and pilot fleet operation.",
+  "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
+  "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
+]
+
+[[experience]]
 company = "National Geospatial-Intelligence Agency (NGA)"
 logo = "/logos/nga.jpg"
 title = "Lead Software Engineer"
@@ -271,6 +282,17 @@ title = "IT Specialist/SharePoint Developer"
 period = "Sep 2015 – Mar 2016"
 highlights = [
   "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
+]
+
+[[experience]]
+company = "Electronic Arts (EA)"
+title = "Compatibility and Technology (CAT) Lab Technician"
+period = "Apr 2014 – Jan 2015"
+highlights = [
+  "Tested hardware (video cards, sound cards, CPUs, memory, operating systems and peripherals) against software at each stage of production, from pre-alpha through final release.",
+  "Contributed to the discovery of several critical bugs and presented design suggestions that were considered or implemented in the final release.",
+  "Categorized and prioritized issues in daily testing simulations, working with developers in bug tracking software such as Jira, DevTest and DevTrack.",
+  "Used automated testing tools in daily testing.",
 ]
 
 [[tools]]
