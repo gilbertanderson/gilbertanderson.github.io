@@ -287,6 +287,43 @@
         ],
         "title": "Link"
       },
+      "LinkedInPost": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Text",
+            "description": "The post text, or your own commentary on a repost."
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Url"
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Date",
+            "description": "Display date, e.g. 'Nov 2026'."
+          },
+          "context": {
+            "type": "string",
+            "title": "Context",
+            "description": "Optional one-line note, e.g. what the post is reposting.",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "url",
+          "date"
+        ],
+        "title": "LinkedInPost"
+      },
       "Position": {
         "properties": {
           "title": {
@@ -644,6 +681,14 @@
             },
             "type": "array",
             "title": "Writing",
+            "default": []
+          },
+          "linkedin_posts": {
+            "items": {
+              "$ref": "#/components/schemas/LinkedInPost"
+            },
+            "type": "array",
+            "title": "Linkedin Posts",
             "default": []
           },
           "how_built": {

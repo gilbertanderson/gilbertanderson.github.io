@@ -363,6 +363,12 @@ summary = "design2code is a Claude Code skill that takes a Figma file and produc
 url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
 source = "Medium"
 
+[[linkedin_posts]]
+text = "It was a pleasure working on Towers & Titans. I wore many hats from IT management, DevOps & cybersecurity to narrative writing, game development, and web development. I'm so proud of what we accomplished and the friends I made along the way."
+context = "Resharing David Bethune's throwback to Towers & Titans, the Rumble Entertainment tower defense game."
+date = "Nov 2026"
+url = "https://www.linkedin.com/posts/gilbertanderson_it-was-a-pleasure-working-on-towers-titans-ugcPost-7529284622891892736-tiTf/"
+
 [how_built]
 heading = "How this site is built"
 blurb = "This portfolio doubles as a working example of the stack I build with."

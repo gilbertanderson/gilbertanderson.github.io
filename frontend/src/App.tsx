@@ -10,6 +10,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import HowBuilt from './components/HowBuilt';
+import LinkedInPosts from './components/LinkedInPosts';
 import Profile from './components/Profile';
 import Projects from './components/Projects';
 import Tools from './components/Tools';
@@ -21,7 +22,8 @@ type Props = { content: SiteContent; contactEnabled?: boolean };
 const REPO = 'https://github.com/gilbertanderson/gilbertanderson.github.io';
 
 export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props) {
-  const { site, links, projects, experience, writing, tools, credentials, how_built, contact } = content;
+  const { site, links, projects, experience, writing, tools, credentials, how_built, contact, linkedin_posts } = content;
+  const linkedinProfile = links.find((l) => /linkedin\.com/.test(l.url))?.url;
   const theme = useMemo(() => makeTheme(site.accent, site.accent_on_dark), [site.accent, site.accent_on_dark]);
 
   return (
@@ -43,6 +45,7 @@ export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props
         {writing?.length ? <Writing articles={writing} /> : null}
         <Tools groups={tools} credentials={credentials} />
         {how_built ? <HowBuilt data={how_built} repo={REPO} /> : null}
+        {linkedin_posts?.length ? <LinkedInPosts posts={linkedin_posts} profile={linkedinProfile} /> : null}
         <Contact contact={contact} links={links} formEnabled={contactEnabled} />
       </Box>
       <Footer name={site.name} />

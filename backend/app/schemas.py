@@ -87,6 +87,13 @@ class Article(Strict):
     source: str = Field(default="", description="Where it was published, e.g. 'Medium'.")
 
 
+class LinkedInPost(Strict):
+    text: str = Field(min_length=1, description="The post text, or your own commentary on a repost.")
+    url: HttpUrl
+    date: str = Field(min_length=1, description="Display date, e.g. 'Nov 2026'.")
+    context: str = Field(default="", description="Optional one-line note, e.g. what the post is reposting.")
+
+
 class HowBuilt(Strict):
     heading: str = Field(min_length=1)
     blurb: str = ""
@@ -108,6 +115,7 @@ class SiteContent(Strict):
     tools: list[ToolGroup]
     credentials: list[ToolGroup] = []
     writing: list[Article] = []
+    linkedin_posts: list[LinkedInPost] = []
     how_built: HowBuilt | None = None
     contact: ContactSection
 

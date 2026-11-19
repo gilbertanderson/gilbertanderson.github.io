@@ -85,6 +85,16 @@ describe('App', () => {
     expect(more).toHaveAttribute('aria-expanded', 'true');
   });
 
+  it('shows LinkedIn posts with a link to each', () => {
+    renderApp();
+    const section = screen.getByRole('region', { name: 'From LinkedIn' });
+    for (const p of content.linkedin_posts ?? []) {
+      expect(within(section).getByText(p.text)).toBeInTheDocument();
+    }
+    const links = within(section).getAllByRole('link', { name: /view on linkedin/i });
+    expect(links.map((a) => a.getAttribute('href'))).toEqual((content.linkedin_posts ?? []).map((p) => p.url));
+  });
+
   it('links each project to its repository', () => {
     renderApp();
     const work = screen.getByRole('region', { name: 'Projects' });
