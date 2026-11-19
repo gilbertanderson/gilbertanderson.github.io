@@ -6,8 +6,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import type { Role } from '../client/siteApi';
 import { mono } from '../theme';
+import ResumeMenu from './ResumeMenu';
 import Section from './Section';
-import TextLink from './TextLink';
 
 type Row = { title: string; meta: string; highlights: string[] };
 
@@ -84,12 +84,7 @@ export default function Experience({ roles, resume, resumePdf }: { roles: Role[]
       title="Experience"
       n="03"
       action={
-        resume || resumePdf ? (
-          <Stack spacing={0}>
-            {resumePdf ? <TextLink href={resumePdf} download sx={{ fontSize: 15 }}>Full resume (PDF)</TextLink> : null}
-            {resume ? <TextLink href={resume} download sx={{ fontSize: 15 }}>Full resume (.docx)</TextLink> : null}
-          </Stack>
-        ) : undefined
+        resume || resumePdf ? <ResumeMenu pdf={resumePdf} docx={resume} label="Full resume" fontSize={15} /> : undefined
       }
     >
       <RoleList roles={roles.slice(0, RECENT)} />

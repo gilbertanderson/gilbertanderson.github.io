@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import type { Link, Site } from '../client/siteApi';
 import { mono } from '../theme';
 import { ArrowDown } from './Icons';
+import ResumeMenu from './ResumeMenu';
 import TextLink from './TextLink';
 import Wrap from './Wrap';
 
@@ -67,8 +68,7 @@ export default function Profile({ site, links }: { site: Site; links: Link[] }) 
         {links.map((l) => (
           <TextLink key={l.label} href={l.url} external>{l.label}</TextLink>
         ))}
-        {site.resume_pdf ? <TextLink href={site.resume_pdf} download>Resume (PDF)</TextLink> : null}
-        {site.resume ? <TextLink href={site.resume} download>Resume (.docx)</TextLink> : null}
+        <ResumeMenu pdf={site.resume_pdf} docx={site.resume} />
       </Stack>
     </Wrap>
   );
