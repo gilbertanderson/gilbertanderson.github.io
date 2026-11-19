@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support.
 
-My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in securing services, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -103,7 +103,7 @@ highlights = [
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
   "Used Playwright for automated testing of UI changes before release.",
   "Assisted with Chainguard secure container images and provided server-side code support in Java, Python, and Go.",
-  "Added Okta single sign-on (SSO) to the MVP dashboard application and set up OAuth 2.0 authorization for its API.",
+  "Added Okta single sign-on (SSO) to the MVP dashboard application, worked with SAML for SSO, and set up OAuth 2.0 authorization for its API.",
 ]
 
 [[experience.positions]]
@@ -192,13 +192,16 @@ highlights = [
 [[experience]]
 company = "Plarium USA (Rumble Entertainment)"
 logo = "/logos/plarium.jpg"
-title = "Technical Producer"
+title = "Technical Producer / DevOps Manager"
 period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
   "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
   "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
+  "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
+  "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
+  "Helped build a customer support and IT portal, including health checks for the game's services.",
 ]
 
 [[experience]]
@@ -290,7 +293,7 @@ period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
-  "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application hosted on Predix (Cloud Foundry).",
+  "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
 ]
 
 [[experience]]
@@ -336,11 +339,11 @@ items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Ope
 
 [[tools]]
 group = "Backend & data"
-items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
+items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
 
 [[credentials]]
 group = "Education"
