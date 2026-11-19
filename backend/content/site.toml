@@ -301,7 +301,7 @@ highlights = [
 
 [[tools]]
 group = "Languages & frameworks"
-items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angular", "React", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "GraphQL", "Python", "SQL", "PostgreSQL", "Neo4j"]
+items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angular", "React", "Vue", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "GraphQL", "Python", "SQL", "PostgreSQL", "Neo4j", "Selenium", "Cypress"]
 
 [[tools]]
 group = "AI & LLM"
