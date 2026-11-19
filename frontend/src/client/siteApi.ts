@@ -47,6 +47,8 @@ export type Site = {
   avatar?: string | null;
   /** Path under frontend/public, e.g. /Resume.docx. */
   resume?: string | null;
+  /** PDF copy of the resume, path under frontend/public. */
+  resume_pdf?: string | null;
 };
 export type Link = {
   label: string;

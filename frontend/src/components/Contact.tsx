@@ -15,6 +15,29 @@ export const INV = { bg: '#101113', bgDark: '#17191D', fg: '#F4F4F1', mut: '#A9A
 
 type Props = { contact: ContactSection; links: Link[]; formEnabled: boolean };
 
+function PhoneReveal({ phone }: { phone: string }) {
+  const [shown, setShown] = useState(false);
+  if (shown) {
+    return (
+      <MuiLink
+        href={`tel:+1${phone.replace(/\D/g, '')}`}
+        underline="none"
+        sx={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', minHeight: 44, fontFamily: mono, fontSize: 16, color: INV.fg }}
+      >
+        {phone}
+      </MuiLink>
+    );
+  }
+  return (
+    <Button
+      onClick={() => setShown(true)}
+      sx={{ alignSelf: 'flex-start', minHeight: 44, px: 1.75, border: '1.5px solid', borderColor: INV.line, borderRadius: '4px', color: INV.fg, fontFamily: mono, fontSize: 13, fontWeight: 400 }}
+    >
+      Show phone number
+    </Button>
+  );
+}
+
 function CopyEmail({ email }: { email: string }) {
   const [copied, setCopied] = useState(false);
   async function copy() {
@@ -69,15 +92,7 @@ export default function Contact({ contact, links, formEnabled }: Props) {
                   <CopyEmail email={contact.email} />
                 </Stack>
               ) : null}
-              {contact.phone ? (
-                <MuiLink
-                  href={`tel:+1${contact.phone.replace(/\D/g, '')}`}
-                  underline="none"
-                  sx={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', minHeight: 44, fontFamily: mono, fontSize: 16, color: INV.fg }}
-                >
-                  {contact.phone}
-                </MuiLink>
-              ) : null}
+              {contact.phone ? <PhoneReveal phone={contact.phone} /> : null}
             </Stack>
           ) : null}
           <Stack direction="row" useFlexGap sx={{ flexWrap: 'wrap', gap: 1.5 }}>

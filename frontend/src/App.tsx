@@ -39,7 +39,7 @@ export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props
         <Profile site={site} links={links} />
         <Projects projects={projects} />
         {site.bio ? <About bio={site.bio} /> : null}
-        {experience?.length ? <Experience roles={experience} resume={site.resume} /> : null}
+        {experience?.length ? <Experience roles={experience} resume={site.resume} resumePdf={site.resume_pdf} /> : null}
         {writing?.length ? <Writing articles={writing} /> : null}
         <Tools groups={tools} credentials={credentials} />
         {how_built ? <HowBuilt data={how_built} repo={REPO} /> : null}
