@@ -102,6 +102,7 @@ highlights = [
   "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
   "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
   "Used Playwright for automated testing of UI changes before release.",
+  "Assisted with Chainguard secure container images and provided server-side code support in Java, Python, and Go.",
 ]
 
 [[experience.positions]]
@@ -248,6 +249,9 @@ highlights = [
 [[experience]]
 company = "Defense Intelligence Agency (DIA)"
 logo = "/logos/dia.jpg"
+period = "May 2018 – Aug 2019"
+
+[[experience.positions]]
 title = "Lead UI/UX Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
@@ -255,6 +259,16 @@ highlights = [
   "Developed analytical dashboards and business intelligence solutions supporting ISR missions, enabling data exploration, trend analysis, drill-down reporting, and operational decision support.",
   "Engineered Angular/Vue modules with Spring backend integration for ISR applications.",
   "Implemented tree shaking, lazy loading, and modular UI patterns to improve performance.",
+]
+
+[[experience.positions]]
+title = "Project Manager / Scrum Master"
+period = "May 2018 – Jan 2019"
+note = "The Buffalo Group"
+highlights = [
+  "Served as Scrum Master for several Scrum teams, facilitating daily stand-ups, backlog grooming, sprint planning, iteration demos, and sprint retrospectives.",
+  "Gathered requirements and specifications, helped team members finish code through impediment removal and code reviews, and administered Jira and Rally while holding the teams to Agile principles.",
+  "Facilitated pair programming, mentored developers, and maintained burn-down charts and status reports for each team and sprint.",
 ]
 
 [[experience]]
@@ -301,7 +315,7 @@ highlights = [
 
 [[tools]]
 group = "Languages & frameworks"
-items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angular", "React", "Vue", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "GraphQL", "Python", "SQL", "PostgreSQL", "Neo4j", "Selenium", "Cypress"]
+items = ["C++", ".NET", "Java", "Spring Boot", "JavaScript", "TypeScript", "Angular", "React", "Vue", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "GraphQL", "Python", "Go", "SQL", "PostgreSQL", "Neo4j", "Selenium", "Cypress"]
 
 [[tools]]
 group = "AI & LLM"
@@ -325,7 +339,7 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Elasticsearch",
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
 
 [[credentials]]
 group = "Education"
