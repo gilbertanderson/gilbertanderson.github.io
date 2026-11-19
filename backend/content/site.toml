@@ -261,7 +261,7 @@ period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
-  "Applied automated testing tools to verify UI changes before release.",
+  "Built AutoTest Cloud for end-to-end automated testing.",
 ]
 
 [[experience]]
@@ -287,7 +287,7 @@ items = ["Next.js", "Vue", "MUI", "Storybook", "Design systems", "SSR/CSR hybrid
 
 [[tools]]
 group = "Testing & automation"
-items = ["Selenium", "Cypress", "Playwright", "Automated testing"]
+items = ["Selenium", "Cypress", "Playwright", "PyTest", "Automated testing"]
 
 [[tools]]
 group = "Analytics & data visualization"
