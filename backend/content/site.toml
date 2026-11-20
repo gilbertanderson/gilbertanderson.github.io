@@ -172,14 +172,13 @@ highlights = [
 
 
 [[experience]]
-company = "Department of Defense (DTRA)"
-logo = "/logos/dtra.png"
-period = "Jul 2023 – Jul 2025"
+company = "U.S. Department of Defense (DoD)"
+period = "2015 – 2025"
 
 [[experience.positions]]
 title = "Senior Full Stack Developer"
 period = "Jul 2023 – Jul 2025"
-note = "Take2 Consulting · Booz Allen Hamilton"
+note = "DTRA · Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
   "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
@@ -188,15 +187,47 @@ highlights = [
   "Used Cypress for automated testing of UI changes before release.",
 ]
 
+[[experience.positions]]
+title = "Senior Software Developer"
+period = "Dec 2021 – Feb 2023"
+note = "U.S. Navy"
+highlights = [
+  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
+  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
+  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
+  "Architected client-side logic supporting complex ISR workflows and data visualization.",
+]
+
+[[experience.positions]]
+title = "Java Developer"
+period = "Aug 2017 – Apr 2018"
+note = "U.S. Army Human Resources Command"
+highlights = [
+  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
+]
+
+[[experience.positions]]
+title = "IT Specialist/SharePoint Developer"
+period = "Sep 2015 – Mar 2016"
+note = "Marine Forces Reserve"
+highlights = [
+  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
+]
+
 [[experience]]
 company = "Federal Bureau of Investigation (FBI)"
 logo = "/logos/fbi.jpg"
-period = "2020 – 2024"
+period = "2020 – 2025"
 
 [[experience.positions]]
 title = "Software Engineer"
-period = "Aug 2024 – Dec 2024"
+period = "Aug 2024 – Jan 2025"
 note = "Fusion Technology LLC · CJIS Division"
+highlights = [
+  "Provided full-stack engineering support to the FBI Criminal Justice Information Services (CJIS) Division with Angular and Java.",
+  "Worked with Docker, Kubernetes, and Redis.",
+]
 
 [[experience.positions]]
 title = "Software Developer"
@@ -229,18 +260,6 @@ highlights = [
   "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
   "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
   "Helped build a customer support and IT portal, including health checks for the game's services.",
-]
-
-[[experience]]
-company = "Department of Defense (Navy)"
-logo = "/logos/navy.jpg"
-title = "Senior Software Developer"
-period = "Dec 2021 – Feb 2023"
-highlights = [
-  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
-  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
-  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
-  "Architected client-side logic supporting complex ISR workflows and data visualization.",
 ]
 
 [[experience]]
@@ -280,16 +299,6 @@ highlights = [
 ]
 
 [[experience]]
-company = "US Army Human Resources Command (Army)"
-logo = "/logos/army.jpg"
-title = "Java Developer"
-period = "Aug 2017 – Apr 2018"
-highlights = [
-  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
-  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
-]
-
-[[experience]]
 company = "GE Digital"
 logo = "/logos/ge.jpg"
 title = "Software Engineer"
@@ -299,15 +308,6 @@ highlights = [
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
   "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
-]
-
-[[experience]]
-company = "US Department of Defense (Marine Forces Reserve)"
-logo = "/logos/marforres.jpg"
-title = "IT Specialist/SharePoint Developer"
-period = "Sep 2015 – Mar 2016"
-highlights = [
-  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
 ]
 
 [[experience]]
