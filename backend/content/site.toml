@@ -11,9 +11,9 @@ headline_highlights = ["interfaces", "software"]
 bio = """
 I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of experience building secure, data-driven applications for the U.S. Department of Defense and Intelligence Community.
 
-I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service tools so people can search, filter, drill down, visualize, and securely export data without waiting on an engineer.
+I embed directly with mission customers, most recently inside a federal Office of Inspector General, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
 
-My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've worked with Docker, Kubernetes, and Podman since 2016. I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker, Kubernetes, and Podman since 2016, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
