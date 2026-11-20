@@ -197,7 +197,6 @@ period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
-  "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
   "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
   "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
   "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
@@ -247,7 +246,6 @@ title = "Software Developer"
 period = "Oct 2020 – Oct 2021"
 highlights = [
   "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
-  "Ensured cross-browser compatibility, accessibility, and consistent design across multiple teams.",
   "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
 ]
 
@@ -261,9 +259,7 @@ title = "Lead Software Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
   "Designed business intelligence dashboards and interactive data visualizations using Kibana, Grafana, D3.js, and custom analytics frameworks supporting intelligence operations.",
-  "Developed analytical dashboards and business intelligence solutions supporting ISR missions, enabling data exploration, trend analysis, drill-down reporting, and operational decision support.",
   "Engineered Angular/Vue modules with Spring backend integration for ISR applications.",
-  "Implemented tree shaking, lazy loading, and modular UI patterns to improve performance.",
 ]
 
 [[experience.positions]]
@@ -314,9 +310,7 @@ title = "Compatibility and Technology (CAT) Lab Technician"
 period = "Apr 2014 – Jan 2015"
 highlights = [
   "Tested hardware (video cards, sound cards, CPUs, memory, operating systems and peripherals) against software at each stage of production, from pre-alpha through final release.",
-  "Contributed to the discovery of several critical bugs and presented design suggestions that were considered or implemented in the final release.",
   "Categorized and prioritized issues in daily testing simulations, working with developers in bug tracking software such as Jira, DevTest and DevTrack.",
-  "Used automated testing tools in daily testing.",
 ]
 
 [[tools]]
