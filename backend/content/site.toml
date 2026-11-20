@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support.
 
-My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've worked hands-on with Docker, the Docker CLI, Kubernetes, and Podman since 2016, containerizing and deploying applications across many projects, including managing Kubernetes namespaces and containerized environments for backend automated testing. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've also worked with Docker, Kubernetes, and Podman since 2016. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -225,8 +225,7 @@ highlights = [
   "Reviewed system-level and subsystem-level design requirements to ensure testability, and defined test cases and test plans from interaction matrices.",
   "Planned testing from desktop verification and software-in-the-loop to hardware-in-the-loop, locomotive testing and pilot fleet operation.",
   "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
-  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments and services.",
-  "Manipulated Kubernetes namespaces during backend automated testing, working directly with containerized resources and Docker-based test environments.",
+  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
   "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
 ]
 
@@ -280,12 +279,11 @@ highlights = [
 [[experience]]
 company = "US Army Human Resources Command (Army)"
 logo = "/logos/army.jpg"
-title = "Software Developer"
+title = "Java Developer"
 period = "Aug 2017 – Apr 2018"
 highlights = [
   "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
-  "Performed TDD, integration testing, and secure code refactoring using Fortify, including compliance testing as a Java developer (HPE/DXC).",
-  "Deployed containerized Java/Spring applications using Docker and Kubernetes.",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
 ]
 
 [[experience]]
@@ -297,7 +295,7 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
-  "Started working with Kubernetes and Docker in 2016, using the Docker CLI to containerize applications and deploy them to Kubernetes clusters, and worked with Podman for containerization and cluster-based deployments. Have used Docker in every role since that deployed to AWS EC2.",
+  "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
 ]
 
 [[experience]]
@@ -347,7 +345,7 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasti
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Docker CLI", "Containerization", "Kubernetes", "Kubernetes namespaces", "Podman", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
