@@ -65,7 +65,7 @@ class Position(Strict):
     title: str = Field(min_length=1)
     period: str = Field(min_length=1)
     note: str | None = Field(default=None, description="Optional line under the title, e.g. the program or employer.")
-    highlights: list[str] = Field(min_length=1)
+    highlights: list[str] = Field(default_factory=list)
 
 
 class Role(Strict):

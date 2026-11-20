@@ -145,16 +145,31 @@ highlights = [
 ]
 
 [[experience]]
-company = "Opalsoft / Casepoint, NGA Office of Inspector General"
-logo = "/logos/opexus.jpg"
+company = "National Geospatial-Intelligence Agency (NGA)"
+logo = "/logos/nga.jpg"
+period = "2020 – 2025"
+
+[[experience.positions]]
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
+note = "Opalsoft / Casepoint · Office of Inspector General"
 highlights = [
   "Served as the primary embedded engineer, managing deployment and configuration of the Casepoint eDiscovery platform for an environment of 200+ users.",
   "Worked directly with OIG investigators, auditors, and analysts to turn day-to-day mission needs into platform changes, shortening the loop between user problem and delivered fix.",
   "Trained 50+ investigators and auditors on platform workflows, reducing support ticket volume by 20% and accelerating adoption of new features.",
   "Delivered security patches and UI enhancements under strict accreditation constraints while maintaining a 99.9% platform availability rate.",
 ]
+
+
+[[experience.positions]]
+title = "Lead Software Engineer"
+period = "Sep 2020 – Jul 2021"
+highlights = [
+  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
+  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
+  "Developed analytical and data-driven UI tools supporting ISR missions.",
+]
+
 
 [[experience]]
 company = "Department of Defense (DTRA)"
@@ -174,10 +189,23 @@ highlights = [
 ]
 
 [[experience]]
-company = "Fusion Technology LLC (FBI CJIS Division)"
-logo = "/logos/fusion.jpg"
+company = "Federal Bureau of Investigation (FBI)"
+logo = "/logos/fbi.jpg"
+period = "2020 – 2024"
+
+[[experience.positions]]
 title = "Software Engineer"
 period = "Aug 2024 – Dec 2024"
+note = "Fusion Technology LLC · CJIS Division"
+
+[[experience.positions]]
+title = "Software Developer"
+period = "Oct 2020 – Oct 2021"
+highlights = [
+  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
+  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
+]
+
 
 [[experience]]
 company = "Varsity Tutors"
@@ -226,27 +254,6 @@ highlights = [
   "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
   "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
   "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
-]
-
-[[experience]]
-company = "National Geospatial-Intelligence Agency (NGA)"
-logo = "/logos/nga.jpg"
-title = "Lead Software Engineer"
-period = "Sep 2020 – Jul 2021"
-highlights = [
-  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
-  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
-  "Developed analytical and data-driven UI tools supporting ISR missions.",
-]
-
-[[experience]]
-company = "Federal Bureau of Investigation (FBI)"
-logo = "/logos/fbi.jpg"
-title = "Software Developer"
-period = "Oct 2020 – Oct 2021"
-highlights = [
-  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
-  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
 ]
 
 [[experience]]

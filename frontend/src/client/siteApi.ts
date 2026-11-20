@@ -81,7 +81,7 @@ export type Position = {
   period: string;
   /** Optional line under the title, e.g. the program or employer. */
   note?: string | null;
-  highlights: string[];
+  highlights?: string[];
 };
 export type Role = {
   company: string;
