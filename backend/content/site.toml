@@ -11,9 +11,9 @@ headline_highlights = ["interfaces", "software"]
 bio = """
 I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of experience building secure, data-driven applications for the U.S. Department of Defense and Intelligence Community.
 
-I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support.
+I embed directly with mission customers, most recently inside a federal Office of Inspector General, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
 
-My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've also worked with Docker, Kubernetes, and Podman since 2016. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker, Kubernetes, and Podman since 2016, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -97,13 +97,13 @@ title = "Senior Software Engineer, UI Team Lead"
 period = "Jun 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
-  "Designed and deployed 15+ automated Grafana dashboards, reducing manual reporting time for Navy stakeholders by 40%.",
-  "Built self-service analytics portals enabling 100+ non-technical users to search, filter, drill down, and visualize mission data independently, cutting ad-hoc engineering requests by 50%.",
-  "Integrated Anthropic Claude, OpenAI GPT, and AWS Bedrock into internal engineering workflows to automate documentation and code review, increasing team development velocity by 25%.",
-  "Engineered responsive UI components in React/TypeScript with MUI theming and Figma-driven design systems, decreasing application load times by 30%, released through Jenkins CI/CD pipelines.",
+  "Designed and deployed 15+ automated Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
+  "Built self-service analytics portals that let 100+ non-technical users search, filter, drill down, and visualize mission data on their own, cutting ad-hoc engineering requests by 50%.",
+  "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow to automate documentation and code review, speeding up team development by 25%.",
+  "Built responsive React/TypeScript UI components with MUI theming and Figma design systems, cutting load times by 30%, and released them through Jenkins CI/CD pipelines.",
   "Used Playwright for automated testing of UI changes before release.",
-  "Assisted with Chainguard secure container images and provided server-side code support in Java, Python, and Go.",
-  "Added Okta single sign-on (SSO) to the MVP dashboard application, worked with SAML for SSO, and set up OAuth 2.0 authorization for its API.",
+  "Helped with Chainguard secure container images and supported server-side code in Java, Python, and Go.",
+  "Added Okta single sign-on (SSO) with SAML to the MVP dashboard app and set up OAuth 2.0 authorization for its API.",
 ]
 
 [[experience.positions]]
@@ -111,7 +111,7 @@ title = "Generative AI Engineer"
 period = "Mar 2026 – Present"
 note = "Part-time"
 highlights = [
-  "Supporting CACI's AI modernization efforts with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
+  "Support CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
 ]
 
 [[experience.positions]]
@@ -119,7 +119,7 @@ title = "Senior Software Engineer"
 period = "Mar 2026 – Jun 2026"
 note = "U.S. Navy program"
 highlights = [
-  "Supported the DoD Navy mission with continuous design and development using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
+  "Designed and developed for the DoD Navy mission using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
 ]
 
 [[experience.positions]]
@@ -127,9 +127,9 @@ title = "Senior Full Stack Engineer"
 period = "Feb 2026 – Mar 2026"
 note = "Gridiron IT · ODNI and CIA programs"
 highlights = [
-  "Built REST and GraphQL integrations supporting Tableau reporting environments.",
-  "Developed secure API services that enabled analysts to consume, visualize, and export intelligence data through self-service reporting tools.",
-  "Delivered software engineering support to ODNI/CIA focused on UI and API development.",
+  "Built REST and GraphQL integrations for analyst reporting tools.",
+  "Built secure API services that let analysts pull, visualize, and export intelligence data through self-service reporting tools.",
+  "Supported ODNI/CIA with UI and API development.",
 ]
 
 [[experience]]
@@ -138,105 +138,50 @@ logo = "/logos/strikeworks.jpg"
 title = "Founder & Senior Software Engineer"
 period = "Jul 2020 – Present"
 highlights = [
-  "Developed a custom React/D3.js visualization suite for enterprise clients, increasing dashboard engagement by 25% and reducing data processing latency by 30%.",
-  "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across multiple federal and commercial programs, cutting new client integration time by 50%.",
-  "Implemented secure data export protocols supporting high-volume CSV/JSON exports (10,000+ rows per request) with 100% compliance with client security standards.",
-  "Designed and implemented React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with SSR/CSR hybrid rendering and optimized routing and caching.",
+  "Built a custom React/D3.js visualization suite for enterprise clients, raising dashboard engagement by 25% and cutting data processing latency by 30%.",
+  "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across federal and commercial programs, cutting new client integration time by 50%.",
+  "Built secure CSV/JSON exports that handle 10,000+ rows per request and fully meet client security standards.",
+  "Designed and built React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with SSR/CSR hybrid rendering and tuned routing and caching.",
 ]
 
 [[experience]]
-company = "National Geospatial-Intelligence Agency (NGA)"
-logo = "/logos/nga.jpg"
-period = "2020 – 2025"
-
-[[experience.positions]]
+company = "Opalsoft / Casepoint, NGA Office of Inspector General"
+logo = "/logos/opexus.jpg"
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
-note = "Opalsoft / Casepoint · Office of Inspector General"
 highlights = [
-  "Served as the primary embedded engineer, managing deployment and configuration of the Casepoint eDiscovery platform for an environment of 200+ users.",
-  "Worked directly with OIG investigators, auditors, and analysts to turn day-to-day mission needs into platform changes, shortening the loop between user problem and delivered fix.",
-  "Trained 50+ investigators and auditors on platform workflows, reducing support ticket volume by 20% and accelerating adoption of new features.",
-  "Delivered security patches and UI enhancements under strict accreditation constraints while maintaining a 99.9% platform availability rate.",
+  "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
+  "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
+  "Trained 50+ investigators and auditors on the platform, cutting support tickets by 20% and speeding up adoption of new features.",
+  "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
 ]
-
-
-[[experience.positions]]
-title = "Lead Software Engineer"
-period = "Sep 2020 – Jul 2021"
-highlights = [
-  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
-  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
-  "Developed analytical and data-driven UI tools supporting ISR missions.",
-]
-
 
 [[experience]]
-company = "U.S. Department of Defense (DoD)"
-period = "2015 – 2025"
+company = "Department of Defense (DTRA)"
+logo = "/logos/dtra.png"
+period = "Jul 2023 – Jul 2025"
 
 [[experience.positions]]
 title = "Senior Full Stack Developer"
 period = "Jul 2023 – Jul 2025"
-note = "DTRA · Take2 Consulting · Booz Allen Hamilton"
+note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
-  "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
-  "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
-  "Developed React, Angular, and Vue components for intelligence, surveillance, and reconnaissance (ISR) mission systems, with secure prefetching to improve performance.",
-  "Built reusable UI libraries, improved cross-browser compatibility, and authored technical documentation supporting continuous operations and maintenance.",
+  "Improved Core Web Vitals (LCP, FID) by 35% with lazy loading and code splitting.",
+  "Streamlined AWS CI/CD pipelines, moving deployments from weekly to daily and cutting build failures by 60%.",
+  "Built React, Angular, and Vue components for intelligence, surveillance, and reconnaissance (ISR) mission systems, using secure prefetching to speed them up.",
+  "Built reusable UI libraries, fixed cross-browser issues, and wrote technical documentation for ongoing operations and maintenance.",
   "Used Cypress for automated testing of UI changes before release.",
 ]
 
-[[experience.positions]]
-title = "Senior Software Developer"
-period = "Dec 2021 – Feb 2023"
-note = "U.S. Navy"
-highlights = [
-  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
-  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
-  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
-  "Architected client-side logic supporting complex ISR workflows and data visualization.",
-]
-
-[[experience.positions]]
-title = "Java Developer"
-period = "Aug 2017 – Apr 2018"
-note = "U.S. Army Human Resources Command"
-highlights = [
-  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
-  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
-]
-
-[[experience.positions]]
-title = "IT Specialist/SharePoint Developer"
-period = "Sep 2015 – Mar 2016"
-note = "Marine Forces Reserve"
-highlights = [
-  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
-]
-
 [[experience]]
-company = "Federal Bureau of Investigation (FBI)"
-logo = "/logos/fbi.jpg"
-period = "2020 – 2025"
-
-[[experience.positions]]
+company = "Fusion Technology LLC (FBI CJIS Division)"
+logo = "/logos/fusion.jpg"
 title = "Software Engineer"
 period = "Aug 2024 – Jan 2025"
-note = "Fusion Technology LLC · CJIS Division"
 highlights = [
   "Provided full-stack engineering support to the FBI Criminal Justice Information Services (CJIS) Division with Angular and Java.",
   "Worked with Docker, Kubernetes, and Redis.",
 ]
-
-[[experience.positions]]
-title = "Software Developer"
-period = "Oct 2020 – Oct 2021"
-highlights = [
-  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
-  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
-]
-
 
 [[experience]]
 company = "Varsity Tutors"
@@ -254,12 +199,24 @@ logo = "/logos/plarium.jpg"
 title = "Technical Producer / DevOps Manager"
 period = "Jun 2022 – Mar 2023"
 highlights = [
-  "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
-  "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
-  "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
+  "Led UI, web, and DevOps teams shipping scalable React/Vue features with SSR/CSR hybrid rendering.",
+  "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript code.",
+  "Tightened security with a Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
   "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
   "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
   "Helped build a customer support and IT portal, including health checks for the game's services.",
+]
+
+[[experience]]
+company = "Department of Defense (Navy)"
+logo = "/logos/navy.jpg"
+title = "Senior Software Developer"
+period = "Dec 2021 – Feb 2023"
+highlights = [
+  "Built UI solutions across React, Vue, Angular, and Spring MVC.",
+  "Improved Web Vitals (CLS, FID) by refactoring components and modernizing ES6+ code.",
+  "Delivered responsive, accessible, Section 508-compliant UI designs for mission-critical Navy applications.",
+  "Built client-side logic for complex ISR workflows and data visualization.",
 ]
 
 [[experience]]
@@ -268,11 +225,32 @@ logo = "/logos/wabtec.jpg"
 title = "Senior Quality Assurance Automation Engineer"
 period = "Aug 2021 – Nov 2021"
 highlights = [
-  "Reviewed system-level and subsystem-level design requirements to ensure testability, and defined test cases and test plans from interaction matrices.",
-  "Planned testing from desktop verification and software-in-the-loop to hardware-in-the-loop, locomotive testing and pilot fleet operation.",
-  "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
-  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
-  "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
+  "Reviewed system and subsystem design requirements for testability, and wrote test cases and test plans from interaction matrices.",
+  "Planned testing from desktop verification and software-in-the-loop through hardware-in-the-loop, locomotive testing, and pilot fleet operation.",
+  "Applied QA test automation, including Selenium, to improve quality, cost, and time-to-market.",
+  "Used Docker and Kubernetes heavily to build, run, and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
+  "Gave technical oversight to test technicians and led design reviews of test plans, procedures, and results.",
+]
+
+[[experience]]
+company = "Federal Bureau of Investigation (FBI)"
+logo = "/logos/fbi.jpg"
+title = "Software Developer"
+period = "Oct 2020 – Oct 2021"
+highlights = [
+  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
+  "Integrated GraphQL APIs and sped up client-side rendering for high-volume data.",
+]
+
+[[experience]]
+company = "National Geospatial-Intelligence Agency (NGA)"
+logo = "/logos/nga.jpg"
+title = "Lead Software Engineer"
+period = "Sep 2020 – Jul 2021"
+highlights = [
+  "Led the modernization of geospatial database systems using React, Vue, Angular, and Next.js.",
+  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript code.",
+  "Built analytical, data-driven UI tools for ISR missions.",
 ]
 
 [[experience]]
@@ -284,8 +262,8 @@ period = "May 2018 – Aug 2019"
 title = "Lead Software Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
-  "Designed business intelligence dashboards and interactive data visualizations using Kibana, Grafana, D3.js, and custom analytics frameworks supporting intelligence operations.",
-  "Engineered Angular/Vue modules with Spring backend integration for ISR applications.",
+  "Designed Grafana dashboards and D3.js data visualizations supporting intelligence operations.",
+  "Built Angular/Vue modules with Spring backend integration for ISR applications.",
 ]
 
 [[experience.positions]]
@@ -293,9 +271,19 @@ title = "Project Manager / Scrum Master"
 period = "May 2018 – Jan 2019"
 note = "The Buffalo Group"
 highlights = [
-  "Served as Scrum Master for several Scrum teams, facilitating daily stand-ups, backlog grooming, sprint planning, iteration demos, and sprint retrospectives.",
+  "Served as Scrum Master for several Scrum teams, running daily stand-ups, backlog grooming, sprint planning, demos, and retrospectives.",
   "Gathered requirements and specifications, helped team members finish code through impediment removal and code reviews, and administered Jira and Rally while holding the teams to Agile principles.",
   "Facilitated pair programming, mentored developers, and maintained burn-down charts and status reports for each team and sprint.",
+]
+
+[[experience]]
+company = "US Army Human Resources Command (Army)"
+logo = "/logos/army.jpg"
+title = "Java Developer"
+period = "Aug 2017 – Apr 2018"
+highlights = [
+  "Modernized legacy Java/Spring systems with updated, responsive UI layers.",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
 ]
 
 [[experience]]
@@ -305,9 +293,18 @@ title = "Software Engineer"
 period = "Oct 2016 – Jan 2018"
 highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
-  "Led small development teams through SDLC with a focus on UI quality and maintainability.",
+  "Led small development teams through the SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
   "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
+]
+
+[[experience]]
+company = "US Department of Defense (Marine Forces Reserve)"
+logo = "/logos/marforres.jpg"
+title = "IT Specialist/SharePoint Developer"
+period = "Sep 2015 – Mar 2016"
+highlights = [
+  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
 ]
 
 [[experience]]
@@ -338,7 +335,7 @@ items = ["Selenium", "Cypress", "Playwright", "PyTest", "Fortify", "Automated te
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Tableau", "Grafana", "Kibana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
+items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
@@ -386,6 +383,6 @@ points = [
 
 [contact]
 heading = "Let’s build something."
-blurb = "Send a note about a role, a project or a question — I’ll get back to you."
+blurb = "Send a note about a role, a project or a question, and I’ll get back to you."
 email = "gilbertandersonwork@gmail.com"
 phone = "504-233-3599"
