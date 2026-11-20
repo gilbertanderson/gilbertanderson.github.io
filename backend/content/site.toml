@@ -225,6 +225,7 @@ highlights = [
   "Reviewed system-level and subsystem-level design requirements to ensure testability, and defined test cases and test plans from interaction matrices.",
   "Planned testing from desktop verification and software-in-the-loop to hardware-in-the-loop, locomotive testing and pilot fleet operation.",
   "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
+  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments and services.",
   "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
 ]
 
@@ -294,7 +295,7 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
-  "Started working with Docker and Kubernetes in 2016, containerizing applications and deploying them to Kubernetes clusters, and have kept using both since.",
+  "Started working with Docker and Kubernetes in 2016, containerizing applications and deploying them to Kubernetes clusters. Have used Docker in every role since that deployed to AWS EC2.",
 ]
 
 [[experience]]
@@ -344,7 +345,7 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasti
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "GitLab"]
+items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
