@@ -17,7 +17,7 @@ function rowsFor(role: Role): Row[] {
     return role.positions.map((p) => ({
       title: p.title,
       meta: [p.period, p.note].filter(Boolean).join(' · '),
-      highlights: p.highlights,
+      highlights: p.highlights ?? [],
     }));
   }
   return [{ title: role.title ?? '', meta: '', highlights: role.highlights ?? [] }];

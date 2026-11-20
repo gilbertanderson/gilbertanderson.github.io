@@ -4,7 +4,7 @@
 
 [site]
 name = "Gilbert Anderson"
-title = "Forward Deployed Engineer · UI/UX & AI/Automation Lead"
+title = "Forward Deployed Engineer · Software Engineer / Lead"
 headline = "I design interfaces and build the software behind them."
 headline_highlights = ["interfaces", "software"]
 # The bio. Separate paragraphs with a blank line; the first is shown larger. Leave empty to hide it.
@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently inside a federal Office of Inspector General, and turn analyst workflows into self-service platforms where users can search, filter, drill down, visualize, and securely export data without needing engineering support.
 
-My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is in frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, alongside Tableau, Grafana, and Kibana, and I also have hands-on experience integrating LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've also worked with Docker, Kubernetes, and Podman since 2016. I am a Certified ScrumMaster and Certified Scrum Professional with Agile Scrum experience as a Scrum Master and Scrum instructor, and I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support. I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -135,7 +135,7 @@ highlights = [
 [[experience]]
 company = "StrikeWorks Studio"
 logo = "/logos/strikeworks.jpg"
-title = "Founder & Senior UI Software Engineer"
+title = "Founder & Senior Software Engineer"
 period = "Jul 2020 – Present"
 highlights = [
   "Developed a custom React/D3.js visualization suite for enterprise clients, increasing dashboard engagement by 25% and reducing data processing latency by 30%.",
@@ -145,10 +145,14 @@ highlights = [
 ]
 
 [[experience]]
-company = "Opalsoft / Casepoint, NGA Office of Inspector General"
-logo = "/logos/opexus.jpg"
+company = "National Geospatial-Intelligence Agency (NGA)"
+logo = "/logos/nga.jpg"
+period = "2020 – 2025"
+
+[[experience.positions]]
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
+note = "Opalsoft / Casepoint · Office of Inspector General"
 highlights = [
   "Served as the primary embedded engineer, managing deployment and configuration of the Casepoint eDiscovery platform for an environment of 200+ users.",
   "Worked directly with OIG investigators, auditors, and analysts to turn day-to-day mission needs into platform changes, shortening the loop between user problem and delivered fix.",
@@ -156,15 +160,25 @@ highlights = [
   "Delivered security patches and UI enhancements under strict accreditation constraints while maintaining a 99.9% platform availability rate.",
 ]
 
-[[experience]]
-company = "Department of Defense (DTRA)"
-logo = "/logos/dtra.png"
-period = "Jul 2023 – Jul 2025"
 
 [[experience.positions]]
-title = "Senior Fullstack / UI Developer"
+title = "Lead Software Engineer"
+period = "Sep 2020 – Jul 2021"
+highlights = [
+  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
+  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
+  "Developed analytical and data-driven UI tools supporting ISR missions.",
+]
+
+
+[[experience]]
+company = "U.S. Department of Defense (DoD)"
+period = "2015 – 2025"
+
+[[experience.positions]]
+title = "Senior Full Stack Developer"
 period = "Jul 2023 – Jul 2025"
-note = "Take2 Consulting · Booz Allen Hamilton"
+note = "DTRA · Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Optimized frontend architecture with lazy loading and code splitting, improving Core Web Vitals (LCP, FID) by 35%.",
   "Streamlined AWS CI/CD pipelines, increasing deployment frequency from weekly to daily and cutting build failure rates by 60%.",
@@ -173,11 +187,56 @@ highlights = [
   "Used Cypress for automated testing of UI changes before release.",
 ]
 
+[[experience.positions]]
+title = "Senior Software Developer"
+period = "Dec 2021 – Feb 2023"
+note = "U.S. Navy"
+highlights = [
+  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
+  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
+  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
+  "Architected client-side logic supporting complex ISR workflows and data visualization.",
+]
+
+[[experience.positions]]
+title = "Java Developer"
+period = "Aug 2017 – Apr 2018"
+note = "U.S. Army Human Resources Command"
+highlights = [
+  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
+]
+
+[[experience.positions]]
+title = "IT Specialist/SharePoint Developer"
+period = "Sep 2015 – Mar 2016"
+note = "Marine Forces Reserve"
+highlights = [
+  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
+]
+
 [[experience]]
-company = "Fusion Technology LLC"
-logo = "/logos/fusion.jpg"
+company = "Federal Bureau of Investigation (FBI)"
+logo = "/logos/fbi.jpg"
+period = "2020 – 2025"
+
+[[experience.positions]]
 title = "Software Engineer"
-period = "Oct 2024 – Jan 2025"
+period = "Aug 2024 – Jan 2025"
+note = "Fusion Technology LLC · CJIS Division"
+highlights = [
+  "Provided full-stack engineering support to the FBI Criminal Justice Information Services (CJIS) Division with Angular and Java.",
+  "Worked with Docker, Kubernetes, and Redis.",
+]
+
+[[experience.positions]]
+title = "Software Developer"
+period = "Oct 2020 – Oct 2021"
+highlights = [
+  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
+  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
+]
+
 
 [[experience]]
 company = "Varsity Tutors"
@@ -197,23 +256,10 @@ period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams delivering scalable React/Vue features with SSR/CSR hybrids.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript architectures.",
-  "Conducted UI performance tuning, A/B testing, and optimization for high-traffic applications.",
   "Strengthened security posture using Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
   "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
   "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
   "Helped build a customer support and IT portal, including health checks for the game's services.",
-]
-
-[[experience]]
-company = "Department of Defense (Navy)"
-logo = "/logos/navy.jpg"
-title = "Senior UI/UX Web Developer"
-period = "Dec 2021 – Feb 2023"
-highlights = [
-  "Built multi-framework UI solutions integrating React, Vue, Angular, and Spring MVC.",
-  "Improved Web Vitals (CLS, FID) through component refactoring and ES6+ optimization.",
-  "Delivered responsive, accessible, and Section 508-compliant UI designs for mission-critical Navy applications.",
-  "Architected client-side logic supporting complex ISR workflows and data visualization.",
 ]
 
 [[experience]]
@@ -225,30 +271,8 @@ highlights = [
   "Reviewed system-level and subsystem-level design requirements to ensure testability, and defined test cases and test plans from interaction matrices.",
   "Planned testing from desktop verification and software-in-the-loop to hardware-in-the-loop, locomotive testing and pilot fleet operation.",
   "Applied QA test automation, including Selenium, to improve quality, cost and time-to-market.",
-  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments and services.",
+  "Used Docker and Kubernetes heavily to build, run and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
   "Provided technical oversight to test technicians and led design reviews of test plans, procedures and results.",
-]
-
-[[experience]]
-company = "National Geospatial-Intelligence Agency (NGA)"
-logo = "/logos/nga.jpg"
-title = "Lead Software Engineer"
-period = "Sep 2020 – Jul 2021"
-highlights = [
-  "Led modernization of geospatial database systems using React, Vue, Angular, and NextJS.",
-  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript architectures.",
-  "Developed analytical and data-driven UI tools supporting ISR missions.",
-]
-
-[[experience]]
-company = "Federal Bureau of Investigation (FBI)"
-logo = "/logos/fbi.jpg"
-title = "UX Designer / UI Developer"
-period = "Oct 2020 – Oct 2021"
-highlights = [
-  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
-  "Ensured cross-browser compatibility, accessibility, and consistent design across multiple teams.",
-  "Integrated GraphQL APIs and optimized client-side rendering for high-volume data environments.",
 ]
 
 [[experience]]
@@ -257,13 +281,11 @@ logo = "/logos/dia.jpg"
 period = "May 2018 – Aug 2019"
 
 [[experience.positions]]
-title = "Lead UI/UX Developer"
+title = "Lead Software Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
   "Designed business intelligence dashboards and interactive data visualizations using Kibana, Grafana, D3.js, and custom analytics frameworks supporting intelligence operations.",
-  "Developed analytical dashboards and business intelligence solutions supporting ISR missions, enabling data exploration, trend analysis, drill-down reporting, and operational decision support.",
   "Engineered Angular/Vue modules with Spring backend integration for ISR applications.",
-  "Implemented tree shaking, lazy loading, and modular UI patterns to improve performance.",
 ]
 
 [[experience.positions]]
@@ -277,16 +299,6 @@ highlights = [
 ]
 
 [[experience]]
-company = "US Army Human Resources Command (Army)"
-logo = "/logos/army.jpg"
-title = "Software Developer"
-period = "Aug 2017 – Apr 2018"
-highlights = [
-  "Modernized legacy Java/Spring systems with updated UI layers and responsive designs.",
-  "Performed TDD, integration testing, and secure code refactoring using Fortify, including compliance testing as a Java developer (HPE/DXC).",
-]
-
-[[experience]]
 company = "GE Digital"
 logo = "/logos/ge.jpg"
 title = "Software Engineer"
@@ -295,16 +307,7 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
-  "Started working with Docker and Kubernetes in 2016, containerizing applications and deploying them to Kubernetes clusters. Have used Docker in every role since that deployed to AWS EC2.",
-]
-
-[[experience]]
-company = "US Department of Defense (Marine Forces Reserve)"
-logo = "/logos/marforres.jpg"
-title = "IT Specialist/SharePoint Developer"
-period = "Sep 2015 – Mar 2016"
-highlights = [
-  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
+  "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
 ]
 
 [[experience]]
@@ -314,9 +317,7 @@ title = "Compatibility and Technology (CAT) Lab Technician"
 period = "Apr 2014 – Jan 2015"
 highlights = [
   "Tested hardware (video cards, sound cards, CPUs, memory, operating systems and peripherals) against software at each stage of production, from pre-alpha through final release.",
-  "Contributed to the discovery of several critical bugs and presented design suggestions that were considered or implemented in the final release.",
   "Categorized and prioritized issues in daily testing simulations, working with developers in bug tracking software such as Jira, DevTest and DevTrack.",
-  "Used automated testing tools in daily testing.",
 ]
 
 [[tools]]
@@ -345,11 +346,11 @@ items = ["REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasti
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Red Hat OpenShift", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS", "AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
-items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General Studies, Computer Studies", "USAF/ANG Cybersecurity, Client Systems Technician"]
+items = ["UMGC B.S. Web and Digital Design (in progress)", "UMGC A.A. General Studies, Computer Studies (2026)", "USAF/ANG Cybersecurity, Client Systems Technician"]
 
 [[credentials]]
 group = "Certifications"
