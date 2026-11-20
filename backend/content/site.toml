@@ -145,14 +145,10 @@ highlights = [
 ]
 
 [[experience]]
-company = "National Geospatial-Intelligence Agency (NGA)"
-logo = "/logos/nga.jpg"
-period = "2020 – 2025"
-
-[[experience.positions]]
+company = "Opalsoft / Casepoint, NGA Office of Inspector General"
+logo = "/logos/opexus.jpg"
 title = "Forward Deployed Engineer"
 period = "Jan 2025 – Oct 2025"
-note = "Opalsoft / Casepoint · Office of Inspector General"
 highlights = [
   "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
   "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
@@ -160,25 +156,15 @@ highlights = [
   "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
 ]
 
-
-[[experience.positions]]
-title = "Lead Software Engineer"
-period = "Sep 2020 – Jul 2021"
-highlights = [
-  "Led the modernization of geospatial database systems using React, Vue, Angular, and Next.js.",
-  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript code.",
-  "Built analytical, data-driven UI tools for ISR missions.",
-]
-
-
 [[experience]]
-company = "U.S. Department of Defense (DoD)"
-period = "2015 – 2025"
+company = "Department of Defense (DTRA)"
+logo = "/logos/dtra.png"
+period = "Jul 2023 – Jul 2025"
 
 [[experience.positions]]
 title = "Senior Full Stack Developer"
 period = "Jul 2023 – Jul 2025"
-note = "DTRA · Take2 Consulting · Booz Allen Hamilton"
+note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Improved Core Web Vitals (LCP, FID) by 35% with lazy loading and code splitting.",
   "Streamlined AWS CI/CD pipelines, moving deployments from weekly to daily and cutting build failures by 60%.",
@@ -187,56 +173,15 @@ highlights = [
   "Used Cypress for automated testing of UI changes before release.",
 ]
 
-[[experience.positions]]
-title = "Senior Software Developer"
-period = "Dec 2021 – Feb 2023"
-note = "U.S. Navy"
-highlights = [
-  "Built UI solutions across React, Vue, Angular, and Spring MVC.",
-  "Improved Web Vitals (CLS, FID) by refactoring components and modernizing ES6+ code.",
-  "Delivered responsive, accessible, Section 508-compliant UI designs for mission-critical Navy applications.",
-  "Built client-side logic for complex ISR workflows and data visualization.",
-]
-
-[[experience.positions]]
-title = "Java Developer"
-period = "Aug 2017 – Apr 2018"
-note = "U.S. Army Human Resources Command"
-highlights = [
-  "Modernized legacy Java/Spring systems with updated, responsive UI layers.",
-  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
-]
-
-[[experience.positions]]
-title = "IT Specialist/SharePoint Developer"
-period = "Sep 2015 – Mar 2016"
-note = "Marine Forces Reserve"
-highlights = [
-  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
-]
-
 [[experience]]
-company = "Federal Bureau of Investigation (FBI)"
-logo = "/logos/fbi.jpg"
-period = "2020 – 2025"
-
-[[experience.positions]]
+company = "Fusion Technology LLC (FBI CJIS Division)"
+logo = "/logos/fusion.jpg"
 title = "Software Engineer"
 period = "Aug 2024 – Jan 2025"
-note = "Fusion Technology LLC · CJIS Division"
 highlights = [
   "Provided full-stack engineering support to the FBI Criminal Justice Information Services (CJIS) Division with Angular and Java.",
   "Worked with Docker, Kubernetes, and Redis.",
 ]
-
-[[experience.positions]]
-title = "Software Developer"
-period = "Oct 2020 – Oct 2021"
-highlights = [
-  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
-  "Integrated GraphQL APIs and sped up client-side rendering for high-volume data.",
-]
-
 
 [[experience]]
 company = "Varsity Tutors"
@@ -263,6 +208,18 @@ highlights = [
 ]
 
 [[experience]]
+company = "Department of Defense (Navy)"
+logo = "/logos/navy.jpg"
+title = "Senior Software Developer"
+period = "Dec 2021 – Feb 2023"
+highlights = [
+  "Built UI solutions across React, Vue, Angular, and Spring MVC.",
+  "Improved Web Vitals (CLS, FID) by refactoring components and modernizing ES6+ code.",
+  "Delivered responsive, accessible, Section 508-compliant UI designs for mission-critical Navy applications.",
+  "Built client-side logic for complex ISR workflows and data visualization.",
+]
+
+[[experience]]
 company = "GE Transportation, a Wabtec company"
 logo = "/logos/wabtec.jpg"
 title = "Senior Quality Assurance Automation Engineer"
@@ -273,6 +230,27 @@ highlights = [
   "Applied QA test automation, including Selenium, to improve quality, cost, and time-to-market.",
   "Used Docker and Kubernetes heavily to build, run, and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
   "Gave technical oversight to test technicians and led design reviews of test plans, procedures, and results.",
+]
+
+[[experience]]
+company = "Federal Bureau of Investigation (FBI)"
+logo = "/logos/fbi.jpg"
+title = "Software Developer"
+period = "Oct 2020 – Oct 2021"
+highlights = [
+  "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
+  "Integrated GraphQL APIs and sped up client-side rendering for high-volume data.",
+]
+
+[[experience]]
+company = "National Geospatial-Intelligence Agency (NGA)"
+logo = "/logos/nga.jpg"
+title = "Lead Software Engineer"
+period = "Sep 2020 – Jul 2021"
+highlights = [
+  "Led the modernization of geospatial database systems using React, Vue, Angular, and Next.js.",
+  "Built GraphQL middleware, reusable UI modules, and scalable TypeScript code.",
+  "Built analytical, data-driven UI tools for ISR missions.",
 ]
 
 [[experience]]
@@ -299,6 +277,16 @@ highlights = [
 ]
 
 [[experience]]
+company = "US Army Human Resources Command (Army)"
+logo = "/logos/army.jpg"
+title = "Java Developer"
+period = "Aug 2017 – Apr 2018"
+highlights = [
+  "Modernized legacy Java/Spring systems with updated, responsive UI layers.",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
+]
+
+[[experience]]
 company = "GE Digital"
 logo = "/logos/ge.jpg"
 title = "Software Engineer"
@@ -308,6 +296,15 @@ highlights = [
   "Led small development teams through the SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
   "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
+]
+
+[[experience]]
+company = "US Department of Defense (Marine Forces Reserve)"
+logo = "/logos/marforres.jpg"
+title = "IT Specialist/SharePoint Developer"
+period = "Sep 2015 – Mar 2016"
+highlights = [
+  "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
 ]
 
 [[experience]]
