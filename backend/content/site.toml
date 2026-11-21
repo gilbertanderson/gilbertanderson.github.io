@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently inside a federal Office of Inspector General, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
 
-My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker, Kubernetes, and Podman since 2016, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker and Kubernetes since 2016 and Podman more recently, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -161,7 +161,7 @@ logo = "/logos/dtra.png"
 period = "Jul 2023 – Aug 2025"
 
 [[experience.positions]]
-title = "Senior Full Stack Developer"
+title = "Senior Full Stack Engineer"
 period = "Jul 2023 – Aug 2025"
 note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
@@ -197,9 +197,9 @@ highlights = [
 ]
 
 [[experience]]
-company = "Department of Defense (Navy)"
+company = "Department of Defense (Navy), via OpalSoft"
 logo = "/logos/navy.jpg"
-title = "Senior Software Developer"
+title = "Senior Frontend Developer"
 period = "Dec 2021 – Feb 2023"
 highlights = [
   "Built UI solutions across React, Vue, Angular, and Spring MVC.",
@@ -222,7 +222,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "National Geospatial-Intelligence Agency (NGA)"
+company = "National Geospatial-Intelligence Agency (NGA), via Marathon TS"
 logo = "/logos/nga.jpg"
 title = "Lead Software Engineer"
 period = "Sep 2020 – Jul 2021"
@@ -230,6 +230,8 @@ highlights = [
   "Led the modernization of geospatial database systems using React, Vue, Angular, and Next.js.",
   "Built GraphQL middleware, reusable UI modules, and scalable TypeScript code.",
   "Built analytical, data-driven UI tools for ISR missions.",
+  "Supported cloud services in the C2S and SC2S environments, helping migrate enterprise tools to the cloud on a microservice architecture.",
+  "Designed, built, and deployed cloud-native applications on Kubernetes, and automated CI/CD pipelines with Docker, Jenkins, and GitLab.",
 ]
 
 [[experience]]
@@ -296,7 +298,7 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through the SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
-  "Started containerizing applications with Docker, Kubernetes, and Podman in 2016, and have used Docker in every role since that deployed to AWS EC2.",
+  "Started containerizing applications with Docker and Kubernetes in 2016, and have used Docker in every role since that deployed to AWS EC2.",
 ]
 
 [[experience]]
