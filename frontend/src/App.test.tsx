@@ -42,9 +42,11 @@ describe('App', () => {
     renderApp();
     const exp = screen.getByRole('region', { name: 'Experience' });
     const caci = content.experience!.find((r) => r.positions?.length)!;
-    expect(within(exp).getByRole('heading', { level: 3, name: caci.company })).toBeInTheDocument();
+    const company = within(exp).getByRole('heading', { level: 3, name: caci.company });
+    // Titles can repeat across companies, so look only inside this company's list item.
+    const item = company.closest('li') as HTMLElement;
     for (const p of caci.positions!) {
-      expect(within(exp).getByRole('heading', { level: 4, name: p.title })).toBeInTheDocument();
+      expect(within(item).getByRole('heading', { level: 4, name: p.title })).toBeInTheDocument();
     }
   });
 
