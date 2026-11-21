@@ -41,7 +41,7 @@ url = "https://www.linkedin.com/in/gilbertanderson"
 [[projects]]
 title = "Terminal Guidance"
 kind = "VR game site"
-description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, pilot of Artemis II. Dark aerospace theme with blue and orange accents."
+description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, who piloted NASA's Orion spacecraft on the Artemis II mission around the Moon. It uses a dark aerospace theme with blue and orange accents."
 url = "https://github.com/gilbertanderson/MockGameWebsite-VR-TerminalGuidance"
 category = "design"
 image = "/projects/terminal-guidance.svg"
