@@ -50,7 +50,7 @@ link_label = "View on GitHub"
 [[projects]]
 title = "Share Crops"
 kind = "Web app"
-description = "A community garden exchange app."
+description = "A community garden app that brings plot claims, watering shift sign-ups and surplus harvest sharing into one place."
 url = "https://github.com/gilbertanderson/share-crops-app"
 image = "/projects/share-crops.svg"
 
