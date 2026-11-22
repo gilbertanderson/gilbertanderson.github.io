@@ -334,7 +334,7 @@ items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedr
 
 [[tools]]
 group = "Frontend & UX"
-items = ["TypeScript", "Vite", "Next.js", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
+items = ["TypeScript", "Vite", "Next.js", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "State management", "Modular UI architecture", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
 
 [[tools]]
 group = "Testing & automation"
@@ -342,7 +342,7 @@ items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Au
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Secure data export"]
+items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
@@ -350,7 +350,7 @@ items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS", "AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
