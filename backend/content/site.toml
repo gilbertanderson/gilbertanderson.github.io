@@ -322,7 +322,7 @@ highlights = [
 
 [[tools]]
 group = "Languages & frameworks"
-items = ["Java", "JavaScript", "TypeScript", "Angular", "React", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "GraphQL", "Python", "SQL", "PostgreSQL", "Playwright"]
+items = ["HTML", "CSS", "JavaScript", "Angular", "React", "Java", "Python", "Git", "SQL"]
 
 [[tools]]
 group = "Other languages & frameworks"
@@ -334,11 +334,11 @@ items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedr
 
 [[tools]]
 group = "Frontend & UX"
-items = ["Next.js", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
+items = ["TypeScript", "Vite", "Next.js", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
 
 [[tools]]
 group = "Testing & automation"
-items = ["Selenium", "Cypress", "PyTest", "Fortify", "Automated testing"]
+items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Automated testing"]
 
 [[tools]]
 group = "Analytics & data visualization"
@@ -346,7 +346,7 @@ items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards",
 
 [[tools]]
 group = "Backend & data"
-items = ["Spring Boot", "REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
+items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
 
 [[tools]]
 group = "Cloud & DevOps"
