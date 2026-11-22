@@ -93,7 +93,7 @@ logo = "/logos/caci.svg"
 period = "Feb 2026 – Present"
 
 [[experience.positions]]
-title = "Lead UI Software Engineer"
+title = "Senior Software Engineer, UI Team Lead"
 period = "Jun 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
@@ -118,7 +118,7 @@ highlights = [
 ]
 
 [[experience.positions]]
-title = "Senior User Interface Engineer"
+title = "Senior Software Engineer"
 period = "Mar 2026 – Jun 2026"
 note = "U.S. Navy program"
 highlights = [
@@ -151,7 +151,7 @@ highlights = [
 company = "Fusion Technology LLC (FBI CJIS Division)"
 logo = "/logos/fusion.jpg"
 title = "Software Engineer"
-period = "Oct 2024 – Jan 2025"
+period = "Aug 2024 – Jan 2025"
 highlights = [
   "Provided full-stack engineering support to the FBI Criminal Justice Information Services (CJIS) Division with Angular and Java.",
   "Worked with Docker, Kubernetes, and Redis.",
@@ -160,11 +160,11 @@ highlights = [
 [[experience]]
 company = "Department of Defense (DTRA)"
 logo = "/logos/dtra.png"
-period = "Jul 2023 – Aug 2025"
+period = "Jul 2023 – Jul 2025"
 
 [[experience.positions]]
 title = "Senior Full Stack Engineer"
-period = "Jul 2023 – Aug 2025"
+period = "Jul 2023 – Jul 2025"
 note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Improved Core Web Vitals (LCP, FID) by 35% with lazy loading and code splitting.",
@@ -178,7 +178,7 @@ highlights = [
 company = "Varsity Tutors"
 logo = "/logos/varsity.jpg"
 title = "Private Tutor"
-period = "Feb 2023 – Present"
+period = "Feb 2023 – Feb 2024"
 highlights = [
   "Taught coding and web development to all ages: coding fundamentals for children through Minecraft, WordPress storefronts for entrepreneurs, and JavaScript and Angular for software developers.",
   "Taught Scrum classes online.",
