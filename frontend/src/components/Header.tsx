@@ -1,11 +1,8 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useColorScheme } from '@mui/material/styles';
-import { Moon, Sun } from './Icons';
 import Wrap from './Wrap';
 
 const links = [
@@ -16,26 +13,10 @@ const links = [
   ['Contact', '#contact'],
 ] as const;
 
-function ThemeToggle() {
-  const { mode, systemMode, setMode } = useColorScheme();
-  if (!mode) return null;
-  const dark = (mode === 'system' ? systemMode : mode) === 'dark';
-  return (
-    <IconButton
-      color="inherit"
-      aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-      onClick={() => setMode(dark ? 'light' : 'dark')}
-      sx={{ flex: '0 0 auto', width: 44, height: 44, border: 1, borderColor: 'divider', color: 'text.secondary' }}
-    >
-      {dark ? <Sun /> : <Moon />}
-    </IconButton>
-  );
-}
-
 export default function Header({ name }: { name: string }) {
   return (
     <AppBar position="sticky" color="inherit" elevation={0} sx={{ bgcolor: 'background.default', borderBottom: 1, borderColor: 'divider' }}>
-      <Wrap>
+      <Wrap sx={{ width: 1 }}>
         <Toolbar
           component="nav"
           aria-label="Main"
@@ -52,7 +33,7 @@ export default function Header({ name }: { name: string }) {
           {/*
             On phones the links get their own full-width row under the name and scroll sideways;
             the fade on the right edge shows there is more to swipe to. On wider screens they sit
-            in one line between the name and the theme toggle.
+            in one line to the right of the name.
           */}
           <Box
             sx={{
@@ -76,9 +57,6 @@ export default function Header({ name }: { name: string }) {
                 {label}
               </Button>
             ))}
-          </Box>
-          <Box sx={{ order: { xs: 2, sm: 3 }, flex: '0 0 auto' }}>
-            <ThemeToggle />
           </Box>
         </Toolbar>
       </Wrap>
