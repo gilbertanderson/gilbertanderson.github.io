@@ -148,8 +148,8 @@ highlights = [
 ]
 
 [[experience]]
-company = "Fusion Technology LLC (FBI CJIS Division)"
-logo = "/logos/fusion.jpg"
+company = "Federal Bureau of Investigation (FBI CJIS Division), via Fusion Technology"
+logo = "/logos/fbi.jpg"
 title = "Software Engineer"
 period = "Aug 2024 – Jan 2025"
 highlights = [
@@ -199,6 +199,16 @@ highlights = [
 ]
 
 [[experience]]
+company = "Alethix LLC, an IntelliBridge company"
+title = "Lead User Interface Developer"
+period = "Feb 2022 – May 2022"
+highlights = [
+  "Led a UI development team and set the design process for every Scrum team.",
+  "Led prototype and MVP development and served as the point of contact for business owners.",
+  "Mentored junior developers on UI skills and wrote training material and technical documentation.",
+]
+
+[[experience]]
 company = "Department of Defense (Navy), via OpalSoft"
 logo = "/logos/navy.jpg"
 title = "Senior Frontend Developer"
@@ -221,6 +231,48 @@ highlights = [
   "Applied QA test automation, including Selenium, to improve quality, cost, and time-to-market.",
   "Used Docker and Kubernetes heavily to build, run, and deploy containerized test environments, including managing Kubernetes namespaces for backend automated testing.",
   "Gave technical oversight to test technicians and led design reviews of test plans, procedures, and results.",
+]
+
+[[experience]]
+company = "Fusion92"
+title = "Senior Web Developer"
+period = "Jul 2021 – Aug 2021"
+highlights = [
+  "Reengineered a web application for bidding on camera equipment, similar to eBay.",
+]
+
+[[experience]]
+company = "Quad22 Foundation"
+period = "May 2021 – May 2022"
+
+[[experience.positions]]
+title = "Tech Director"
+period = "May 2021 – May 2022"
+highlights = [
+  "Consulted on every part of the foundation's technology.",
+]
+
+[[experience.positions]]
+title = "Teacher"
+period = "May 2021 – May 2022"
+highlights = [
+  "Tutored students and taught computer programming.",
+]
+
+[[experience]]
+company = "U.S. Department of the Treasury, via Deloitte / The Goal"
+title = "Senior User Experience Designer"
+period = "Jan 2021 – Mar 2021"
+highlights = [
+  "Supported the Treasury as a senior UI/UX design consultant.",
+]
+
+[[experience]]
+company = "Mobomo"
+title = "Software Engineer"
+period = "Oct 2020 – Nov 2020"
+highlights = [
+  "Worked on a state Medicaid application.",
 ]
 
 [[experience]]
@@ -249,6 +301,16 @@ highlights = [
 ]
 
 [[experience]]
+company = "Jacobs"
+title = "User Experience Designer"
+period = "Jun 2020 – Jan 2021"
+highlights = [
+  "Turned user and stakeholder needs into functional designs that served both business goals and users.",
+  "Built interface mock-ups with the development team and kept a consistent look and feel across case management teams.",
+  "Reviewed user experience feedback and adjusted designs to match.",
+]
+
+[[experience]]
 company = "Federal Bureau of Investigation (FBI)"
 logo = "/logos/fbi.jpg"
 title = "Software Developer"
@@ -256,6 +318,14 @@ period = "Oct 2019 – Oct 2020"
 highlights = [
   "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
   "Integrated GraphQL APIs and sped up client-side rendering for high-volume data.",
+]
+
+[[experience]]
+company = "Defense Information Systems Agency (DISA), via Leidos / TEKsystems"
+title = "Software Engineer"
+period = "Jun 2018 – Aug 2018"
+highlights = [
+  "Built a storefront for an online marketplace with JavaScript, jQuery, and React, working through a content management system.",
 ]
 
 [[experience]]
@@ -272,6 +342,16 @@ highlights = [
 ]
 
 [[experience.positions]]
+title = "UI Developer"
+period = "Jan 2019 – Aug 2019"
+note = "CACI International Inc / IC-CAP"
+highlights = [
+  "Did UI development and UX design with JavaScript, TypeScript, Angular, React, and Node.",
+  "Led a team of developers and designers from April to June 2019.",
+  "Wrote automated tests with Selenium, Jasmine, and Jest.",
+]
+
+[[experience.positions]]
 title = "Project Manager / Scrum Master"
 period = "May 2018 – Jan 2019"
 note = "The Buffalo Group"
@@ -279,6 +359,23 @@ highlights = [
   "Served as Scrum Master for several Scrum teams, running daily stand-ups, backlog grooming, sprint planning, demos, and retrospectives.",
   "Gathered requirements and specifications, helped team members finish code through impediment removal and code reviews, and administered Jira and Rally while holding the teams to Agile principles.",
   "Facilitated pair programming, mentored developers, and maintained burn-down charts and status reports for each team and sprint.",
+]
+
+[[experience]]
+company = "UCS, via Agensys"
+title = "Senior Application Developer"
+period = "Apr 2018 – Jun 2018"
+highlights = [
+  "Designed, built, deployed, and debugged web and data applications.",
+  "Took part in architecture reviews, demos, prototyping, QA testing, and code reviews.",
+]
+
+[[experience]]
+company = "7 Generation Games"
+title = "Game Programmer"
+period = "Jan 2018 – Mar 2018"
+highlights = [
+  "Developed educational video games and expanded the company's marketing website.",
 ]
 
 [[experience]]
@@ -304,12 +401,53 @@ highlights = [
 ]
 
 [[experience]]
+company = "Premium Parking"
+title = "IT Intern"
+period = "Oct 2016 – Dec 2016"
+highlights = [
+  "Troubleshot and maintained devices, managed device inventory in Meraki, and handled Office 365 accounts and licenses.",
+  "Removed malware, supported users remotely over LogMeIn and RDP, and updated the company website.",
+]
+
+[[experience]]
+company = "Criterion Systems"
+title = "IT Consultant"
+period = "May 2016 – Jul 2016"
+highlights = [
+  "Worked as a contract PC technician at Naval Air Station Joint Reserve Base New Orleans.",
+]
+
+[[experience]]
 company = "US Department of Defense (Marine Forces Reserve)"
 logo = "/logos/marforres.jpg"
 title = "IT Specialist/SharePoint Developer"
 period = "Sep 2015 – Mar 2016"
 highlights = [
   "Designed and maintained SharePoint-based UI systems and performed IT infrastructure tasks.",
+]
+
+[[experience]]
+company = "SmartSource Technical Solutions"
+title = "IT Consultant"
+period = "Aug 2015 – Aug 2016"
+highlights = [
+  "Worked as a contract IT analyst for Dell, Amedisys, Chase, and other clients.",
+]
+
+[[experience]]
+company = "Modis"
+title = "IT Consultant"
+period = "May 2015 – Aug 2015"
+highlights = [
+  "Served as contract desktop support technician and site lead for Syngenta.",
+]
+
+[[experience]]
+company = "Coca-Cola Bottling Company UNITED"
+title = "IT Intern"
+period = "Dec 2014 – Mar 2015"
+highlights = [
+  "Supported the IT department across multiple sites.",
 ]
 
 [[experience]]
@@ -320,6 +458,60 @@ period = "Apr 2014 – Jan 2015"
 highlights = [
   "Tested hardware (video cards, sound cards, CPUs, memory, operating systems and peripherals) against software at each stage of production, from pre-alpha through final release.",
   "Categorized and prioritized issues in daily testing simulations, working with developers in bug tracking software such as Jira, DevTest and DevTrack.",
+]
+
+[[experience]]
+company = "PRO Unlimited"
+title = "QA Tester, Mobile"
+period = "Jan 2014 – Apr 2014"
+highlights = [
+  "Tested mobile builds of Electronic Arts titles and documented findings with tools such as FRAPS.",
+  "Tracked bugs in Jira, DevTest, and DevTrack and suggested features for future builds.",
+]
+
+[[experience]]
+company = "Air National Guard"
+title = "Client Systems Technician"
+period = "Jan 2013 – Jan 2019"
+highlights = [
+  "Installed and configured operating systems and applications, and troubleshot and repaired hardware and software for users.",
+  "Managed Active Directory user accounts and security groups, and tracked work in Remedy.",
+  "Reported security incidents and carried out corrective security procedures while holding a Secret clearance.",
+]
+
+[[experience]]
+company = "StrikeWorks"
+logo = "/logos/strikeworks.jpg"
+period = "Dec 2012 – Sep 2019"
+
+[[experience.positions]]
+title = "Co-Founder"
+period = "May 2017 – Sep 2019"
+highlights = [
+  "Ran operations for a New Orleans marketing, development, and production company offering web design and development, branding, SEO/SEM, paid ad campaigns, and software development.",
+]
+
+[[experience.positions]]
+title = "Web Developer"
+period = "Dec 2012 – Sep 2019"
+highlights = [
+  "Built websites for local Louisiana companies, first as a freelancer and from 2015 as a StrikeWorks contractor.",
+]
+
+[[experience]]
+company = "University of Louisiana at Lafayette"
+title = "Computer Lab Assistant"
+period = "Jan 2012 – Mar 2012"
+highlights = [
+  "Ran a campus computer lab and tutoring front desk, troubleshooting student computers.",
+]
+
+[[experience]]
+company = "Best Buy"
+title = "Computer Sales Specialist and Geek Squad Agent"
+period = "Sep 2009 – Nov 2013"
+highlights = [
+  "Helped customers choose computers and solve technical problems, working seasonal and part-time.",
 ]
 
 [[tools]]
