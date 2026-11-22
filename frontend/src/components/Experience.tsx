@@ -98,7 +98,7 @@ export default function Experience({ roles, resume, resumePdf }: { roles: Role[]
             aria-expanded={showAll}
             sx={{ mt: 2, minHeight: 44, px: 2.5, border: '1.5px solid', borderColor: 'divider', borderRadius: '4px', color: 'text.primary' }}
           >
-            {showAll ? 'Show fewer roles' : `Show ${roles.length - RECENT} earlier roles`}
+            {showAll ? 'Show less' : 'Show more'}
           </Button>
         </>
       ) : null}
