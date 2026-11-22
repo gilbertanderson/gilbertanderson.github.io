@@ -93,7 +93,7 @@ logo = "/logos/caci.svg"
 period = "Feb 2026 – Present"
 
 [[experience.positions]]
-title = "Senior Software Engineer, UI Team Lead"
+title = "Lead UI Software Engineer"
 period = "Jun 2026 – Present"
 note = "U.S. Navy program"
 highlights = [
@@ -116,7 +116,7 @@ highlights = [
 ]
 
 [[experience.positions]]
-title = "Senior Software Engineer"
+title = "Senior User Interface Engineer"
 period = "Mar 2026 – Jun 2026"
 note = "U.S. Navy program"
 highlights = [
@@ -136,7 +136,7 @@ highlights = [
 [[experience]]
 company = "OPEXUS, NGA Office of Inspector General"
 logo = "/logos/opexus.jpg"
-title = "Forward Deployed Engineer"
+title = "Senior Software Engineer"
 period = "Jan 2025 – Dec 2025"
 highlights = [
   "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
@@ -185,13 +185,13 @@ highlights = [
 [[experience]]
 company = "Plarium USA (Rumble Entertainment)"
 logo = "/logos/plarium.jpg"
-title = "Technical Producer / DevOps Manager"
+title = "Technical Producer"
 period = "Jun 2022 – Mar 2023"
 highlights = [
   "Led UI, web, and DevOps teams shipping scalable React/Vue features with SSR/CSR hybrid rendering.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript code.",
   "Tightened security with a Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
-  "As DevOps Manager, ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
+  "Ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
   "Reduced AWS, Redis, and MongoDB resource costs by 20% over three months.",
   "Helped build a customer support and IT portal, including health checks for the game's services.",
 ]
@@ -249,7 +249,7 @@ highlights = [
 [[experience]]
 company = "Federal Bureau of Investigation (FBI)"
 logo = "/logos/fbi.jpg"
-title = "Software Developer"
+title = "Senior Consultant"
 period = "Oct 2019 – Oct 2020"
 highlights = [
   "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
@@ -262,7 +262,7 @@ logo = "/logos/dia.jpg"
 period = "May 2018 – Aug 2019"
 
 [[experience.positions]]
-title = "Lead Software Developer"
+title = "Consultant / Senior Consultant"
 period = "May 2018 – Aug 2019"
 highlights = [
   "Designed Grafana dashboards and D3.js data visualizations supporting intelligence operations.",
