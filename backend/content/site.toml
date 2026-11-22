@@ -249,7 +249,7 @@ highlights = [
 [[experience]]
 company = "Federal Bureau of Investigation (FBI)"
 logo = "/logos/fbi.jpg"
-title = "Senior Consultant"
+title = "Software Developer"
 period = "Oct 2019 – Oct 2020"
 highlights = [
   "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
@@ -262,7 +262,7 @@ logo = "/logos/dia.jpg"
 period = "May 2018 – Aug 2019"
 
 [[experience.positions]]
-title = "Consultant / Senior Consultant"
+title = "Lead Software Developer"
 period = "May 2018 – Aug 2019"
 highlights = [
   "Designed Grafana dashboards and D3.js data visualizations supporting intelligence operations.",
