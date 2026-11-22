@@ -334,7 +334,7 @@ items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedr
 
 [[tools]]
 group = "Frontend & UX"
-items = ["Next.js", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User testing", "Section 508 / WCAG"]
+items = ["Next.js", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
 
 [[tools]]
 group = "Testing & automation"
