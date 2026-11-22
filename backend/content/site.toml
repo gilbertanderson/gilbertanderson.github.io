@@ -50,9 +50,9 @@ link_label = "View on GitHub"
 [[projects]]
 title = "Share Crops"
 kind = "Web app"
-description = "A community garden app that brings plot claims, watering shift sign-ups and surplus harvest sharing into one place."
+description = "A neighborhood produce swap app where people list homegrown produce, herbs, eggs and honey, propose trades, message each other and rate the exchange, with a list of what's most requested nearby."
 url = "https://github.com/gilbertanderson/share-crops-app"
-image = "/projects/share-crops.svg"
+image = "/projects/share-crops.jpg"
 
 [[projects]]
 title = "Disaster Drive"
