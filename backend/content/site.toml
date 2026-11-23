@@ -520,7 +520,7 @@ items = ["HTML", "CSS", "JavaScript", "Angular", "React", "Java", "Python", "Git
 
 [[tools]]
 group = "Other languages & frameworks"
-items = ["Go", "Vue", "Neo4j", "C++", ".NET"]
+items = ["Go", "Vue", "C++", ".NET"]
 
 [[tools]]
 group = "AI & LLM"
@@ -536,7 +536,7 @@ items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Au
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
+items = ["Grafana", "Neo4j", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
