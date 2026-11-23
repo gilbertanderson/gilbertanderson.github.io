@@ -116,6 +116,7 @@ highlights = [
   "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across federal and commercial programs, cutting new client integration time by 50%.",
   "Built secure CSV/JSON exports that handle 10,000+ rows per request and fully meet client security standards.",
   "Designed and built React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with tuned routing and caching.",
+  "Gathered website metrics with Google Analytics and Cloudflare, and ran vulnerability scans with Cloudflare.",
 ]
 
 [[experience.positions]]
@@ -507,7 +508,7 @@ items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Au
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Grafana", "Neo4j", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
+items = ["Grafana", "Neo4j", "Google Analytics", "Cloudflare", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
