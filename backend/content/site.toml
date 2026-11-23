@@ -147,7 +147,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "Federal Bureau of Investigation (FBI CJIS Division), via Fusion Technology"
+company = "Federal Bureau of Investigation (FBI CJIS Division)"
 logo = "/logos/fbi.jpg"
 title = "Software Engineer"
 period = "Aug 2024 – Jan 2025"
@@ -164,7 +164,6 @@ period = "Jul 2023 – Jul 2025"
 [[experience.positions]]
 title = "Senior Full Stack Engineer"
 period = "Jul 2023 – Jul 2025"
-note = "Take2 Consulting · Booz Allen Hamilton"
 highlights = [
   "Improved Core Web Vitals (LCP, FID) by 35% with lazy loading and code splitting.",
   "Streamlined AWS CI/CD pipelines, moving deployments from weekly to daily and cutting build failures by 60%.",
@@ -198,7 +197,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "Department of Defense (Navy), via OpalSoft"
+company = "Department of Defense (Navy)"
 logo = "/logos/navy.jpg"
 title = "Senior Frontend Developer"
 period = "Dec 2021 – Feb 2023"
@@ -249,7 +248,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "U.S. Department of the Treasury, via Deloitte / The Goal"
+company = "U.S. Department of the Treasury"
 title = "Senior User Experience Designer"
 period = "Jan 2021 – Mar 2021"
 highlights = [
@@ -265,7 +264,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "National Geospatial-Intelligence Agency (NGA), via Marathon TS"
+company = "National Geospatial-Intelligence Agency (NGA)"
 logo = "/logos/nga.jpg"
 title = "Lead Software Engineer"
 period = "Sep 2020 – Jul 2021"
@@ -298,7 +297,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "Defense Information Systems Agency (DISA), via Leidos / TEKsystems"
+company = "Defense Information Systems Agency (DISA)"
 title = "Software Engineer"
 period = "Jun 2018 – Aug 2018"
 highlights = [
@@ -321,7 +320,6 @@ highlights = [
 [[experience.positions]]
 title = "UI Developer"
 period = "Jan 2019 – Aug 2019"
-note = "CACI International Inc / IC-CAP"
 highlights = [
   "Did UI development and UX design with JavaScript, TypeScript, Angular, React, and Node.",
   "Led a team of developers and designers from April to June 2019.",
@@ -331,7 +329,6 @@ highlights = [
 [[experience.positions]]
 title = "Project Manager / Scrum Master"
 period = "May 2018 – Jan 2019"
-note = "The Buffalo Group"
 highlights = [
   "Served as Scrum Master for several Scrum teams, running daily stand-ups, backlog grooming, sprint planning, demos, and retrospectives.",
   "Gathered requirements and specifications, helped team members finish code through impediment removal and code reviews, and administered Jira and Rally while holding the teams to Agile principles.",
@@ -339,7 +336,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "UCS, via Agensys"
+company = "UCS"
 title = "Senior Application Developer"
 period = "Apr 2018 – Jun 2018"
 highlights = [
