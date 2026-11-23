@@ -227,6 +227,7 @@ highlights = [
 
 [[experience]]
 company = "Quad22 Foundation"
+logo = "/logos/quad22.jpg"
 period = "May 2021 – May 2022"
 
 [[experience.positions]]
@@ -338,7 +339,8 @@ highlights = [
 ]
 
 [[experience]]
-company = "UCS"
+company = "Universal Consulting Services (UCS)"
+logo = "/logos/ucs.jpg"
 title = "Senior Application Developer"
 period = "Apr 2018 – Jun 2018"
 highlights = [
