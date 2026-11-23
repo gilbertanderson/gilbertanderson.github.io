@@ -190,7 +190,7 @@ logo = "/logos/plarium.jpg"
 title = "Technical Producer"
 period = "Jun 2022 – Mar 2023"
 highlights = [
-  "Led UI, web, and DevOps teams shipping scalable React/Vue features with SSR/CSR hybrid rendering.",
+  "Led UI, web, and DevOps teams shipping scalable React/Vue features.",
   "Implemented Redux-style state management, GraphQL/Apollo integrations, and modular TypeScript code.",
   "Tightened security with a Web Application Firewall (WAF), Okta, and two-factor authentication (2FA).",
   "Ran AWS infrastructure across Lambda, EKS, EC2, RDS, S3, and CloudWatch, with MongoDB for application data.",
@@ -297,7 +297,7 @@ highlights = [
   "Built a custom React/D3.js visualization suite for enterprise clients, raising dashboard engagement by 25% and cutting data processing latency by 30%.",
   "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across federal and commercial programs, cutting new client integration time by 50%.",
   "Built secure CSV/JSON exports that handle 10,000+ rows per request and fully meet client security standards.",
-  "Designed and built React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with SSR/CSR hybrid rendering and tuned routing and caching.",
+  "Designed and built React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with tuned routing and caching.",
 ]
 
 [[experience]]
@@ -520,15 +520,15 @@ items = ["HTML", "CSS", "JavaScript", "Angular", "React", "Java", "Python", "Git
 
 [[tools]]
 group = "Other languages & frameworks"
-items = ["Go", "Vue", "Neo4j", "C++", ".NET"]
+items = ["Go", "Vue", "C++", ".NET"]
 
 [[tools]]
 group = "AI & LLM"
-items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Google Gemini", "Microsoft Copilot", "Ollama", "OpenCode", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
+items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "Google Gemini", "Microsoft Copilot", "Ollama", "OpenCode", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
 
 [[tools]]
 group = "Frontend & UX"
-items = ["TypeScript", "Vite", "Next.js", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "SSR/CSR hybrid", "Web components", "State management", "Modular UI architecture", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
+items = ["TypeScript", "Vite", "Next.js", "Redux", "Redux Toolkit", "RTK Query", "NgRx", "Pinia", "Material UI (MUI)", "Bootstrap", "Storybook", "Design systems", "Web components", "State management", "Modular UI architecture", "Figma", "Adobe XD", "Wireframing", "Prototyping", "User research and testing", "Section 508 / WCAG"]
 
 [[tools]]
 group = "Testing & automation"
@@ -536,7 +536,7 @@ items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Au
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Grafana", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
+items = ["Grafana", "Neo4j", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
@@ -544,7 +544,7 @@ items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "AWS Bedrock", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
