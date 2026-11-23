@@ -126,24 +126,23 @@ highlights = [
 ]
 
 [[experience.positions]]
+title = "Senior Software Engineer"
+period = "Jan 2025 – Dec 2025"
+note = "OPEXUS, NGA Office of Inspector General"
+highlights = [
+  "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
+  "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
+  "Trained 50+ investigators and auditors on the platform, cutting support tickets by 20% and speeding up adoption of new features.",
+  "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
+]
+
+[[experience.positions]]
 title = "Private Tutor"
 period = "Feb 2023 – Feb 2024"
 note = "Varsity Tutors"
 highlights = [
   "Taught coding and web development to all ages: coding fundamentals for children through Minecraft, WordPress storefronts for entrepreneurs, and JavaScript and Angular for software developers.",
   "Taught Scrum classes online.",
-]
-
-[[experience]]
-company = "OPEXUS, NGA Office of Inspector General"
-logo = "/logos/opexus.jpg"
-title = "Senior Software Engineer"
-period = "Jan 2025 – Dec 2025"
-highlights = [
-  "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
-  "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
-  "Trained 50+ investigators and auditors on the platform, cutting support tickets by 20% and speeding up adoption of new features.",
-  "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
 ]
 
 [[experience]]
