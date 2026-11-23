@@ -88,6 +88,29 @@ demos = [
 image = "/projects/stormers-mvp.jpg"
 
 [[experience]]
+company = "CACI International Inc"
+logo = "/logos/caci.svg"
+title = "Senior Software Engineer, UI Team Lead"
+period = "Feb 2026 – Present"
+highlights = [
+  "Designed and deployed 15+ automated Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
+  "Built self-service analytics portals that let 100+ non-technical users search, filter, drill down, and visualize mission data on their own, cutting ad-hoc engineering requests by 50%.",
+  "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow to automate documentation and code review, speeding up team development by 25%.",
+  "Built responsive React/TypeScript UI components with MUI theming and Figma design systems, cutting load times by 30%, and released them through Jenkins CI/CD pipelines.",
+  "Worked across the full stack of a React/TypeScript app with a Go backend, from UI components to Go server code.",
+  "Used Playwright for automated testing of UI changes before release.",
+  "Helped with Chainguard secure container images and supported server-side code in Java, Python, and Go.",
+  "Added Okta single sign-on (SSO) with SAML to the MVP dashboard app and set up OAuth 2.0 authorization for its API.",
+  "Support CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
+  "Brought generative AI into my own development workflow and increased my output 10x.",
+  "Taught my team and members of CACI's shared knowledge groups how to use generative AI in their own work.",
+  "Designed and developed for the DoD Navy mission using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
+  "Built REST and GraphQL integrations for analyst reporting tools.",
+  "Built secure API services that let analysts pull, visualize, and export intelligence data through self-service reporting tools.",
+  "Supported ODNI/CIA with UI and API development.",
+]
+
+[[experience]]
 company = "StrikeWorks Studio"
 logo = "/logos/strikeworks.jpg"
 period = "Jul 2020 – Present"
@@ -109,29 +132,6 @@ note = "Varsity Tutors"
 highlights = [
   "Taught coding and web development to all ages: coding fundamentals for children through Minecraft, WordPress storefronts for entrepreneurs, and JavaScript and Angular for software developers.",
   "Taught Scrum classes online.",
-]
-
-[[experience]]
-company = "CACI International Inc"
-logo = "/logos/caci.svg"
-title = "Senior Software Engineer, UI Team Lead"
-period = "Feb 2026 – Present"
-highlights = [
-  "Designed and deployed 15+ automated Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
-  "Built self-service analytics portals that let 100+ non-technical users search, filter, drill down, and visualize mission data on their own, cutting ad-hoc engineering requests by 50%.",
-  "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow to automate documentation and code review, speeding up team development by 25%.",
-  "Built responsive React/TypeScript UI components with MUI theming and Figma design systems, cutting load times by 30%, and released them through Jenkins CI/CD pipelines.",
-  "Worked across the full stack of a React/TypeScript app with a Go backend, from UI components to Go server code.",
-  "Used Playwright for automated testing of UI changes before release.",
-  "Helped with Chainguard secure container images and supported server-side code in Java, Python, and Go.",
-  "Added Okta single sign-on (SSO) with SAML to the MVP dashboard app and set up OAuth 2.0 authorization for its API.",
-  "Support CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
-  "Brought generative AI into my own development workflow and increased my output 10x.",
-  "Taught my team and members of CACI's shared knowledge groups how to use generative AI in their own work.",
-  "Designed and developed for the DoD Navy mission using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
-  "Built REST and GraphQL integrations for analyst reporting tools.",
-  "Built secure API services that let analysts pull, visualize, and export intelligence data through self-service reporting tools.",
-  "Supported ODNI/CIA with UI and API development.",
 ]
 
 [[experience]]
