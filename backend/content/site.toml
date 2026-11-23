@@ -127,7 +127,7 @@ highlights = [
   "Served as the primary embedded engineer, deploying and configuring the Casepoint eDiscovery platform for 200+ users.",
   "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
   "Trained 50+ investigators and auditors on the platform, which cut support tickets and sped up adoption of new features.",
-  "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
+  "Delivered security patches and UI improvements under strict accreditation rules without disrupting users.",
   "Worked with the platform's PostgreSQL and SQL Server databases.",
 ]
 
