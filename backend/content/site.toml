@@ -524,7 +524,7 @@ items = ["Go", "Vue", "C++", ".NET"]
 
 [[tools]]
 group = "AI & LLM"
-items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "AWS Bedrock", "Google Gemini", "Microsoft Copilot", "Ollama", "OpenCode", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
+items = ["Anthropic Claude", "OpenAI GPT", "OpenAI Codex", "xAI Grok", "Google Gemini", "Microsoft Copilot", "Ollama", "OpenCode", "Agentic tooling & orchestration", "MCP", "AI-augmented CI/CD", "Prompt engineering", "LLM-assisted development", "LangGraph"]
 
 [[tools]]
 group = "Frontend & UX"
@@ -544,7 +544,7 @@ items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "AWS Bedrock", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
