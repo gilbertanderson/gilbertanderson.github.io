@@ -431,7 +431,7 @@ highlights = [
 company = "Electronic Arts (EA)"
 logo = "/logos/ea.jpg"
 title = "Compatibility and Technology (CAT) Lab Technician"
-period = "Apr 2014 – Jan 2015"
+period = "Apr 2014 – Apr 2015"
 highlights = [
   "Tested hardware (video cards, sound cards, CPUs, memory, operating systems and peripherals) against software at each stage of production, from pre-alpha through final release.",
   "Categorized and prioritized issues in daily testing simulations, working with developers in bug tracking software such as Jira, DevTest and DevTrack.",
