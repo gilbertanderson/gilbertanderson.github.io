@@ -391,6 +391,7 @@ highlights = [
 
 [[experience]]
 company = "Criterion Systems"
+logo = "/logos/criterion.jpg"
 title = "IT Consultant"
 period = "May 2016 – Jul 2016"
 highlights = [
@@ -408,6 +409,7 @@ highlights = [
 
 [[experience]]
 company = "SmartSource Technical Solutions"
+logo = "/logos/smartsource.jpg"
 title = "IT Consultant"
 period = "Aug 2015 – Aug 2016"
 highlights = [
@@ -444,6 +446,7 @@ highlights = [
 
 [[experience]]
 company = "PRO Unlimited"
+logo = "/logos/pro-unlimited.jpg"
 title = "QA Tester, Mobile"
 period = "Jan 2014 – Apr 2014"
 highlights = [
