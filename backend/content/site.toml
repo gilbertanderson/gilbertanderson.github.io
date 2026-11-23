@@ -11,7 +11,7 @@ headline_highlights = ["interfaces", "software"]
 bio = """
 I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of experience building secure, data-driven applications for the U.S. Department of Defense and Intelligence Community.
 
-I embed directly with mission customers, most recently inside a federal Office of Inspector General, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
+I embed directly with mission customers, most recently on a U.S. Navy program at CACI, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
 
 My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker and Kubernetes since 2016 and Podman more recently, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
 """
@@ -73,7 +73,7 @@ article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-
 [[projects]]
 title = "AI-Native SDLC Orchestrator"
 kind = "Agentic AI · unreleased"
-description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut manual PR preparation time by 50%, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
+description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut manual PR preparation time by an estimated 50%, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
 image = "/projects/ai-sdlc-orchestrator.svg"
 
 [[projects]]
@@ -93,21 +93,14 @@ logo = "/logos/caci.svg"
 title = "Senior Software Engineer, UI Team Lead"
 period = "Feb 2026 – Present"
 highlights = [
-  "Designed and deployed 15+ automated Grafana dashboards, cutting manual reporting time for Navy stakeholders by 40%.",
+  "Designed and deployed 15+ automated Grafana dashboards, connected to React interfaces and backend APIs for real-time operational metrics, cutting manual reporting time for Navy stakeholders by 40%.",
   "Built self-service analytics portals that let 100+ non-technical users search, filter, drill down, and visualize mission data on their own, cutting ad-hoc engineering requests by 50%.",
-  "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow to automate documentation and code review, speeding up team development by 25%.",
-  "Built responsive React/TypeScript UI components with MUI theming and Figma design systems, cutting load times by 30%, and released them through Jenkins CI/CD pipelines.",
-  "Worked across the full stack of a React/TypeScript app with a Go backend, from UI components to Go server code.",
-  "Used Playwright for automated testing of UI changes before release.",
-  "Helped with Chainguard secure container images and supported server-side code in Java, Python, and Go.",
+  "Built responsive React/TypeScript and HTML/CSS/SCSS UI components with MUI theming and Figma design systems, cutting load times by 30%, tested them with Playwright, and released them through Jenkins CI/CD pipelines.",
+  "Worked across the full stack of a React/TypeScript app with a Go backend, supported server-side code in Java, Python, and Go, and worked with Chainguard secure container images and Podman.",
   "Added Okta single sign-on (SSO) with SAML to the MVP dashboard app and set up OAuth 2.0 authorization for its API.",
-  "Support CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode.",
-  "Brought generative AI into my own development workflow and increased my output 10x.",
-  "Taught my team and members of CACI's shared knowledge groups how to use generative AI in their own work.",
-  "Designed and developed for the DoD Navy mission using HTML, CSS/SCSS, React, TypeScript, Jenkins, Claude, OpenAI GPT, AWS Bedrock, Figma, MUI theming, and Microsoft Copilot.",
-  "Built REST and GraphQL integrations for analyst reporting tools.",
-  "Built secure API services that let analysts pull, visualize, and export intelligence data through self-service reporting tools.",
-  "Supported ODNI/CIA with UI and API development.",
+  "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow alongside Microsoft Copilot to automate documentation and code review, speeding up team development by 25%, and increased my own output 10x with generative AI.",
+  "Supported CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode, and taught my team and members of CACI's shared knowledge groups how to use generative AI in their own work.",
+  "Supported ODNI/CIA with UI and API work, building REST and GraphQL integrations and secure API services that let analysts pull, visualize, and export intelligence data through self-service reporting tools.",
 ]
 
 [[experience]]
@@ -123,6 +116,7 @@ highlights = [
   "Standardized reusable dashboard components (D3.js, Chart.js, Highcharts) across federal and commercial programs, cutting new client integration time by 50%.",
   "Built secure CSV/JSON exports that handle 10,000+ rows per request and fully meet client security standards.",
   "Designed and built React, Redux, Angular, Vue, and Next.js interfaces for government and commercial systems, with tuned routing and caching.",
+  "Gathered website metrics with Google Analytics and Cloudflare, and ran vulnerability scans with Cloudflare.",
 ]
 
 [[experience.positions]]
@@ -134,6 +128,7 @@ highlights = [
   "Worked directly with OIG investigators, auditors, and analysts to turn their day-to-day needs into platform changes, so fixes reached users faster.",
   "Trained 50+ investigators and auditors on the platform, cutting support tickets by 20% and speeding up adoption of new features.",
   "Delivered security patches and UI improvements under strict accreditation rules while keeping the platform at 99.9% availability.",
+  "Worked with the platform's PostgreSQL and SQL Server databases.",
 ]
 
 [[experience.positions]]
@@ -156,7 +151,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "Department of Defense (DTRA)"
+company = "U.S. Department of Defense (DTRA)"
 logo = "/logos/dtra.png"
 period = "Jul 2023 – Jul 2025"
 
@@ -164,9 +159,9 @@ period = "Jul 2023 – Jul 2025"
 title = "Senior Full Stack Engineer"
 period = "Jul 2023 – Jul 2025"
 highlights = [
-  "Improved Core Web Vitals (LCP, FID) by 35% with lazy loading and code splitting.",
+  "Improved Core Web Vitals (LCP) by 35% with lazy loading and code splitting.",
   "Streamlined AWS CI/CD pipelines, moving deployments from weekly to daily and cutting build failures by 60%.",
-  "Built React, Angular, and Vue components for intelligence, surveillance, and reconnaissance (ISR) mission systems, using secure prefetching to speed them up.",
+  "Built React, Angular (NgRx), and Vue (Pinia) components for intelligence, surveillance, and reconnaissance (ISR) mission systems, using secure prefetching to speed them up.",
   "Built reusable UI libraries, fixed cross-browser issues, and wrote technical documentation for ongoing operations and maintenance.",
   "Used Cypress for automated testing of UI changes before release.",
 ]
@@ -196,13 +191,13 @@ highlights = [
 ]
 
 [[experience]]
-company = "Department of Defense (Navy)"
+company = "U.S. Department of Defense (Navy)"
 logo = "/logos/navy.jpg"
 title = "Senior Frontend Developer"
 period = "Dec 2021 – Feb 2023"
 highlights = [
   "Built UI solutions across React, Vue, Angular, and Spring MVC.",
-  "Improved Web Vitals (CLS, FID) by refactoring components and modernizing ES6+ code.",
+  "Improved Web Vitals (CLS) by refactoring components and modernizing ES6+ code.",
   "Delivered responsive, accessible, Section 508-compliant UI designs for mission-critical Navy applications.",
   "Built client-side logic for complex ISR workflows and data visualization.",
 ]
@@ -293,6 +288,7 @@ period = "Oct 2019 – Oct 2020"
 highlights = [
   "Designed UI mockups and implemented React/Angular/Vue components for case management systems.",
   "Integrated GraphQL APIs and sped up how the UI handled high-volume data.",
+  "Used Elasticsearch and Neo4j in the case management systems.",
 ]
 
 [[experience]]
@@ -314,6 +310,7 @@ period = "May 2018 – Aug 2019"
 highlights = [
   "Designed Grafana dashboards and D3.js data visualizations supporting intelligence operations.",
   "Built Angular/Vue modules with Spring backend integration for ISR applications.",
+  "Developed SharePoint solutions with .NET.",
 ]
 
 [[experience.positions]]
@@ -352,13 +349,14 @@ highlights = [
 ]
 
 [[experience]]
-company = "US Army Human Resources Command (Army)"
+company = "U.S. Army Human Resources Command"
 logo = "/logos/army.jpg"
 title = "Java Developer"
 period = "Aug 2017 – Apr 2018"
 highlights = [
   "Modernized legacy Java/Spring systems with updated, responsive UI layers.",
-  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing (HPE/DXC).",
+  "Used Fortify for security compliance scanning, secure code refactoring, TDD, and integration testing.",
+  "Developed SharePoint solutions with .NET.",
 ]
 
 [[experience]]
@@ -370,7 +368,8 @@ highlights = [
   "Built UI prototypes, automated tools, and frontend architecture for enterprise applications.",
   "Led small development teams through the SDLC with a focus on UI quality and maintainability.",
   "Built the Auto Test Cloud (ATC) app, a Selenium-based end-to-end testing application, and deployed it on Predix, GE's Cloud Foundry-based platform.",
-  "Started containerizing applications with Docker and Kubernetes in 2016, and have used Docker in every role since that deployed to AWS EC2.",
+  "Used Firebase on GE Digital projects.",
+  "Started containerizing applications with Docker and Kubernetes in 2016, and have used Docker in every later role that deployed to AWS EC2.",
 ]
 
 [[experience]]
@@ -391,7 +390,7 @@ highlights = [
 ]
 
 [[experience]]
-company = "US Department of Defense (Marine Forces Reserve)"
+company = "U.S. Department of Defense (Marine Forces Reserve)"
 logo = "/logos/marforres.jpg"
 title = "IT Specialist/SharePoint Developer"
 period = "Sep 2015 – Mar 2016"
@@ -493,7 +492,7 @@ items = ["HTML", "CSS", "JavaScript", "Angular", "React", "Java", "Python", "Git
 
 [[tools]]
 group = "Other languages & frameworks"
-items = ["Go", "Vue", "C++", ".NET"]
+items = ["Go", "Vue", "C#", ".NET"]
 
 [[tools]]
 group = "AI & LLM"
@@ -509,7 +508,7 @@ items = ["Playwright", "Vitest", "Selenium", "Cypress", "PyTest", "Fortify", "Au
 
 [[tools]]
 group = "Analytics & data visualization"
-items = ["Grafana", "Neo4j", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
+items = ["Grafana", "Neo4j", "Google Analytics", "Cloudflare", "D3.js", "Chart.js", "Highcharts", "Operational dashboards", "KPI reporting", "Self-service analytics", "Drill-down & trend analysis", "Secure data export"]
 
 [[tools]]
 group = "Backend & data"
@@ -517,7 +516,7 @@ items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "
 
 [[tools]]
 group = "Cloud & DevOps"
-items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "AWS Bedrock", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Red Hat OpenShift", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
+items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "AWS Bedrock", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
 [[credentials]]
 group = "Education"
