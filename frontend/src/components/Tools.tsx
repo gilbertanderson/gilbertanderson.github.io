@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import type { ToolGroup } from '../client/siteApi';
+import type { SkillLevel, ToolGroup } from '../client/siteApi';
 import { mono } from '../theme';
 import Section from './Section';
 
@@ -65,10 +65,86 @@ function Rows({ groups, slash }: { groups: ToolGroup[]; slash?: boolean }) {
   );
 }
 
-export default function Tools({ groups, credentials }: { groups: ToolGroup[]; credentials?: ToolGroup[] }) {
+/** Headline skills as cards, each with a bar that fills to its level when it scrolls into view. */
+function SkillCards({ skills }: { skills: SkillLevel[] }) {
+  const ref = useRef<HTMLUListElement>(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return setShown(true);
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setShown(true);
+        io.disconnect();
+      }
+    }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <Box
+      component="ul"
+      ref={ref}
+      sx={{ m: 0, mb: 5, p: 0, listStyle: 'none', display: 'grid', gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(auto-fill, minmax(220px, 1fr))' } }}
+    >
+      {skills.map((s) => {
+        const id = `skill-${s.name.replace(/\W+/g, '-').toLowerCase()}`;
+        return (
+          <Box
+            component="li"
+            key={s.name}
+            sx={{
+              p: { xs: 2, sm: 2.5 },
+              display: 'flex',
+              flexDirection: 'column',
+              border: 1,
+              borderColor: 'divider',
+              borderRadius: 2,
+              bgcolor: 'background.paper',
+              transition: 'transform .2s, box-shadow .2s, border-color .2s',
+              '&:hover': { transform: 'translateY(-3px)', boxShadow: 3, borderColor: 'primary.main' },
+              '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 1.5, mb: 1.5 }}>
+              <Typography id={id} sx={{ fontWeight: 600, fontSize: { xs: 15, sm: 16 }, lineHeight: 1.35, minWidth: 0, overflowWrap: 'anywhere' }}>{s.name}</Typography>
+              <Typography sx={{ fontFamily: mono, fontSize: 13, color: 'text.secondary' }}>{s.level}%</Typography>
+            </Box>
+            <Box
+              role="progressbar"
+              aria-labelledby={id}
+              aria-valuenow={s.level}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              sx={{ mt: 'auto', height: 8, borderRadius: 4, bgcolor: 'divider', overflow: 'hidden' }}
+            >
+              <Box
+                sx={{
+                  height: '100%',
+                  width: shown ? `${s.level}%` : 0,
+                  borderRadius: 4,
+                  bgcolor: 'primary.main',
+                  transition: 'width .9s cubic-bezier(.2,.7,.2,1)',
+                  '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                }}
+              />
+            </Box>
+          </Box>
+        );
+      })}
+    </Box>
+  );
+}
+
+type Props = { groups: ToolGroup[]; skills?: SkillLevel[]; credentials?: ToolGroup[] };
+
+export default function Tools({ groups, skills, credentials }: Props) {
   return (
     <>
-      <Section id="tools" title="Skills" n="05"><Rows groups={groups} slash /></Section>
+      <Section id="tools" title="Skills" n="05">
+        {skills?.length ? <SkillCards skills={skills} /> : null}
+        <Rows groups={groups} slash />
+      </Section>
       {credentials?.length ? (
         <Section id="education" title="Education & certifications" n="06"><Rows groups={credentials} /></Section>
       ) : null}
