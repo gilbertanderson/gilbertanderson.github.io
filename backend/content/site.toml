@@ -39,6 +39,13 @@ url = "https://www.linkedin.com/in/gilbertanderson"
 # to replace its typographic tile with a screenshot.
 
 [[projects]]
+title = "Restful API"
+kind = "Node.js API"
+description = "An Express and MongoDB Atlas API with full create, read, update and delete for a set of training resources, built for UMGC Advanced JavaScript. A Mongoose model validates each record, every endpoint returns a consistent success or error response with 400s for bad input and 404s for unknown ids, and it deploys to Azure App Service with iisnode."
+url = "https://github.com/gilbertanderson/restful-api"
+image = "/projects/restful-api.jpg"
+
+[[projects]]
 title = "Terminal Guidance"
 kind = "VR game site"
 description = "A VR flight simulation game website with a career path from military aviation to space exploration, inspired by Victor Glover, who piloted NASA's Orion spacecraft on the Artemis II mission around the Moon. It uses a dark aerospace theme with blue and orange accents."
