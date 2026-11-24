@@ -98,6 +98,10 @@ export type ToolGroup = {
   group: string;
   items: string[];
 };
+export type SkillLevel = {
+  name: string;
+  level: number;
+};
 export type Article = {
   title: string;
   summary?: string;
@@ -132,6 +136,7 @@ export type SiteContent = {
   projects: Project[];
   experience?: Role[];
   tools: ToolGroup[];
+  core_skills?: SkillLevel[];
   credentials?: ToolGroup[];
   writing?: Article[];
   linkedin_posts?: LinkedInPost[];

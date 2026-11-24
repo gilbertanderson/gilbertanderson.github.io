@@ -59,6 +59,13 @@ class ToolGroup(Strict):
     items: list[str] = Field(min_length=1)
 
 
+class SkillLevel(Strict):
+    """A headline skill shown as a card with a progress bar (level is 0 to 100)."""
+
+    name: str = Field(min_length=1)
+    level: int = Field(ge=0, le=100)
+
+
 class Position(Strict):
     """One title held at a company, shown nested under it like LinkedIn does."""
 
@@ -119,6 +126,7 @@ class SiteContent(Strict):
     projects: list[Project] = Field(min_length=1)
     experience: list[Role] = []
     tools: list[ToolGroup]
+    core_skills: list[SkillLevel] = []
     credentials: list[ToolGroup] = []
     writing: list[Article] = []
     linkedin_posts: list[LinkedInPost] = []

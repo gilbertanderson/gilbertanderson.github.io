@@ -700,6 +700,14 @@
             "type": "array",
             "title": "Tools"
           },
+          "core_skills": {
+            "items": {
+              "$ref": "#/components/schemas/SkillLevel"
+            },
+            "type": "array",
+            "title": "Core Skills",
+            "default": []
+          },
           "credentials": {
             "items": {
               "$ref": "#/components/schemas/ToolGroup"
@@ -748,6 +756,29 @@
           "contact"
         ],
         "title": "SiteContent"
+      },
+      "SkillLevel": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Name"
+          },
+          "level": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Level"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "level"
+        ],
+        "title": "SkillLevel",
+        "description": "A headline skill shown as a card with a progress bar (level is 0 to 100)."
       },
       "ToolGroup": {
         "properties": {

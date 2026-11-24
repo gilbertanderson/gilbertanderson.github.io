@@ -543,6 +543,40 @@ items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "
 group = "Cloud & DevOps"
 items = ["AWS EC2", "AWS RDS", "AWS EKS", "AWS Lambda", "AWS CloudWatch", "AWS S3", "AWS Bedrock", "GCP", "Azure", "Cloud Foundry (GE Predix)", "Docker", "Kubernetes", "Podman", "Containerization", "Linux", "Red Hat Enterprise Linux (RHEL 8–10)", "Windows", "macOS", "iOS", "Android", "Chainguard", "YAML", "Jenkins", "GitHub Actions", "Bitbucket Pipelines", "GitLab CI"]
 
+# Headline skills shown as cards with a progress bar, above the full lists. The names come
+# from the lists above; the levels (0 to 100) are estimates to adjust by hand.
+[[core_skills]]
+name = "React & TypeScript"
+level = 95
+
+[[core_skills]]
+name = "HTML, CSS & JavaScript"
+level = 95
+
+[[core_skills]]
+name = "UI/UX & design systems"
+level = 90
+
+[[core_skills]]
+name = "Test automation"
+level = 85
+
+[[core_skills]]
+name = "AI & LLM engineering"
+level = 85
+
+[[core_skills]]
+name = "Python"
+level = 80
+
+[[core_skills]]
+name = "AWS"
+level = 80
+
+[[core_skills]]
+name = "Docker & Kubernetes"
+level = 80
+
 [[credentials]]
 group = "Education"
 items = ["UMGC B.S. Web and Digital Design (expected 2027)", "UMGC A.A. General Studies, Computer Studies (2026)", "USAF/ANG Cybersecurity, Client Systems Technician"]

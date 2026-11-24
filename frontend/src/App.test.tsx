@@ -89,6 +89,17 @@ describe('App', () => {
     expect(more).toHaveAttribute('aria-expanded', 'true');
   });
 
+  it('shows each core skill as a card with a labelled progress bar', () => {
+    renderApp();
+    const skills = screen.getByRole('region', { name: 'Skills' });
+    const bars = within(skills).getAllByRole('progressbar');
+    expect(bars).toHaveLength(content.core_skills!.length);
+    content.core_skills!.forEach((s) => {
+      const bar = within(skills).getByRole('progressbar', { name: s.name });
+      expect(bar).toHaveAttribute('aria-valuenow', String(s.level));
+    });
+  });
+
   it('shows LinkedIn posts with a link to each', () => {
     renderApp();
     const section = screen.getByRole('region', { name: 'From LinkedIn' });
