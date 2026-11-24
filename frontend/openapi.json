@@ -516,7 +516,7 @@
             "type": "string",
             "minLength": 1,
             "title": "Period",
-            "description": "Display text, e.g. 'Jul 2023 \u2013 Jul 2025'."
+            "description": "Display text, e.g. 'Jul 2023 – Jul 2025'."
           },
           "title": {
             "anyOf": [
@@ -693,6 +693,14 @@
             "title": "Experience",
             "default": []
           },
+          "stats": {
+            "items": {
+              "$ref": "#/components/schemas/Stat"
+            },
+            "type": "array",
+            "title": "Stats",
+            "default": []
+          },
           "tools": {
             "items": {
               "$ref": "#/components/schemas/ToolGroup"
@@ -779,6 +787,29 @@
         ],
         "title": "SkillLevel",
         "description": "A headline skill shown as a card with a progress bar (level is 0 to 100)."
+      },
+      "Stat": {
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Value",
+            "description": "The figure as shown, e.g. '15+'."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Label"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "label"
+        ],
+        "title": "Stat",
+        "description": "A headline figure shown in the By the numbers strip; use only figures already on the resume."
       },
       "ToolGroup": {
         "properties": {

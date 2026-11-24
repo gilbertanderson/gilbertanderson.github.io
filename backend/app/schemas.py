@@ -93,6 +93,13 @@ class Role(Strict):
         return self
 
 
+class Stat(Strict):
+    """A headline figure shown in the By the numbers strip; use only figures already on the resume."""
+
+    value: str = Field(min_length=1, description="The figure as shown, e.g. '15+'.")
+    label: str = Field(min_length=1)
+
+
 class Article(Strict):
     title: str = Field(min_length=1)
     summary: str = ""
@@ -125,6 +132,7 @@ class SiteContent(Strict):
     links: list[Link]
     projects: list[Project] = Field(min_length=1)
     experience: list[Role] = []
+    stats: list[Stat] = []
     tools: list[ToolGroup]
     core_skills: list[SkillLevel] = []
     credentials: list[ToolGroup] = []

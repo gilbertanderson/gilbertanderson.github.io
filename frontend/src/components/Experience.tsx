@@ -4,10 +4,12 @@ import Button from '@mui/material/Button';
 import Collapse from '@mui/material/Collapse';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import type { Role } from '../client/siteApi';
+import type { Role, Stat } from '../client/siteApi';
 import { mono } from '../theme';
 import ResumeMenu from './ResumeMenu';
 import Section from './Section';
+import Stats from './Stats';
+import Timeline from './Timeline';
 
 type Row = { title: string; meta: string; highlights: string[] };
 
@@ -41,14 +43,16 @@ function Logo({ role }: { role: Role }) {
 
 const RECENT = 6;
 
-function RoleList({ roles, continued }: { roles: Role[]; continued?: boolean }) {
+function RoleList({ roles, continued, offset = 0 }: { roles: Role[]; continued?: boolean; offset?: number }) {
   return (
     <Box component="ol" sx={{ m: 0, p: 0, listStyle: 'none' }}>
-      {roles.map((role) => (
+      {roles.map((role, i) => (
         <Box
           component="li"
+          id={`role-${offset + i}`}
+          tabIndex={-1}
           key={`${role.company}-${role.period}`}
-          sx={{ display: 'flex', flexWrap: 'wrap', gap: '12px 40px', py: 4, borderTop: 1, borderColor: 'divider', ...(continued ? {} : { '&:first-of-type': { pt: 0, borderTop: 0 } }) }}
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: '12px 40px', py: 4, scrollMarginTop: '88px', outline: 'none', borderTop: 1, borderColor: 'divider', ...(continued ? {} : { '&:first-of-type': { pt: 0, borderTop: 0 } }) }}
         >
           <Typography sx={{ flex: '0 0 170px', fontFamily: mono, fontSize: 13, color: 'text.secondary', lineHeight: 1.6 }}>{role.period}</Typography>
           <Stack spacing={2.75} sx={{ flex: '1 1 340px', minWidth: 0 }}>
@@ -76,8 +80,19 @@ function RoleList({ roles, continued }: { roles: Role[]; continued?: boolean }) 
   );
 }
 
-export default function Experience({ roles, resume, resumePdf }: { roles: Role[]; resume?: string | null; resumePdf?: string | null }) {
+type Props = { roles: Role[]; stats?: Stat[]; resume?: string | null; resumePdf?: string | null };
+
+export default function Experience({ roles, stats = [], resume, resumePdf }: Props) {
   const [showAll, setShowAll] = useState(false);
+  // Open the older roles if needed, then scroll to the role picked on the timeline.
+  const select = (index: number) => {
+    if (index >= RECENT) setShowAll(true);
+    window.setTimeout(() => {
+      const el = document.getElementById(`role-${index}`);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el?.focus({ preventScroll: true });
+    }, index >= RECENT && !showAll ? 320 : 0);
+  };
   return (
     <Section
       id="experience"
@@ -87,11 +102,13 @@ export default function Experience({ roles, resume, resumePdf }: { roles: Role[]
         resume || resumePdf ? <ResumeMenu pdf={resumePdf} docx={resume} label="Full resume" fontSize={15} /> : undefined
       }
     >
+      {stats.length ? <Stats stats={stats} /> : null}
+      <Timeline roles={roles} onSelect={select} />
       <RoleList roles={roles.slice(0, RECENT)} />
       {roles.length > RECENT ? (
         <>
           <Collapse in={showAll} timeout="auto">
-            <RoleList roles={roles.slice(RECENT)} continued />
+            <RoleList roles={roles.slice(RECENT)} continued offset={RECENT} />
           </Collapse>
           <Button
             onClick={() => setShowAll((v) => !v)}

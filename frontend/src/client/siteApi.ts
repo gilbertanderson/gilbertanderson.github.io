@@ -94,6 +94,11 @@ export type Role = {
   /** Several titles at one company, newest first. */
   positions?: Position[];
 };
+export type Stat = {
+  /** The figure as shown, e.g. '15+'. */
+  value: string;
+  label: string;
+};
 export type ToolGroup = {
   group: string;
   items: string[];
@@ -135,6 +140,7 @@ export type SiteContent = {
   links: Link[];
   projects: Project[];
   experience?: Role[];
+  stats?: Stat[];
   tools: ToolGroup[];
   core_skills?: SkillLevel[];
   credentials?: ToolGroup[];
