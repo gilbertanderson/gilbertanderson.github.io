@@ -81,7 +81,8 @@ article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-
 title = "AI-Native SDLC Orchestrator"
 kind = "Agentic AI · unreleased"
 description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut down on manual PR preparation, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
-image = "/projects/ai-sdlc-orchestrator.svg"
+url = "https://github.com/gilbertanderson/ai-sdlc-orchestrator"
+image = "/projects/ai-sdlc-orchestrator.jpg"
 
 [[projects]]
 title = "Stormers: The Two Ships"
