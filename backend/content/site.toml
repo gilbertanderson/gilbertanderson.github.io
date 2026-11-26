@@ -39,6 +39,16 @@ url = "https://www.linkedin.com/in/gilbertanderson"
 # to replace its typographic tile with a screenshot.
 
 [[projects]]
+title = "Sightline XR"
+kind = "WebXR prototype"
+description = "A seat-booking prototype built for PC VR that also runs in the browser: pick one of 2,612 seats in a 3D concert hall, step into it to see your exact view, and watch a live broadcast from the stage before you book. Each seat gets a sightline score with a plain-language reason. Built with React Three Fiber, WebXR and TypeScript."
+url = "https://github.com/gilbertanderson/sightline-xr"
+demos = [
+  { label = "Open it", hint = "Desktop or PC VR", url = "https://gilbertanderson.com/sightline-xr/" },
+]
+image = "/projects/sightline-xr.jpg"
+
+[[projects]]
 title = "Restful API"
 kind = "Node.js API"
 description = "An Express and MongoDB Atlas API with full create, read, update and delete for a set of training resources, built for UMGC Advanced JavaScript. A Mongoose model validates each record, every endpoint returns a consistent success or error response with 400s for bad input and 404s for unknown ids, and it deploys to Azure App Service with iisnode."
