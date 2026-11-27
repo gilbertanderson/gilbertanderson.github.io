@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; script-src 'sha256-2kNtD2TbiTNqiF/sxmUVprLXSnj/Wr6AemWGD0D6lS0='; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Case study: a barcode scanner web app that checks groceries against diets from cited sources, built to Section 508 and tested for security.">
+  <title>Nutrition Scanner Case Study</title>
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <script>
+    // Match the app's theme choice; dark until the visitor picks one there
+    (function () {
+      let t = null;
+      try { t = JSON.parse(localStorage.getItem("theme")); } catch (e) {}
+      if (t === "light") document.documentElement.dataset.theme = "light";
+      else if (t !== "auto") document.documentElement.dataset.theme = "dark";
+    })();
+  </script>
+  <style>
+    :root { --bg: #f6f5f1; --card: #ffffff; --ink: #1d2320; --muted: #5d6862; --line: #e2e0d8; --accent: #2f6b4f; --chip: #eef0ec; --focus: #1f5fbf; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #121614; --card: #1b201d; --ink: #e8ece9; --muted: #a3ada7; --line: #2e3531; --accent: #6fbf95; --chip: #252b27; --focus: #8ab4ff; color-scheme: dark; }
+    }
+    :root[data-theme="dark"] { --bg: #121614; --card: #1b201d; --ink: #e8ece9; --muted: #a3ada7; --line: #2e3531; --accent: #6fbf95; --chip: #252b27; --focus: #8ab4ff; color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+    h1 { font-size: 2.2rem; line-height: 1.2; margin: 6px 0 12px; letter-spacing: -.01em; }
+    h2 { font-size: 1.35rem; margin: 40px 0 8px; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 20px; }
+    .cta { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; border-radius: 10px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0 8px; padding: 0; list-style: none; }
+    .facts li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+    .facts strong { display: block; font-size: 1.4rem; }
+    .facts span { font-size: .9rem; line-height: 1.4; color: var(--muted); display: block; }
+    ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+    .sources { font-size: .95rem; }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Case study</p>
+    <h1>Nutrition Scanner</h1>
+    <p class="lede">A barcode scanner that tells you, in a couple of seconds, whether a grocery item fits your diet and exactly which source says so.</p>
+    <a class="cta" href="./">Try the app</a>
+
+    <ul class="facts" aria-label="Project at a glance">
+      <li><strong>3 diets</strong><span>Best Bet, Vegan and Diabetic, plus your own</span></li>
+      <li><strong>0</strong><span>automated Section 508 violations across 32 app states</span></li>
+      <li><strong>42</strong><span>automated tests on every push</span></li>
+      <li><strong>3 views</strong><span>phone, Meta Quest and Meta Ray-Ban Display glasses</span></li>
+    </ul>
+
+    <h2>The problem</h2>
+    <p>Following a specific diet at the grocery store mostly comes down to reading ingredient lists in small print and trying to remember long avoid lists, and a general nutrition app doesn't help much with that because it shows calories and macros without telling you whether the product actually fits the plan you're on. I wanted something closer to how a friend who knows the diet would answer: scan the barcode, get a clear yes, no or "be careful," and see why.</p>
+
+    <h2>Starting from the source, not a guess</h2>
+    <p>The first diet I built in was the Best Bet Diet, and rather than paraphrasing it from memory I worked straight from the MS Hope Best Bet Diet Cookbook. Its Meal Strategies section has avoid lists for each food group, e.g. the gluten list on page 39 runs from wheat, rye and barley through spelt, kamut and soy flour, and each of those lists became a rule in the app along with its page number. When a product gets flagged you can open the reason and see the cookbook's own list and the page it came from, which in my view matters more than the verdict itself, since it lets people check the app's work instead of just trusting it.</p>
+    <p>The Vegan and Diabetic profiles follow the same idea, with Vegan built on The Vegan Society's definition plus Open Food Facts' own vegan analysis, and Diabetic built on CDC and Mayo Clinic guidance. One thing I had to be careful about is that the sources say things like "greatly reduce sugar" without giving a number for a single product, so where a cutoff was needed I used the NHS front-of-pack label limits (e.g. over 22.5 g of sugar per 100 g counts as high) and cited those too, rather than inventing my own numbers.</p>
+
+    <h2>Design decisions</h2>
+    <p>The result card leads with the verdict, so "Doesn't fit · Best Bet Diet" is the first thing you read, and the reasons sit underneath it with the strictest ones first. Flagged words are highlighted right inside the ingredient list, which in my view is the most useful part of the result, because it answers "where is the problem?" without making you scan the label again. I also had to watch for false hits, since a naive word match would flag coconut milk as dairy and eggplant as egg, so each rule carries a list of exceptions.</p>
+    <p>Diets are plain data, so anyone can add one by typing in the avoid and limit lists from their own cookbook, uploading a diet file, or editing one they made earlier, and limits can be tightened per person, e.g. treating eggs as a hard avoid for someone who is sensitive to them, which the cookbook itself recommends. Recent scans are saved in the browser and open offline, and the app installs to a home screen like a native app.</p>
+    <p>I also wanted to use it inside a headset, so there is a Phone and Headset switch. The headset view follows Meta's guidance for Quest Browser, with a two-column layout, larger type, 60 px primary controls and nothing that depends on hover, since Quest's browser doesn't fire hover effects. Quest's passthrough cameras show up as regular cameras in the browser, so a camera switch lets you pick the right one.</p>
+
+    <h2>Accessibility</h2>
+    <p>Given my background supporting federal clients, Section 508 was a requirement rather than a nice-to-have. I ran axe-core against Section 508 and WCAG 2.0 through 2.2 A and AA rules across 32 states of the app, covering both themes, both views, open panels, results and error states, and the first pass caught an unlabeled file input, a contrast miss on the highlight legend, field borders that were too faint for WCAG 1.4.11 and a heading level skip. Automated tools only catch part of the picture, so I also tested what they can't, which turned up a keyboard focus bug where choosing a diet with the arrow keys dropped focus off the page. After fixes the automated scan is clean, focus moves to each new result, a short status message is announced instead of the whole card, highlighted words are marked by underline style and screen reader text and not by color alone, and the page reflows at 320 px and at 200% text without sideways scrolling.</p>
+
+    <h2>Security</h2>
+    <p>The app is entirely static, so the main risks are hostile data coming in from the product database or from an uploaded diet file. Everything from outside is escaped before it reaches the page, uploaded and saved diets are rebuilt field by field with size limits, and only http or https links are ever rendered. The page also carries a strict Content Security Policy that only allows scripts from my own site, and I self-host the barcode library with a Subresource Integrity hash instead of pulling it from a CDN. To check all of this I attacked the app with script injection in product names, a malicious diet file and tampered browser storage, and none of it ran.</p>
+
+    <h2>Testing</h2>
+    <p>All of the checks above live in the repo as 42 automated tests, covering the diet rules, accessibility, security and the main features, and a GitHub Action runs them whenever the app changes, so a future tweak can't quietly break 508 compliance or the security policy.</p>
+    <!-- Gilbert: add a sentence or two here about how you built it (process, tools, timeline). -->
+
+    <h2>What's next</h2>
+    <ol>
+      <li>Real-device testing on iPhone, Android and Quest with a shelf of actual groceries, and a VoiceOver pass.</li>
+      <li>Switching on the USDA FoodData Central fallback, which fills in products Open Food Facts is missing through a small proxy that keeps the API key private.</li>
+      <li>A daily view that tracks sodium against the Best Bet Diet's 1,000 mg a day.</li>
+    </ol>
+
+    <h2>Sources</h2>
+    <ul class="sources">
+      <li><a href="https://mshope.com/best-bet-diet-cookbook">Best Bet Diet Cookbook, MS Hope</a></li>
+      <li><a href="https://www.vegansociety.com/go-vegan/definition-veganism">Definition of veganism, The Vegan Society</a></li>
+      <li><a href="https://cdc.gov/diabetes/healthy-eating/diabetes-meal-planning.html">Diabetes Meal Planning, CDC</a></li>
+      <li><a href="https://www.mayoclinic.org/diabetes-diet/art-20044295">Diabetes diet, Mayo Clinic</a></li>
+      <li><a href="https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/how-to-read-food-labels/">How to read food labels, NHS</a></li>
+      <li><a href="https://world.openfoodfacts.org">Open Food Facts</a></li>
+      <li><a href="https://developers.meta.com/horizon/design/styles_inputs_hit_targets/">Hit targets, Meta Horizon design guidelines</a></li>
+    </ul>
+
+    <footer>Nutrition Scanner is a quick guide based on product labels, not medical advice.</footer>
+  </main>
+</body>
+</html>

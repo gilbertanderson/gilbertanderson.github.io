@@ -67,10 +67,26 @@ jobs:
         with:
           path: frontend/dist
 
+  nutrition-scanner:
+    name: Nutrition Scanner tests (rules, Section 508, security, features)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: nutrition-scanner/tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    needs: [backend, frontend]
+    needs: [backend, frontend, nutrition-scanner]
     runs-on: ubuntu-latest
     permissions:
       pages: write
