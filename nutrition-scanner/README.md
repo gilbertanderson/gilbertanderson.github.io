@@ -18,7 +18,7 @@ Open Food Facts, with optional gaps filled from USDA FoodData Central.
 | `diets.js` | Built-in diets and their sources (every rule cites one) |
 | `diet-check.js` | Checks a product against a diet |
 | `usda.js`, `config.js` | Optional USDA fallback, off until `config.js` has a proxy URL |
-| `xr-view.js`, `vendor/three/` | VR view (WebXR): a floating panel for Quest and PC VR, loaded only when chosen. Three.js r171 (MIT), self-hosted |
+| `xr-view.js`, `vendor/three/` | VR view (WebXR): a floating panel for Quest and PC VR, loaded only when chosen. Controllers point and click; tracked hands touch the panel directly or pinch from a distance. Three.js r171 (MIT), self-hosted |
 | `sw.js`, `manifest.webmanifest`, `icons/` | Installable app and offline support |
 | `vendor/` | html5-qrcode 2.3.8 (Apache-2.0), self-hosted with an integrity hash |
 | (in this folder) | |
