@@ -55,3 +55,22 @@ test("everything on the sign-in screen works from the keyboard", async () => {
   await atHash(page, "community-setup");
   await page.context().close();
 });
+
+// axe doesn't check non-text contrast (WCAG 1.4.11) or how clear focus is, so check the form fields directly
+test("form fields: borders reach 3:1 and keyboard focus shows a ring", async () => {
+  const page = await openApp(browser, srv.base);
+  const lum = rgb => { const c = rgb.match(/\d+/g).slice(0, 3).map(v => v / 255).map(v => v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4); return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; };
+  const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + .05) / (y + .05); };
+  const field = page.locator("input.input").first();
+  const { border, fill, card } = await field.evaluate(el => ({
+    border: getComputedStyle(el).borderTopColor,
+    fill: getComputedStyle(el).backgroundColor,
+    card: getComputedStyle(el.closest(".card, form, main") || document.body).backgroundColor
+  }));
+  assert.ok(ratio(border, fill) >= 3, `border vs field ${ratio(border, fill).toFixed(2)}`);
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  const outline = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return [document.activeElement.tagName, s.outlineStyle, parseFloat(s.outlineWidth)]; });
+  assert.deepEqual(outline.slice(0, 2), ["INPUT", "solid"]);
+  assert.ok(outline[2] >= 2);
+});

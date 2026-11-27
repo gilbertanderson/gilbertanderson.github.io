@@ -18,7 +18,7 @@
   --card: #FDF8EF;
   --card-foreground: #342C23;
   --input-background: #F2EADB;
-  --input-border: #D2C2A6;
+  --input-border: #93805F;   /* 3.2:1 on the field, 3.6:1 on cards (WCAG 1.4.11) */
   --success: #3F7A4D;
   --warning: #C0893A;
   --error: #B6463A;
@@ -280,6 +280,8 @@ html.framed .app-dock {
   transition: border-color .15s ease;
 }
 .input:focus { border-color: var(--primary); }
+/* A clear ring for keyboard focus, not just a border color change */
+.input:focus-visible { border-color: var(--primary); outline: 2px solid var(--primary); outline-offset: 2px; }
 .input::placeholder { color: var(--muted-foreground); }
 textarea.input { resize: none; min-height: 80px; line-height: 1.45; }
 .field-label { font-size: 12.5px; font-weight: 600; display: block; }
