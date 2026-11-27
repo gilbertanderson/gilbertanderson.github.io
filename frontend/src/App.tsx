@@ -22,7 +22,7 @@ type Props = { content: SiteContent; contactEnabled?: boolean };
 const REPO = 'https://github.com/gilbertanderson/gilbertanderson.github.io';
 
 export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props) {
-  const { site, links, projects, experience, writing, tools, core_skills, credentials, how_built, contact, linkedin_posts } = content;
+  const { site, links, projects, experience, stats, writing, tools, core_skills, credentials, how_built, contact, linkedin_posts } = content;
   const linkedinProfile = links.find((l) => /linkedin\.com/.test(l.url))?.url;
   const theme = useMemo(() => makeTheme(site.accent, site.accent_on_dark), [site.accent, site.accent_on_dark]);
   // Follow the visitor's browser theme; browsers that report no preference get dark.
@@ -49,7 +49,7 @@ export default function App({ content, contactEnabled = CONTACT_ENABLED }: Props
         <Profile site={site} links={links} />
         <Projects projects={projects} />
         {site.bio ? <About bio={site.bio} /> : null}
-        {experience?.length ? <Experience roles={experience} resume={site.resume} resumePdf={site.resume_pdf} /> : null}
+        {experience?.length ? <Experience roles={experience} stats={stats} resume={site.resume} resumePdf={site.resume_pdf} /> : null}
         {writing?.length ? <Writing articles={writing} /> : null}
         <Tools groups={tools} skills={core_skills} credentials={credentials} />
         {how_built ? <HowBuilt data={how_built} repo={REPO} /> : null}

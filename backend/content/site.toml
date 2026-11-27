@@ -125,6 +125,31 @@ demos = [
 ]
 image = "/projects/stormers-mvp.jpg"
 
+# Headline figures shown above the career timeline. Keep them to numbers already on the resume.
+[[stats]]
+value = "10+"
+label = "years building software for DoD and the Intelligence Community"
+
+[[stats]]
+value = "15+"
+label = "automated Grafana dashboards deployed for Navy stakeholders"
+
+[[stats]]
+value = "100+"
+label = "non-technical users on self-service analytics portals"
+
+[[stats]]
+value = "200+"
+label = "users on the Casepoint platform I deployed for NGA OIG"
+
+[[stats]]
+value = "50+"
+label = "investigators and auditors trained"
+
+[[stats]]
+value = "TS/SCI"
+label = "active clearance with CI polygraph"
+
 [[experience]]
 company = "CACI International Inc"
 logo = "/logos/caci.svg"
