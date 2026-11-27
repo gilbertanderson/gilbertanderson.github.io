@@ -110,13 +110,13 @@ describe('App', () => {
     expect(links.map((a) => a.getAttribute('href'))).toEqual((content.linkedin_posts ?? []).map((p) => p.url));
   });
 
-  it('offers a Play it menu with a choice per playable build', async () => {
+  it('offers a Try it menu with a choice per playable build', async () => {
     renderApp();
     const user = userEvent.setup();
     const withDemos = content.projects.find((p) => (p.demos ?? []).length > 1);
     if (!withDemos) return;
     const work = screen.getByRole('region', { name: 'Projects' });
-    await user.click(within(work).getByRole('button', { name: /play it/i }));
+    await user.click(within(work).getByRole('button', { name: /try it/i }));
     const menu = await screen.findByRole('menu');
     expect(within(menu).getAllByRole('menuitem').map((m) => m.getAttribute('href'))).toEqual((withDemos.demos ?? []).map((d) => d.url));
   });

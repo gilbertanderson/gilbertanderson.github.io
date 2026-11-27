@@ -1,0 +1,683 @@
+/* Share Crops — Forest Green & Earthy Cream design system
+   Ported from the Share Crops prototype, adapted for a full-viewport app. */
+/* Fonts are self-hosted (imported in main.tsx), so the demo makes no third-party font requests. */
+
+:root {
+  --background: #EEF4EF;
+  --foreground: #342C23;
+  --primary: #2F5D3A;
+  --primary-hover: #264C30;
+  --primary-foreground: #FFFFFF;
+  --secondary: #6F9F80;
+  --accent: #CAA46F;
+  --accent-hover: #B18654;
+  --accent-foreground: #221D17;
+  --muted: #F9F4EA;
+  --muted-foreground: #6C5D49;
+  --border: #E4D8C2;
+  --card: #FDF8EF;
+  --card-foreground: #342C23;
+  --input-background: #F2EADB;
+  --input-border: #D2C2A6;
+  --success: #3F7A4D;
+  --warning: #C0893A;
+  --error: #B6463A;
+  --info: #4A6F7D;
+  --tomato-empty: #E4D8C2;
+  --tomato-filled: #E63946;
+  --tomato-rotten: #8B4513;
+  --stem-green: #4a7c3f;
+  --stage: #E5DFD0;
+
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.06);
+  --shadow-md: 0 4px 12px -2px rgba(34,29,23,.08), 0 2px 4px -2px rgba(34,29,23,.06);
+  --shadow-lg: 0 12px 28px -8px rgba(34,29,23,.18), 0 4px 8px -4px rgba(34,29,23,.08);
+
+  --nav-safe: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  background: var(--background);
+}
+
+#root { height: 100%; min-height: 100dvh; }
+
+.serif { font-family: 'Fraunces Variable', 'Fraunces', serif; font-optical-sizing: auto; letter-spacing: -0.01em; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; padding: 0; }
+a { color: inherit; }
+
+/* ── App shell ─────────────────────────────────────────── */
+/* Full-bleed, fluid layout (like the older shareCropsApp): the shell fills the
+   viewport and the screens cap their own content width on large displays. */
+.app {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cap screen content on large displays and center it, mirroring shareCropsApp's
+   max-width container — the header/nav bars themselves still span full width. */
+.screen-body > * {
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* Only meaningful on wide viewports, so hidden on phones (reappears when a
+   phone requests the desktop site, which widens the viewport past this
+   breakpoint). Used for the phone-frame display preference in Edit Profile. */
+.wide-only { display: none; }
+
+@media (min-width: 900px) {
+  .wide-only { display: block; }
+
+  /* Opt-in phone-frame presentation: app centered on the warm stage as a
+     rounded, shadowed panel — no fake bezel. */
+  html.framed #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--stage);
+  }
+  html.framed .app {
+    max-width: 420px;
+    height: min(900px, 100%);
+    border-radius: 26px;
+    box-shadow: 0 30px 70px -24px rgba(34, 29, 23, 0.35), 0 0 0 1px rgba(34, 29, 23, 0.06);
+  }
+}
+
+.screen-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Room for the fixed bottom dock (tab bar ± install banner). */
+.app:has(.app-dock) .screen-body {
+  padding-bottom: calc(4rem + var(--nav-safe));
+}
+
+.app:has(.app-dock .pwa-install-banner) .screen-body {
+  padding-bottom: calc(7rem + var(--nav-safe));
+}
+
+.scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-area::-webkit-scrollbar { width: 0; }
+
+/* Top sticky header */
+.app-header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px 12px;
+}
+.app-header h1 {
+  font-family: 'Fraunces Variable', 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.app-header .subtitle {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+
+/* Bottom nav — pinned in .app-dock so it stays put when the browser chrome resizes. */
+.bottom-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  background: var(--card);
+  padding: 8px 4px 4px;
+  flex-shrink: 0;
+}
+
+/* Fixed stack: install prompt (optional) + tab bar, above the home-indicator safe area. */
+.app-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--nav-safe);
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+
+html.framed .app-dock {
+  position: absolute;
+}
+.bottom-nav button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 4px 8px;
+  color: var(--muted-foreground);
+  position: relative;
+  border-radius: 12px;
+}
+.bottom-nav button.active { color: var(--primary); }
+.bottom-nav button:hover { color: var(--primary); }
+.bottom-nav button .label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.01em; }
+
+/* Stacked outline + filled glyph: filled fades in on active/hover, no reflow. */
+.bottom-nav button .nav-ico { position: relative; width: 24px; height: 22px; }
+.bottom-nav button .nav-ico .icon { width: 100%; height: 100%; }
+.bottom-nav button .ico-line,
+.bottom-nav button .ico-fill {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .12s ease;
+}
+.bottom-nav button .ico-fill { opacity: 0; }
+.bottom-nav button.active .ico-line,
+.bottom-nav button:hover .ico-line { opacity: 0; }
+.bottom-nav button.active .ico-fill,
+.bottom-nav button:hover .ico-fill { opacity: 1; }
+.bottom-nav button:focus-visible { outline: none; }
+.bottom-nav button:focus-visible .nav-ico {
+  outline: 2px solid var(--primary); outline-offset: 4px; border-radius: 8px;
+}
+
+/* On-brand tomato badge — a presence dot, ringed so it lifts off the glyph. */
+.bottom-nav button .nav-badge {
+  position: absolute; top: -4px; right: -6px;
+  filter: drop-shadow(0 0 1.5px var(--card)) drop-shadow(0 0 1.5px var(--card));
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--primary); color: var(--primary-foreground); }
+.btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+.btn-outline { background: transparent; color: var(--foreground); border: 1px solid var(--border); }
+.btn-outline:hover:not(:disabled) { background: var(--muted); }
+.btn-ghost { background: transparent; color: var(--muted-foreground); }
+.btn-accent { background: var(--accent); color: var(--accent-foreground); }
+.btn-accent:hover:not(:disabled) { background: var(--accent-hover); }
+.btn-success { background: var(--success); color: white; }
+.btn-error-outline { background: transparent; color: var(--error); border: 1px solid var(--error); }
+.btn-block { width: 100%; }
+.btn-sm { padding: 6px 12px; font-size: 12.5px; }
+.btn-icon { padding: 8px; width: 36px; height: 36px; }
+
+/* Chip */
+.chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  transition: all .15s ease;
+}
+.chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+.chip:not(.active):hover { background: var(--muted); color: var(--foreground); }
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--input-background);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--foreground);
+  font-family: inherit;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.input:focus { border-color: var(--primary); }
+.input::placeholder { color: var(--muted-foreground); }
+textarea.input { resize: none; min-height: 80px; line-height: 1.45; }
+.field-label { font-size: 12.5px; font-weight: 600; display: block; }
+
+/* Search bar */
+.search-wrap { position: relative; }
+.search-wrap .input { padding-left: 40px; }
+.search-wrap .search-icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; color: var(--muted-foreground);
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all .2s ease;
+}
+.card.tap:active { transform: scale(0.98); }
+
+/* Listing card */
+.listing-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all .2s ease;
+}
+.listing-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.listing-card .photo {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+.listing-card .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.listing-card .photo.completed img { opacity: 0.55; filter: saturate(0.7); }
+.listing-card .body { padding: 12px 14px 14px; }
+
+.in-season-card { border-color: rgba(47,93,58,0.35); }
+.in-season-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 16px 36px -8px rgba(47,93,58,.4), 0 0 0 1px var(--primary);
+}
+
+.photo-badge {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 700;
+  padding: 4px 9px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+.badge-in-season { top: 8px; left: 8px; background: var(--primary); color: white; }
+.badge-rank { top: 8px; right: 8px; background: rgba(253,248,239,0.95); color: var(--primary); border: 1px solid rgba(47,93,58,.25); backdrop-filter: blur(4px); }
+.badge-completed { bottom: 8px; left: 8px; background: var(--success); color: white; }
+
+.listing-card.density-list { display: flex; flex-direction: row; }
+.listing-card.density-list .photo { width: 96px; height: 96px; aspect-ratio: 1/1; flex-shrink: 0; }
+.listing-card.density-list .body { flex: 1; padding: 10px 12px; }
+
+.listing-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.listing-title { font-weight: 600; font-size: 15px; line-height: 1.3; flex: 1; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+.zip-badge { background: var(--success); color: white; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-full); flex-shrink: 0; letter-spacing: 0.02em; }
+.listing-desc { font-size: 12.5px; color: var(--muted-foreground); margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.listing-qty { font-size: 12px; font-weight: 600; margin-top: 6px; }
+.listing-rank-line { font-size: 11px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 3px; margin-top: 4px; letter-spacing: 0.01em; }
+
+/* Tomato rating */
+.tomato-row { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+.tomato-row .tomatoes { display: flex; gap: 1px; }
+.tomato-row .text { font-size: 11.5px; color: var(--muted-foreground); font-weight: 500; }
+.tomato { display: inline-block; }
+
+/* Trending */
+.trending {
+  background: rgba(47,93,58,0.06);
+  border: 1px solid rgba(47,93,58,0.2);
+  border-radius: var(--radius-xl);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.trending-header { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 10px; letter-spacing: 0.02em; }
+.trending-list { display: flex; flex-direction: column; gap: 6px; }
+.trending-item { display: flex; align-items: center; gap: 8px; }
+.trending-item .num { font-size: 11px; font-weight: 700; color: var(--muted-foreground); width: 16px; }
+.trending-item .name { font-size: 13px; font-weight: 500; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.trending-item .count { font-size: 11px; color: var(--muted-foreground); }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 40px 20px; }
+.empty-state .icon { font-size: 48px; opacity: 0.4; margin-bottom: 12px; }
+.empty-state .title { font-size: 16px; font-weight: 600; color: var(--muted-foreground); }
+.empty-state .desc { font-size: 13px; color: var(--muted-foreground); margin-top: 4px; }
+
+/* Detail */
+.detail-back { display: flex; align-items: center; gap: 6px; color: var(--muted-foreground); font-size: 14px; font-weight: 500; }
+.detail-back:hover { color: var(--foreground); }
+.detail-photo { width: 100%; aspect-ratio: 1/1; border-radius: var(--radius-xl); overflow: hidden; background: var(--muted); }
+.detail-photo img { width: 100%; height: 100%; object-fit: cover; }
+.detail-title { font-family: 'Fraunces Variable', 'Fraunces', serif; font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+.tag-primary { background: var(--primary); color: white; }
+.tag-rank { background: rgba(47,93,58,0.1); color: var(--primary); border: 1px solid rgba(47,93,58,.25); }
+.tag-success { background: var(--success); color: white; }
+
+.looking-for {
+  background: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  margin-top: 16px;
+}
+.looking-for .label { font-size: 11px; font-weight: 700; color: var(--muted-foreground); letter-spacing: 0.05em; text-transform: uppercase; }
+.looking-for .value { font-size: 14px; font-weight: 500; margin-top: 3px; }
+
+/* Avatar */
+.avatar { border-radius: 9999px; overflow: hidden; background: var(--primary); color: white; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.seller-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px; display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+.seller-card .name { font-weight: 600; font-size: 14px; }
+
+.action-bar { display: flex; gap: 8px; padding: 14px 16px 18px; background: linear-gradient(to top, var(--background) 70%, rgba(238,244,239,0)); position: sticky; bottom: 0; z-index: 10; }
+.action-bar .btn { flex: 1; }
+
+/* Modal / sheet — fixed to viewport for the real app */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(34,29,23,0.45);
+  z-index: 1000;
+  display: flex; align-items: flex-end; justify-content: center;
+  animation: fadeIn .2s ease;
+}
+.modal-sheet {
+  background: var(--card);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90%;
+  border-radius: 18px 18px 0 0;
+  padding: 18px 18px calc(24px + var(--nav-safe));
+  display: flex; flex-direction: column;
+  animation: slideUp .25s cubic-bezier(.2,.8,.3,1);
+  overflow-y: auto;
+}
+.modal-sheet h2 { margin: 0 0 14px; font-family: 'Fraunces Variable', 'Fraunces', serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; }
+.modal-sheet .grabber { width: 36px; height: 4px; border-radius: 2px; background: var(--border); margin: -6px auto 14px; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(40%); } to { transform: translateY(0); } }
+
+/* Offer card */
+.offer-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 14px; }
+.status-pill { display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.status-pending { background: rgba(192,137,58,0.18); color: var(--warning); }
+.status-accepted { background: rgba(63,122,77,0.18); color: var(--success); }
+.status-completed { background: rgba(74,111,125,0.18); color: var(--info); }
+.status-declined { background: rgba(182,70,58,0.18); color: var(--error); }
+.offer-bubble {
+  background: var(--muted);
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  margin: 10px 0;
+}
+.offer-bubble .label { font-size: 10.5px; font-weight: 700; color: var(--muted-foreground); letter-spacing: 0.04em; text-transform: uppercase; }
+.offer-bubble .value { font-size: 13.5px; font-weight: 600; margin-top: 2px; }
+.offer-bubble .msg { font-size: 12.5px; color: var(--muted-foreground); margin-top: 4px; line-height: 1.45; }
+
+/* Messages */
+.thread-row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background .12s ease; }
+.thread-row:hover { background: var(--muted); }
+.thread-row .info { flex: 1; min-width: 0; }
+.thread-row .name { font-weight: 600; font-size: 14px; }
+.thread-row .listing-ref { font-size: 11.5px; color: var(--muted-foreground); margin-top: 1px; }
+.thread-row .preview { font-size: 13px; color: var(--muted-foreground); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.thread-row .meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.thread-row .time { font-size: 11px; color: var(--muted-foreground); }
+.thread-row .unread-dot { background: var(--primary); color: white; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; padding: 0 5px; }
+
+.chat-bubble { max-width: 78%; padding: 10px 14px; border-radius: 18px; font-size: 13.5px; line-height: 1.4; }
+.chat-bubble.theirs { background: var(--card); border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 6px; }
+.chat-bubble.mine { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 6px; }
+.chat-time { font-size: 10px; color: var(--muted-foreground); margin-top: 2px; padding: 0 6px; }
+
+/* Profile */
+.profile-hero {
+  padding: 24px 16px 16px;
+  text-align: center;
+}
+/* Center the tomato rating under the name (the row is flex, left-aligned by default). */
+.profile-hero .tomato-row { justify-content: center; }
+.profile-hero .name { font-family: 'Fraunces Variable', 'Fraunces', serif; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin: 8px 0 2px; }
+.profile-hero .bio { font-size: 13px; color: var(--muted-foreground); max-width: 280px; margin: 6px auto 0; line-height: 1.45; }
+
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 12px 8px; text-align: center; }
+.stat .num { font-family: 'Fraunces Variable', 'Fraunces', serif; font-weight: 600; font-size: 22px; color: var(--primary); }
+.stat .lbl { font-size: 10.5px; color: var(--muted-foreground); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; margin-top: 2px; }
+
+.section-head { padding: 18px 16px 8px; }
+.section-head h2 { font-family: 'Fraunces Variable', 'Fraunces', serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+
+/* Toast — fixed to viewport */
+.toast {
+  position: fixed;
+  bottom: calc(90px + var(--nav-safe)); left: 50%;
+  transform: translateX(-50%);
+  background: var(--foreground);
+  color: var(--background);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 1100;
+  box-shadow: var(--shadow-lg);
+  animation: toastIn .2s ease;
+}
+@keyframes toastIn { from { opacity: 0; transform: translate(-50%, 12px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* Segmented */
+.segmented { display: inline-flex; background: var(--input-background); border-radius: var(--radius-full); padding: 3px; gap: 2px; }
+.segmented button { padding: 7px 16px; border-radius: var(--radius-full); font-size: 12.5px; font-weight: 600; color: var(--muted-foreground); transition: all .15s ease; }
+.segmented button.active { background: var(--card); color: var(--foreground); box-shadow: var(--shadow-sm); }
+
+/* ── Tomato loader (plain CSS) ─────────────────────────── */
+.tomato-loader { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.tomato-loader svg { display: block; }
+.tomato-loader-sm svg { width: 40px; height: 40px; }
+.tomato-loader-md svg { width: 56px; height: 56px; }
+.tomato-loader-lg svg { width: 80px; height: 80px; }
+.tomato-loader .tl-label { color: var(--muted-foreground); font-size: 13px; margin: 0; }
+.tomato-loader-full-fill { opacity: 0; transition: opacity .2s ease; }
+.tomato-loader-full-fill.visible { opacity: 1; }
+@keyframes tomato-pop { 0% { transform: scale(.85); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
+.tomato-complete-pop { transform-origin: 24px 28px; animation: tomato-pop .35s ease-out; }
+.loader-center { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* ── Skeleton (shimmer) ────────────────────────────────── */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--muted);
+  border-radius: var(--radius);
+}
+.skeleton::after {
+  content: '';
+  position: absolute; inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  animation: shimmer 1.3s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { animation: none; }
+}
+.skeleton-card { border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; background: var(--card); }
+.skeleton-card .sk-photo { width: 100%; aspect-ratio: 1/1; }
+.skeleton-card .sk-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+
+/* Image with skeleton placeholder */
+.img-frame { position: relative; overflow: hidden; background: var(--muted); display: block; }
+/* color: transparent + font-size: 0 ensure the browser's broken-image alt text
+   never bleeds through while loading or on error. */
+.img-frame > img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .3s ease; color: transparent; font-size: 0; }
+.img-frame > img.loaded { opacity: 1; }
+.img-frame .img-skeleton { position: absolute; inset: 0; }
+.img-frame .img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--secondary);
+  background: var(--muted);
+}
+
+/* ── Centered auth / setup screens ─────────────────────── */
+/* min-height keeps the card vertically centered even on /login, where Auth
+   renders outside the flex app shell. */
+.auth-wrap { flex: 1; min-height: 100dvh; overflow-y: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 32px 20px calc(32px + var(--nav-safe)); }
+.auth-card { width: 100%; max-width: 380px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); padding: 28px 24px 30px; }
+.auth-brand { text-align: center; margin-bottom: 22px; }
+.auth-logo { display: flex; justify-content: center; margin-bottom: 12px; }
+.auth-brand h1 { font-family: 'Fraunces Variable', 'Fraunces', serif; font-size: 30px; font-weight: 600; margin: 0; letter-spacing: -0.02em; color: var(--primary); }
+.auth-brand p { font-size: 13px; color: var(--muted-foreground); margin: 4px 0 0; }
+.auth-fields { display: flex; flex-direction: column; gap: 15px; margin-top: 4px; }
+.auth-field { display: flex; flex-direction: column; gap: 6px; }
+.auth-error { background: rgba(182,70,58,0.12); color: var(--error); border: 1px solid rgba(182,70,58,0.3); border-radius: var(--radius); padding: 9px 12px; font-size: 12.5px; font-weight: 500; }
+.auth-switch { text-align: center; font-size: 13px; color: var(--muted-foreground); margin-top: 16px; }
+.auth-switch button { color: var(--primary); font-weight: 600; }
+.divider { display: flex; align-items: center; gap: 10px; color: var(--muted-foreground); font-size: 11px; margin: 16px 0; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.community-result { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card); }
+.community-result .meta { font-size: 11.5px; color: var(--muted-foreground); margin-top: 2px; }
+
+/* Overlapping member avatars on the profile's "My Communities" cards. */
+.avatar-stack { display: flex; }
+.avatar-stack > * { margin-left: -8px; border: 2px solid var(--card); }
+.avatar-stack > *:first-child { margin-left: 0; }
+.avatar-stack-more {
+  width: 32px; height: 32px; border-radius: var(--radius-full);
+  background: var(--muted); color: var(--muted-foreground);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; margin-left: -8px; border: 2px solid var(--card);
+}
+
+/* Utility */
+.stack { display: flex; flex-direction: column; }
+.center-fill { flex: 1; display: flex; align-items: center; justify-content: center; }
+.spin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* PWA — offline, install, and update prompts */
+.pwa-offline-banner {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  padding-top: max(8px, env(safe-area-inset-top));
+  background: var(--warning);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.pwa-update-banner {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pwa-install-banner {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.pwa-install-banner-text { flex: 1; color: var(--foreground); }
+.pwa-install-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.pwa-install-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pwa-install-card-title {
+  font-family: 'Fraunces Variable', 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.pwa-install-card-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+}
+
+.pwa-ios-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 13px;
+  color: var(--foreground);
+  line-height: 1.55;
+}
+
+/* Static demo notice on the sign-in card */
+.demo-note { background: var(--muted); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; font-size: 12.5px; line-height: 1.45; color: var(--foreground); margin-bottom: 14px; }

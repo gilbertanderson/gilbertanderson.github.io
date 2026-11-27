@@ -453,7 +453,7 @@
             },
             "type": "array",
             "title": "Demos",
-            "description": "Playable or live versions; two or more appear as a Play it menu.",
+            "description": "Playable or live versions; two or more appear as a Try it menu.",
             "default": []
           },
           "article_url": {

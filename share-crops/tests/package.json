@@ -1,0 +1,12 @@
+{
+  "name": "share-crops-tests",
+  "private": true,
+  "description": "Feature, security and Section 508 / WCAG 2.1 AA tests for the Share Crops demo build",
+  "scripts": {
+    "test": "node --test --test-concurrency=1"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "playwright": "1.63.0"
+  }
+}

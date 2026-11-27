@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Case study: Share Crops, a neighborhood produce swap app, from a UX class project to a full-stack app to a static demo on GitHub Pages.">
+  <title>Share Crops Case Study</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #f4f1e8; --card: #fffdf7; --ink: #2a241c; --muted: #5f5345; --line: #e4dccb; --accent: #2f5d3a; --tomato: #b8402a; --focus: #1f5fbf; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #151a16; --card: #1d231e; --ink: #ece7dc; --muted: #b3aa9b; --line: #313a32; --accent: #8cc79a; --tomato: #f08a6f; --focus: #8ab4ff; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+    h1 { font-size: 2.2rem; line-height: 1.2; margin: 6px 0 12px; letter-spacing: -.01em; }
+    h2 { font-size: 1.35rem; margin: 40px 0 8px; }
+    .lede { font-size: 1.15rem; color: var(--muted); margin: 0 0 20px; }
+    .cta { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; border-radius: 10px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0 8px; padding: 0; list-style: none; }
+    .facts li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+    .facts strong { display: block; font-size: 1.4rem; }
+    .facts span { font-size: .9rem; line-height: 1.4; color: var(--muted); display: block; }
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; margin: 12px 0; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    ol, ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Case study</p>
+    <h1>Share Crops</h1>
+    <p class="lede">A neighborhood produce swap where people list what they grow, trade for what they need, and rate the exchange.</p>
+    <a class="cta" href="./">Try the demo</a>
+
+    <ul class="facts" aria-label="Project at a glance">
+      <li><strong>3 versions</strong><span>class wireframes, a full-stack app, and this static demo</span></li>
+      <li><strong>0</strong><span>automated Section 508 violations across 11 screens at phone and desktop sizes</span></li>
+      <li><strong>17</strong><span>automated tests on every push</span></li>
+      <li><strong>0 servers</strong><span>the demo runs entirely in your browser</span></li>
+    </ul>
+
+    <h2>The idea</h2>
+    <p>Anyone who has kept a garden knows the problem, since everything ripens at once and you end up with far more tomatoes than you can eat, while the neighbor two streets over has the same problem with figs. Share Crops started as my concept for a UX design project at UMGC, where I did the user research, wireframes and storyboards for a community garden app built around trading rather than selling, and I liked the idea enough to keep building it after the class ended.</p>
+
+    <h2>From wireframes to a working app</h2>
+    <p>The first build turned the wireframes into a React app on Supabase, and the second version was a rebuild that I treated more like a production system. It has a React 18 front end with React Router and TanStack Query, a single Hono API on Node with Supabase Postgres for data and storage, Firebase Auth for sign-in, push notifications, a service worker so it installs like a native app, and a Claude-powered button that drafts a listing description from a few notes. Moving from the first version's key-value storage to a relational schema let me push the important rules down into the database, so for example completing a trade is a single Postgres function that closes the listing and hands ownership to the buyer in one step.</p>
+
+    <h2>Why a third version</h2>
+    <p>The full-stack app is the real thing, but it needs a Vercel deployment, a database, Firebase and API keys to stay up, and that's a lot to keep running just so someone can click through a portfolio piece. I wanted a version that lives on my own site, costs nothing to host, and can't go down because a free tier expired, so I rebuilt it for GitHub Pages, which only serves static files.</p>
+    <p>The approach I took was to keep every screen from the full-stack version and replace only the layer underneath. The app talks to the same <code>API</code> class it always did, with the same method names and response shapes, but instead of making HTTP calls that class now answers from a small database stored in the browser. The rules the server used to enforce came along with it, so you still can't make an offer on your own listing, only the seller can accept, you can only rate a trade you were part of and only once, and completing a trade still moves the listing to the buyer.</p>
+
+    <table aria-label="What changed between the full-stack app and this demo">
+      <thead><tr><th scope="col">Piece</th><th scope="col">Full-stack app</th><th scope="col">This demo</th></tr></thead>
+      <tbody>
+        <tr><td>Data</td><td>Supabase Postgres</td><td>Your browser's local storage</td></tr>
+        <tr><td>Sign-in</td><td>Firebase Auth, email and Google</td><td>Local accounts or one-tap guest, passwords hashed</td></tr>
+        <tr><td>Photos</td><td>Supabase Storage</td><td>Resized in the browser and kept locally</td></tr>
+        <tr><td>Other people</td><td>Real neighbors</td><td>Simulated neighbors who answer in a few seconds</td></tr>
+        <tr><td>Description drafts</td><td>Claude Haiku on the server</td><td>A simple template, since there's no server to hold an API key</td></tr>
+        <tr><td>Routing</td><td>Clean URLs with server rewrites</td><td>Hash routes, so a reload never 404s on Pages</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Making a one-person marketplace feel alive</h2>
+    <p>The hardest part wasn't technical. A marketplace demo where nobody ever answers is a dead end, so the seeded neighbors act on a short delay. If you make an offer the seller accepts it a few seconds later and messages you about pickup, if you ask a question in the chat you get a reply, if you list something a neighbor makes you an offer, and once a trade is done they rate you back. Each of those actions is queued with a time, so it still happens if you switch tabs or reload, and the screens refresh on their own when it lands. That way someone can walk through the whole loop, from listing to offer to chat to rating, in about a minute.</p>
+
+    <h2>Accessibility and security</h2>
+    <p>I ran axe-core against Section 508 and WCAG 2.x A and AA rules on every screen at phone and desktop sizes, and it turned up a few things that had carried over from the full-stack version, mainly white text on the light green ZIP badges that fell short of contrast, an unlabeled photo button, and scrollable areas that a keyboard couldn't reach. Those are fixed here, and the same fixes are worth carrying back to the full-stack version.</p>
+    <p>On the security side the page ships a strict Content Security Policy that only allows scripts from my own site, the fonts are self-hosted so there are no calls to Google, and the tests confirm that a whole session talks to nothing but this site and the photo CDN. Script typed into a listing or a chat message shows up as plain text and never runs, uploads are limited to real image types, and the service worker is scoped to this folder so it can't affect the rest of my site.</p>
+
+    <h2>Testing</h2>
+    <p>The 17 tests run in a real browser against the production build, served from <code>/share-crops/</code> the same way GitHub Pages serves it. They walk through a full trade as a buyer and as a seller, sign-up and sign-in, creating a community, reloads and resetting the demo, along with the accessibility and security checks above, and the deploy won't go out if any of them fail.</p>
+    <!-- Gilbert: add a sentence or two here about your process for this rebuild (tools, timeline). -->
+
+    <h2>What's next</h2>
+    <ol>
+      <li>Port the contrast and keyboard fixes back to the full-stack version.</li>
+      <li>Real-device testing on iPhone and Android, plus a VoiceOver and TalkBack pass.</li>
+      <li>A "near me" view that uses distance instead of ZIP code, which the relational schema already supports.</li>
+    </ol>
+
+    <footer>Share Crops is a demo. Everything you enter stays in your browser, and you can wipe it any time from your profile.</footer>
+  </main>
+</body>
+</html>

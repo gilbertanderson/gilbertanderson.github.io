@@ -63,6 +63,11 @@ jobs:
           # Leave unset until the FastAPI backend is hosted; the contact form stays hidden.
           VITE_API_URL: ${{ vars.VITE_API_URL }}
         run: npx vite build
+      - name: Build the Share Crops demo into the site at /share-crops/
+        working-directory: share-crops
+        run: |
+          npm ci --no-audit --no-fund
+          SHARE_CROPS_OUT=../frontend/dist/share-crops npx vite build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
@@ -83,10 +88,36 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm test
 
+  share-crops:
+    name: Share Crops tests (features, Section 508, security)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: share-crops
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: share-crops/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Type-check and build
+        run: npm run build
+      - name: Install test browser
+        working-directory: share-crops/tests
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Run tests against the production build
+        working-directory: share-crops/tests
+        run: npm test
+
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    needs: [backend, frontend, nutrition-scanner]
+    needs: [backend, frontend, nutrition-scanner, share-crops]
     runs-on: ubuntu-latest
     permissions:
       pages: write
