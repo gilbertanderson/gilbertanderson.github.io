@@ -79,8 +79,13 @@ link_label = "View on GitHub"
 [[projects]]
 title = "Share Crops"
 kind = "Web app"
-description = "A neighborhood produce swap app where people list homegrown produce, herbs, eggs and honey, propose trades, message each other and rate the exchange, with a list of what's most requested nearby."
-url = "https://github.com/gilbertanderson/share-crops-app"
+description = "A neighborhood produce swap app where people list homegrown produce, herbs, eggs and honey, propose trades, message each other and rate the exchange, with a list of what's most requested nearby. The full-stack version runs on React, Hono, Supabase Postgres and Firebase Auth; the demo here is the same app rebuilt to run entirely in the browser, with simulated neighbors who answer your offers and messages. Tested to Section 508 and for security with 17 automated tests."
+url = "https://github.com/gilbertanderson/gilbertanderson.github.io/tree/master/share-crops"
+link_label = "View the code"
+demos = [
+  { label = "Open it", hint = "Phone or desktop, no sign-up needed", url = "https://gilbertanderson.com/share-crops/" },
+]
+article_url = "https://gilbertanderson.com/share-crops/case-study.html"
 image = "/projects/share-crops.jpg"
 
 [[projects]]
