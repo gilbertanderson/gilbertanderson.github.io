@@ -47,7 +47,8 @@ async function fakeApis(target, overrides = {}) {
     r.fulfill({ contentType: "image/svg+xml", body: '<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"/>' }));
 }
 
-async function launch() { return chromium.launch(); }
+// SwiftShader gives headless Chromium WebGL, which the VR view needs
+async function launch() { return chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] }); }
 
 async function openApp(browser, base, { viewport = { width: 390, height: 844 }, theme, view, bypassCSP = false, products } = {}) {
   const ctx = await browser.newContext({ viewport, bypassCSP, serviceWorkers: "block" });

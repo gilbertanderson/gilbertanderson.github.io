@@ -53,8 +53,8 @@
     <ul class="facts" aria-label="Project at a glance">
       <li><strong>3 diets</strong><span>Best Bet, Vegan and Diabetic, plus your own</span></li>
       <li><strong>0</strong><span>automated Section 508 violations across 32 app states</span></li>
-      <li><strong>42</strong><span>automated tests on every push</span></li>
-      <li><strong>3 views</strong><span>phone, Meta Quest and Meta Ray-Ban Display glasses</span></li>
+      <li><strong>47</strong><span>automated tests on every push</span></li>
+      <li><strong>4 views</strong><span>phone, Meta Quest, Ray-Ban Display glasses and full VR</span></li>
     </ul>
 
     <h2>The problem</h2>
@@ -76,7 +76,7 @@
     <p>The app is entirely static, so the main risks are hostile data coming in from the product database or from an uploaded diet file. Everything from outside is escaped before it reaches the page, uploaded and saved diets are rebuilt field by field with size limits, and only http or https links are ever rendered. The page also carries a strict Content Security Policy that only allows scripts from my own site, and I self-host the barcode library with a Subresource Integrity hash instead of pulling it from a CDN. To check all of this I attacked the app with script injection in product names, a malicious diet file and tampered browser storage, and none of it ran.</p>
 
     <h2>Testing</h2>
-    <p>All of the checks above live in the repo as 42 automated tests, covering the diet rules, accessibility, security and the main features, and a GitHub Action runs them whenever the app changes, so a future tweak can't quietly break 508 compliance or the security policy.</p>
+    <p>All of the checks above live in the repo as 47 automated tests, covering the diet rules, accessibility, security and the main features, and a GitHub Action runs them whenever the app changes, so a future tweak can't quietly break 508 compliance or the security policy.</p>
     <!-- Gilbert: add a sentence or two here about how you built it (process, tools, timeline). -->
 
     <h2>What's next</h2>

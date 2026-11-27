@@ -41,7 +41,7 @@ url = "https://www.linkedin.com/in/gilbertanderson"
 [[projects]]
 title = "Nutrition Scanner"
 kind = "Web app · PWA"
-description = "Scan a grocery barcode and see whether it fits your diet, with every flag traced to its source, down to the cookbook page. Built in diets are the Best Bet Diet, Vegan and Diabetic, and you can add your own from any cookbook. It catches shared-equipment warnings, works offline, installs to a home screen, and has views for phones, Meta Quest and Meta Ray-Ban Display glasses. Tested to Section 508 and for security with 42 automated tests."
+description = "Scan a grocery barcode and see whether it fits your diet, with every flag traced to its source, down to the cookbook page. Built in diets are the Best Bet Diet, Vegan and Diabetic, and you can add your own from any cookbook. It catches shared-equipment warnings, works offline, installs to a home screen, and has views for phones, Meta Quest, Meta Ray-Ban Display glasses and a full VR mode for Quest and PC VR. Tested to Section 508 and for security with 47 automated tests."
 url = "https://github.com/gilbertanderson/gilbertanderson.github.io/tree/master/frontend/public/nutrition-scanner"
 link_label = "View the code"
 demos = [
