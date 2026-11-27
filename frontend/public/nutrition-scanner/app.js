@@ -256,11 +256,13 @@ $("switchCamBtn").onclick = async () => {
 
 /* ---------- Phone / Headset / Glasses view ---------- */
 const isXRBrowser = /OculusBrowser|Quest|Pico|Wolvic/i.test(navigator.userAgent);
-const VIEWS = ["phone", "headset", "glasses"];
+const VIEWS = ["phone", "headset", "glasses", "vr"];
 function setView(view) {
   if (!VIEWS.includes(view)) view = "phone";
-  document.body.classList.toggle("view-headset", view === "headset");
+  document.body.classList.toggle("view-headset", view === "headset" || view === "vr");
   document.body.classList.toggle("view-glasses", view === "glasses");
+  document.body.classList.toggle("view-vr", view === "vr");
+  if (view === "vr") loadVR();
   document.querySelectorAll("#viewSwitch button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.view === view)));
   store.set("view", view);
@@ -995,4 +997,58 @@ renderSourcesSection();
 // Installable app + offline: register the service worker (needs https or localhost)
 if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+
+/* ---------- VR view ----------
+   The VR panel (xr-view.js) loads only when the VR view is chosen. It reads and changes
+   everything through this small API, so its verdicts always match the rest of the app. */
+const NutritionApp = {
+  async lookup(code) {
+    await lookup(code);
+    if (currentProduct && currentCode === String(code).replace(/\D/g, "")) return { ok: true };
+    const h = result.querySelector("h2");
+    return { ok: false, message: h ? h.textContent : "Lookup failed" };
+  },
+  current() {
+    if (!currentProduct) return null;
+    const diet = effectiveDiet(currentDiet());
+    const p = withLabelNote(currentProduct, currentCode);
+    const evaluation = diet.rules.length ? evaluateDiet(p, diet) : null;
+    return {
+      code: currentCode, name: p.product_name || "Unnamed product", brand: p.brands || "",
+      verdict: evaluation ? evaluation.verdict : null,
+      reasons: evaluation ? evaluation.results
+        .filter(r => r.level === "avoid" || r.level === "caution")
+        .sort((a, b) => (a.level === "avoid" ? 0 : 1) - (b.level === "avoid" ? 0 : 1))
+        .map(r => ({ level: r.level, label: r.rule.label, found: r.found, crossContact: !!r.crossContact,
+                     source: plainCite(diet, r.rule) })) : [],
+      warningsMissing: diet.rules.length > 0 && warningStatus(currentProduct, currentCode) === "missing"
+    };
+  },
+  diets: () => allDiets().map(d => ({ id: d.id, name: d.name.replace(" (nutrition facts only)", "") })),
+  dietId: () => selectedDietId,
+  selectDiet: id => selectDiet(id, true),
+  recent: () => recent.map(r => {
+    const diet = effectiveDiet(currentDiet());
+    return { code: r.code, name: r.product.product_name || "Unnamed product", brand: r.product.brands || "",
+             verdict: diet.rules.length ? evaluateDiet(withLabelNote(r.product, r.code), diet).verdict : null };
+  }),
+  openRecent(code) { const e = findRecent(code); if (e) openSaved(e, false); return Boolean(e); }
+};
+window.NutritionApp = NutritionApp;
+
+// "Best Bet Diet Cookbook, MS Hope, p. 39" as plain text for the VR panel
+function plainCite(diet, rule) {
+  const s = (rule.sources || [])[0];
+  const src = s && resolveSource(diet, s.id);
+  // Shortest form that keeps the page number: "Best Bet Diet Cookbook p. 39"
+  return src ? src.title.split(",")[0] + (s.page ? ` p. ${s.page}` : "") : "";
+}
+
+let vrModule = null;
+function loadVR() {
+  if (vrModule) return vrModule;
+  vrModule = import("./xr-view.js").then(m => { m.init(NutritionApp); return m; })
+    .catch(() => { $("vrStatus").textContent = "The VR view couldn't load. Reload the page to try again."; });
+  return vrModule;
 }

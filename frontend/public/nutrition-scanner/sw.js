@@ -6,7 +6,7 @@
 
   Bump VERSION whenever any app file changes, so visitors get the update.
 */
-const VERSION = "ns-v3";
+const VERSION = "ns-v4";
 const SHELL = [
   "./",
   "index.html",
@@ -16,6 +16,9 @@ const SHELL = [
   "config.js",
   "usda.js",
   "vendor/html5-qrcode.min.js",
+  "xr-view.js",
+  "vendor/three/three.module.js",
+  "vendor/three/three.core.js",
   "manifest.webmanifest",
   "icons/icon-192.png",
   "icons/icon-512.png",

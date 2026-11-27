@@ -25,7 +25,8 @@ const STATES = {
   "recent scans open": async p => { await lookup(p, "12345678"); await p.click("#recentPanel summary"); },
   "label check answered": async p => { await lookup(p, "87654321"); await p.click('#labelCheck label.chip:has-text("Soy")'); await p.click('[data-action="label-save"]'); },
   "not found": async p => { await lookup(p, "00000000"); },
-  "invalid barcode": async p => { await lookup(p, "12"); }
+  "invalid barcode": async p => { await lookup(p, "12"); },
+  "VR view (no headset)": async p => { await p.click('#viewSwitch button[data-view="vr"]'); await p.waitForFunction(() => !/Checking/.test(document.getElementById("vrStatus").textContent)); }
 };
 
 for (const theme of ["light", "dark"]) for (const view of ["phone", "headset"]) {

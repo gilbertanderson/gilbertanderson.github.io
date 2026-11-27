@@ -159,6 +159,10 @@
     .view-glasses .chip span { min-height: 56px; }
     .view-glasses .product img { display: none; }
     .view-glasses .label-check { border-color: var(--warn); }
+    .vr-launch { display: none; }
+    .view-vr .vr-launch { display: block; border: 2px solid var(--accent); }
+    .vr-launch h2 { margin-bottom: 6px; }
+    #xrCanvas { position: fixed; inset: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
     @media (max-width: 760px) { .view-headset .layout { display: block; } .view-headset .col-right { position: static; max-height: none; } }
 
     /* Result */
@@ -254,6 +258,7 @@
           <button type="button" data-view="phone" aria-pressed="true">Phone</button>
           <button type="button" data-view="headset" aria-pressed="false">Headset</button>
           <button type="button" data-view="glasses" aria-pressed="false">Glasses</button>
+          <button type="button" data-view="vr" aria-pressed="false">VR</button>
         </div>
         <div class="view-switch" id="themeSwitch" role="group" aria-label="Theme">
           <button type="button" data-theme="auto" aria-pressed="true" title="Match device setting">Auto</button>
@@ -311,6 +316,16 @@
     </section>
 
     <!-- 2. Scan -->
+    <section class="card vr-launch" aria-labelledby="vrTitle">
+      <h2 id="vrTitle">VR</h2>
+      <p id="vrStatus" class="meta" role="status">Checking for a VR headset…</p>
+      <div class="row-buttons">
+        <button type="button" id="enterVR" hidden>Enter VR</button>
+        <button type="button" id="enterAR" class="secondary" hidden>Enter passthrough</button>
+      </div>
+      <p class="hint">In VR the scanner floats in front of you. Point with a controller and pull the trigger, or pinch with your hand.</p>
+    </section>
+
     <section class="card" aria-label="Scan a product">
       <button id="startBtn" class="big">Scan barcode</button>
       <div id="reader"></div>

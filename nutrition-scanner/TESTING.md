@@ -41,6 +41,16 @@ the label actually says.
       and with hand tracking.
 - [ ] Install from the browser menu if offered, and pin it next to another app.
 
+## VR (Meta Quest, and PC VR if you have it)
+
+- [ ] On the Quest, open the site, pick **VR** in the view switch, then **Enter VR**.
+- [ ] The panel appears in front of you at a comfortable height; **Recenter** brings it back.
+- [ ] Point and pull the trigger to type a barcode and **Look up**; also try pinching with your hands.
+- [ ] Switch diets on the panel; the verdict updates. Open a recent scan.
+- [ ] Try **Enter passthrough**: the panel floats over your real room.
+- [ ] Text is sharp enough to read without leaning in.
+- [ ] PC VR: in Chrome or Edge on Windows with Quest Link, Air Link, SteamVR or Virtual Desktop running, repeat the steps above.
+
 ## After testing
 
 Send me the notes and I'll tune the rules, e.g. add exceptions for false hits.
