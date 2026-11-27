@@ -514,7 +514,7 @@ textarea.input { resize: none; min-height: 80px; line-height: 1.45; }
 
 /* Segmented */
 .segmented { display: inline-flex; background: var(--input-background); border-radius: var(--radius-full); padding: 3px; gap: 2px; }
-.segmented button { padding: 7px 16px; border-radius: var(--radius-full); font-size: 12.5px; font-weight: 600; color: var(--muted-foreground); transition: all .15s ease; }
+.segmented button { white-space: nowrap; padding: 7px 16px; border-radius: var(--radius-full); font-size: 12.5px; font-weight: 600; color: var(--muted-foreground); transition: all .15s ease; }
 .segmented button.active { background: var(--card); color: var(--foreground); box-shadow: var(--shadow-sm); }
 
 /* ── Tomato loader (plain CSS) ─────────────────────────── */
@@ -681,3 +681,12 @@ textarea.input { resize: none; min-height: 80px; line-height: 1.45; }
 
 /* Static demo notice on the sign-in card */
 .demo-note { background: var(--muted); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; font-size: 12.5px; line-height: 1.45; color: var(--foreground); margin-bottom: 14px; }
+
+/* Narrow phones: tighten the segmented controls so labels like "A–Z" never wrap. */
+@media (max-width: 400px) {
+  .segmented button { padding: 7px 12px; }
+}
+@media (max-width: 350px) {
+  .segmented button { padding: 7px 9px; font-size: 12px; }
+}
+.community-result > div:first-child { text-align: left; min-width: 0; }

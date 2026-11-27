@@ -176,3 +176,25 @@ test("reset demo data restores the sample neighborhood", async () => {
   await page.getByRole("button", { name: "Try it as a guest" }).waitFor();
   await closeCtx(page);
 });
+
+for (const width of [320, 375, 390]) {
+  test(`layout holds at ${width}px: tab labels stay on one line, community results left-aligned`, async () => {
+    const page = await openApp(browser, srv.base, { viewport: { width, height: 760 } });
+    await page.getByRole("button", { name: "Try it as a guest" }).click();
+    await atHash(page, "community-setup");
+    await page.getByPlaceholder("ZIP code").fill("78724");
+    await page.getByRole("button", { name: /search/i }).click();
+    await page.locator(".community-result").first().waitFor();
+    const aligned = await page.$$eval(".community-result > div:first-child", els => els.map(e => getComputedStyle(e).textAlign));
+    assert.ok(aligned.every(a => a === "left" || a === "start"), `community names left-aligned (${aligned})`);
+    await page.locator(".btn-sm.btn-primary").first().click();
+    await atHash(page, "marketplace");
+    const wrapped = await page.$$eval(".segmented button", els => els
+      .filter(e => e.getClientRects().length > 0 && e.getBoundingClientRect().height > parseFloat(getComputedStyle(e).lineHeight) + 20)
+      .map(e => e.textContent));
+    assert.deepEqual(wrapped, [], "no segmented labels wrap");
+    const offscreen = await page.$$eval("button", els => els.filter(e => e.getBoundingClientRect().right > innerWidth + 1).map(e => e.textContent));
+    assert.deepEqual(offscreen, []);
+    await closeCtx(page);
+  });
+}

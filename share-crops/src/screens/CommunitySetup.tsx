@@ -56,7 +56,7 @@ export default function CommunitySetup() {
         </div>
       </div>
 
-      <div style={{ padding: '16px 16px 32px', maxWidth: 420, margin: '0 auto', width: '100%', boxSizing: 'border-box', textAlign: 'center' }}>
+      <div style={{ padding: '16px 16px 32px', maxWidth: 420, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {tab === 'join' ? (
           <>
             <div style={{ display: 'flex', gap: 8 }}>

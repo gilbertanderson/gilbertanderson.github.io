@@ -115,7 +115,7 @@ export default function Profile() {
       <div className="profile-hero">
         <Avatar src={me.profilePhotoUrl} name={me.name} size={88} />
         <div className="name">{me.name}</div>
-        <TomatoRow rating={me.rating} count={me.ratingCount} size={16} />
+        {me.ratingCount > 0 ? <TomatoRow rating={me.rating} count={me.ratingCount} size={16} /> : <div style={{ fontSize: 13, color: 'var(--muted-foreground)' }}>No ratings yet</div>}
         {me.bio && <p className="bio">{me.bio}</p>}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 12 }}>
           <button className="btn btn-outline btn-sm" onClick={() => setShowEdit(true)}>Edit Profile</button>
