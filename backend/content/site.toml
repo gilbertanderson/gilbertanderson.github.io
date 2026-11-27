@@ -105,10 +105,13 @@ image = "/projects/design2code.svg"
 article_url = "https://medium.com/@gilbertanderson/i-taught-claude-code-to-turn-a-figma-file-into-a-design-system-6b348ccd2274"
 
 [[projects]]
-title = "AI-Native SDLC Orchestrator"
-kind = "Agentic AI · unreleased"
-description = "An agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut down on manual PR preparation, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning."
+title = "PreReviewer"
+kind = "Agentic AI"
+description = "PreReviewer (formerly AI-Native SDLC Orchestrator) is an agentic workflow system that automates the software development lifecycle with LLMs: PR summaries, unit test generation and security scanning. Multi-agent plan-observe-execute loops built with LangGraph cut down on manual PR preparation, and a real-time WebSocket dashboard gives human-in-the-loop visibility into the agents' reasoning. The demo replays recorded runs in your browser, where you review the agents' work and approve the PR yourself."
 url = "https://github.com/gilbertanderson/ai-sdlc-orchestrator"
+demos = [
+  { label = "Watch a run", hint = "Replays in your browser", url = "https://gilbertanderson.com/ai-sdlc-orchestrator/" },
+]
 image = "/projects/ai-sdlc-orchestrator.jpg"
 
 [[projects]]
