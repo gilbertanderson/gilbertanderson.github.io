@@ -13,16 +13,17 @@ let srv, browser;
 test.before(async () => { srv = await startServer(); browser = await launch(); });
 test.after(async () => { await browser.close(); srv.server.close(); });
 
-async function openWithHeadset(profile, { products, emulate = true } = {}) {
+async function openWithHeadset(profile, { products, emulate = true, hands = false } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, serviceWorkers: "block" });
   await fakeApis(ctx, products);
   if (emulate) {
     await ctx.addInitScript(IWER_JS);
-    await ctx.addInitScript(p => {
+    await ctx.addInitScript(([p, hands]) => {
       const device = new IWER.XRDevice(IWER[p]);
       device.installRuntime({ forceInstall: true });   // replace Chromium's own, which has no headset
+      if (hands) device.primaryInputMode = "hand";      // controllers down, hands tracked
       window.__xrDevice = device;
-    }, profile);
+    }, [profile, hands]);
   }
   const page = await ctx.newPage();
   page.problems = [];
@@ -62,6 +63,33 @@ async function press(page, action) {
     await new Promise(res => setTimeout(res, 150));
     return true;
   }, action);
+  assert.ok(ok, `no button for ${action} on the panel`);
+}
+
+// Panel button center in world space, plus the panel's facing direction
+const BUTTON_POINT = `(action, out) => {
+  const vr = window.__nutritionVR, r = vr.regions().find(r => r.action === action);
+  if (!r) return null;
+  const panel = vr.panel(), W = 1024, H = 1408, PW = panel.geometry.parameters.width, PH = panel.geometry.parameters.height;
+  const p = panel.localToWorld(panel.position.clone().set((r.x + r.w / 2) / W * PW - PW / 2, PH / 2 - (r.y + r.h / 2) / H * PH, 0));
+  const n = panel.position.clone().set(0, 0, 1).applyQuaternion(panel.quaternion);
+  return { p, n };
+}`;
+
+// Touch a button with the right index fingertip: hover in front, push through the surface, pull back
+async function touch(page, action) {
+  const ok = await page.evaluate(async ([action, src]) => {
+    const pt = eval(src)(action);
+    if (!pt) return false;
+    const hand = window.__xrDevice.hands.right;
+    hand.poseId = hand.poseIds.includes("point") ? "point" : "default";
+    const at = d => hand.setPin({ anchor: "index-tip", target: pt.p.clone().addScaledVector(pt.n, d).toArray() });
+    const wait = ms => new Promise(res => setTimeout(res, ms));
+    at(0.05); await wait(120);
+    at(-0.004); await wait(120);
+    at(0.05); await wait(120);
+    return true;
+  }, [action, BUTTON_POINT]);
   assert.ok(ok, `no button for ${action} on the panel`);
 }
 
@@ -134,5 +162,63 @@ test("Without a headset, the VR view explains what it needs", async () => {
   await page.waitForFunction(() => !/Checking/.test(document.getElementById("vrStatus").textContent));
   assert.match(await page.textContent("#vrStatus"), /Quest Browser.*Chrome or Edge/s);
   assert.equal(await page.isVisible("#enterVR"), false);
+  assert.deepEqual(page.problems, []);
+});
+
+test("Quest 3 hands: the panel comes within reach and buttons press with a fingertip", async () => {
+  const page = await openWithHeadset("metaQuest3", { hands: true });
+  await enterVR(page);
+  await page.waitForFunction(() => window.__nutritionVR.handMode());
+  // Close enough to touch: about half a meter from the eyes
+  const reach = await page.evaluate(() => {
+    const vr = window.__nutritionVR, cam = vr.camera();
+    return vr.panel().position.distanceTo(cam.position.clone().setFromMatrixPosition(cam.matrixWorld));
+  });
+  assert.ok(reach < 0.6, `panel ${reach.toFixed(2)} m away, out of reach`);
+
+  for (const d of "12345678") await touch(page, "key:" + d);
+  await touch(page, "lookup");
+  await page.waitForFunction(() => window.NutritionApp.current());
+  assert.equal(await page.evaluate(() => window.NutritionApp.current().verdict), "avoid");
+  await shot(page, "vr-hands-result");
+
+  // A finger resting on a key presses it once, not over and over
+  await page.evaluate(async src => {
+    const pt = eval(src)("key:5"), hand = window.__xrDevice.hands.right;
+    const wait = ms => new Promise(res => setTimeout(res, ms));
+    hand.setPin({ anchor: "index-tip", target: pt.p.clone().addScaledVector(pt.n, 0.05).toArray() }); await wait(120);
+    hand.setPin({ anchor: "index-tip", target: pt.p.clone().addScaledVector(pt.n, -0.004).toArray() }); await wait(400);
+  }, BUTTON_POINT);
+  assert.equal(await page.evaluate(() => window.__nutritionVR.typed()), "5");
+  await touch(page, "key:6");   // lifting off and touching again counts
+  assert.equal(await page.evaluate(() => window.__nutritionVR.typed()), "56");
+  await touch(page, "diet:vegan");
+  assert.equal(await page.evaluate(() => window.NutritionApp.dietId()), "vegan");
+  assert.deepEqual(page.problems, []);
+});
+
+test("Quest 3 hands: pinching while pointing at a button presses it from a distance", async () => {
+  const page = await openWithHeadset("metaQuest3", { hands: true });
+  await enterVR(page);
+  await page.waitForFunction(() => window.__nutritionVR.handMode());
+  const ok = await page.evaluate(async src => {
+    const pt = eval(src)("key:7");
+    const hand = window.__xrDevice.hands.right;
+    hand.setPin(null);
+    const from = pt.p.clone().addScaledVector(pt.n, 0.4);
+    from.x += 0.1; from.y -= 0.15;
+    const dir = pt.p.clone().sub(from).normalize();
+    const q = pt.p.clone().set(0, 0, 0);
+    const quat = window.__nutritionVR.panel().quaternion.clone().setFromUnitVectors(q.set(0, 0, -1), dir);
+    hand.position.set(from.x, from.y, from.z);
+    hand.quaternion.set(quat.x, quat.y, quat.z, quat.w);
+    const wait = ms => new Promise(res => setTimeout(res, ms));
+    await wait(150);
+    hand.updatePinchValue(1); await wait(200);
+    hand.updatePinchValue(0); await wait(200);
+    return true;
+  }, BUTTON_POINT);
+  assert.ok(ok);
+  assert.equal(await page.evaluate(() => window.__nutritionVR.typed()), "7");
   assert.deepEqual(page.problems, []);
 });

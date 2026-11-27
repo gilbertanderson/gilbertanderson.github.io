@@ -45,7 +45,11 @@ the label actually says.
 
 - [ ] On the Quest, open the site, pick **VR** in the view switch, then **Enter VR**.
 - [ ] The panel appears in front of you at a comfortable height; **Recenter** brings it back.
-- [ ] Point and pull the trigger to type a barcode and **Look up**; also try pinching with your hands.
+- [ ] Point and pull the trigger to type a barcode and **Look up**.
+- [ ] Put the controllers down. Your hands show up and the panel moves within arm's reach.
+- [ ] Tap keys with your index finger like a touch screen; each tap types once, even if you rest your finger.
+- [ ] Pinch while pointing at a button from farther away; that presses it too.
+- [ ] Pick the controllers back up; the panel moves back out.
 - [ ] Switch diets on the panel; the verdict updates. Open a recent scan.
 - [ ] Try **Enter passthrough**: the panel floats over your real room.
 - [ ] Text is sharp enough to read without leaning in.

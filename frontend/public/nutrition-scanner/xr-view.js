@@ -4,8 +4,10 @@
   Chrome or Edge with PC VR (SteamVR, Quest Link, Air Link, Virtual Desktop).
 
   The scanner is a panel floating in front of you: a 2D canvas drawn as a texture on a plane.
-  Controller rays (or hand pinches, which WebXR reports the same way) are cast at the plane,
+  Controller rays (and hand pinches, which WebXR reports the same way) are cast at the plane,
   turned into canvas pixels, and matched against the buttons drawn on it.
+  With hand tracking the panel also comes within arm's reach so you can press buttons by
+  touching them with your index finger, like a touch screen.
   All data and decisions come from the app through the NutritionApp API.
 */
 import * as THREE from "./vendor/three/three.module.js";
@@ -13,6 +15,11 @@ import * as THREE from "./vendor/three/three.module.js";
 const W = 1024, H = 1408;                 // panel canvas, in pixels
 const PANEL_W = 0.72, PANEL_H = PANEL_W * H / W;   // panel size, in meters (about 0.72 x 0.99)
 const DISTANCE = 0.85;                    // meters in front of you
+// Hands: the panel comes within reach and a bit smaller, so it still fills the same view
+const NEAR = { distance: 0.48, scale: 0.6, drop: 0.22 };
+const TOUCH = 0.008;      // fingertip this close to the panel (m) presses
+const REARM = 0.025;      // and must move this far back before it can press again
+const HOVER = 0.08;       // within this distance the button under the finger lights up
 
 const C = {
   bg: "#121614", card: "#1b201d", line: "#33403a", ink: "#ffffff", muted: "#b9c4be",
@@ -29,6 +36,10 @@ let typed = "";
 let status = "";           // "Looking up…", errors
 let busy = false;
 const controllers = [];
+const hands = [];           // renderer.xr.getHand(i): tracked hand joints
+const poke = [];            // per hand: { armed, near, action }
+let handMode = false;       // true while hands (not controllers) are the input
+let flash = null, flashUntil = 0;   // a touched button lights up briefly (hands have no haptics)
 const raycaster = new THREE.Raycaster();
 const tmpMatrix = new THREE.Matrix4();
 
@@ -117,12 +128,67 @@ function setup() {
     scene.add(dot);
     c.add(ray);
     c.userData = { ray, dot };
-    c.addEventListener("select", () => press(c));
-    c.addEventListener("connected", e => { ray.visible = true; c.userData.handedness = e.data && e.data.handedness; });
-    c.addEventListener("disconnected", () => { ray.visible = false; dot.visible = false; hovered.delete(c); });
+    c.addEventListener("select", () => { if (!poke[i].near) press(hitAction(c), c); });
+    c.addEventListener("connected", e => { ray.visible = true; c.userData.connected = true; c.userData.handedness = e.data && e.data.handedness; });
+    c.addEventListener("disconnected", () => { ray.visible = false; c.userData.connected = false; dot.visible = false; hovered.delete(c); });
     scene.add(c);
     controllers.push(c);
+
+    // Tracked hand: joints drawn as small spheres, created as the headset reports them
+    const hand = renderer.xr.getHand(i);
+    hand.userData.spheres = new Map();
+    scene.add(hand);
+    hands.push(hand);
+    poke.push({ armed: true, near: false, action: null });
   }
+}
+
+const jointMaterial = new THREE.MeshBasicMaterial({ color: 0xdfeee6, transparent: true, opacity: 0.85 });
+const tipMaterial = new THREE.MeshBasicMaterial({ color: 0x6fbf95 });
+const jointGeometry = new THREE.SphereGeometry(1, 10, 8);
+function drawHand(hand) {
+  for (const [name, joint] of Object.entries(hand.joints)) {
+    let s = hand.userData.spheres.get(name);
+    if (!s) {
+      s = new THREE.Mesh(jointGeometry, name === "index-finger-tip" ? tipMaterial : jointMaterial);
+      joint.add(s);
+      hand.userData.spheres.set(name, s);
+    }
+    s.scale.setScalar(Math.max(0.004, (joint.jointRadius || 0.008) * 0.8));
+  }
+}
+
+const tip = new THREE.Vector3();
+// Touch: where the index fingertip is over the panel, and how far in front of it
+function touchAt(hand) {
+  const joint = hand.joints["index-finger-tip"];
+  if (!hand.visible || !joint || !joint.visible) return null;
+  tip.setFromMatrixPosition(joint.matrixWorld);
+  panel.worldToLocal(tip);   // panel space: x/y across the face, z toward you (in panel units)
+  const s = panel.scale.x, PW = PANEL_W, PH = PANEL_H;
+  if (Math.abs(tip.x) > PW / 2 || Math.abs(tip.y) > PH / 2) return null;
+  const x = (tip.x / PW + 0.5) * W, y = (0.5 - tip.y / PH) * H;
+  const r = regions.find(r => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h);
+  return { depth: tip.z * s, action: r ? r.action : null };
+}
+
+function updatePoke(i) {
+  const state = poke[i], t = touchAt(hands[i]);
+  const near = Boolean(t && t.depth < HOVER && t.depth > -0.1);
+  state.near = near;
+  state.action = near ? t.action : null;
+  controllers[i].userData.ray.visible = !near && controllers[i].userData.connected !== false;
+  if (!t || t.depth > REARM) state.armed = true;
+  if (near && state.armed && t.depth < TOUCH) {
+    state.armed = false;
+    if (t.action) press(t.action, controllers[i]);
+  }
+}
+
+// Hands or controllers? Bring the panel close for hands, back for controllers.
+function updateMode() {
+  const usingHands = Boolean(session) && [...session.inputSources].some(s => s.hand);
+  if (usingHands !== handMode) { handMode = usingHands; placed = false; }
 }
 
 // Put the panel in front of where you're looking, level, at a comfortable height
@@ -133,8 +199,10 @@ function recenter() {
   dir.y = 0;
   if (dir.lengthSq() < 1e-6) dir.set(0, 0, -1);
   dir.normalize();
-  const height = pos.y > 0.5 ? pos.y - 0.12 : 1.45;
-  panel.position.set(pos.x + dir.x * DISTANCE, height, pos.z + dir.z * DISTANCE);
+  const dist = handMode ? NEAR.distance : DISTANCE;
+  const height = pos.y > 0.5 ? pos.y - (handMode ? NEAR.drop : 0.12) : (handMode ? 1.3 : 1.45);
+  panel.scale.setScalar(handMode ? NEAR.scale : 1);
+  panel.position.set(pos.x + dir.x * dist, height, pos.z + dir.z * dist);
   panel.lookAt(pos.x, height, pos.z);
   placed = true;
 }
@@ -145,7 +213,7 @@ function hitAction(controller) {
   raycaster.ray.direction.set(0, 0, -1).applyMatrix4(tmpMatrix);
   const hit = raycaster.intersectObject(panel, false)[0];
   const { ray, dot } = controller.userData;
-  if (!hit || !hit.uv) { dot.visible = false; ray.scale.z = 2; return null; }
+  if (!hit || !hit.uv || !ray.visible) { dot.visible = false; ray.scale.z = 2; return null; }
   dot.visible = true;
   dot.position.copy(hit.point);
   ray.scale.z = hit.distance;
@@ -155,20 +223,24 @@ function hitAction(controller) {
 }
 
 function frame() {
+  updateMode();
   if (!placed) recenter();
   let changed = false;
-  for (const c of controllers) {
-    const a = hitAction(c);
+  hands.forEach((h, i) => { if (h.visible) drawHand(h); updatePoke(i); });
+  controllers.forEach((c, i) => {
+    const a = poke[i].near ? poke[i].action : hitAction(c);
     if (hovered.get(c) !== a) { hovered.set(c, a); changed = true; }
-  }
+  });
+  if (flash && performance.now() > flashUntil) { flash = null; changed = true; }
   if (changed) redraw();
   renderer.render(scene, camera);
 }
 
 /* ---------- Actions ---------- */
-async function press(controller) {
-  const action = hitAction(controller);
+async function press(action, controller) {
   if (!action || busy) return;
+  flash = action;
+  flashUntil = performance.now() + 180;
   const [kind, value] = action.split(":");
   if (kind === "key" && typed.length < 14) typed += value;
   else if (kind === "back") typed = typed.slice(0, -1);
@@ -234,9 +306,9 @@ function wrap(str, width, size, weight = 400, maxLines = 2) {
 const isHover = action => [...hovered.values()].includes(action);
 function button(x, y, w, h, label, action, opts = {}) {
   const hot = isHover(action);
-  const fill = opts.selected ? C.accent : hot ? C.keyHover : (opts.fill || C.key);
+  const fill = flash === action ? C.ink : opts.selected ? C.accent : hot ? C.keyHover : (opts.fill || C.key);
   roundRect(x, y, w, h, 18, fill, hot ? C.ink : opts.stroke || null);
-  text(label, x + w / 2, y + h / 2, opts.size || 40, opts.selected ? C.accentInk : (opts.color || C.ink), opts.weight || 600, "center");
+  text(label, x + w / 2, y + h / 2, opts.size || 40, opts.selected || flash === action ? C.accentInk : (opts.color || C.ink), opts.weight || 600, "center");
   regions.push({ x, y, w, h, action });
 }
 
@@ -344,5 +416,8 @@ window.__nutritionVR = {
   panel: () => panel,
   camera: () => renderer.xr.getCamera(),
   png: () => panelCanvas && panelCanvas.toDataURL("image/png"),
-  active: () => Boolean(session)
+  active: () => Boolean(session),
+  handMode: () => handMode,
+  typed: () => typed,
+  tip: i => { const j = hands[i] && hands[i].joints["index-finger-tip"]; return j ? new THREE.Vector3().setFromMatrixPosition(j.matrixWorld).toArray() : null; }
 };

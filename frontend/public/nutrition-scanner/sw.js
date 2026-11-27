@@ -6,7 +6,7 @@
 
   Bump VERSION whenever any app file changes, so visitors get the update.
 */
-const VERSION = "ns-v4";
+const VERSION = "ns-v5";
 const SHELL = [
   "./",
   "index.html",
