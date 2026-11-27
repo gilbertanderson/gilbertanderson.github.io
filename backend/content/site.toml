@@ -39,6 +39,18 @@ url = "https://www.linkedin.com/in/gilbertanderson"
 # to replace its typographic tile with a screenshot.
 
 [[projects]]
+title = "Nutrition Scanner"
+kind = "Web app · PWA"
+description = "Scan a grocery barcode and see whether it fits your diet, with every flag traced to its source, down to the cookbook page. Built in diets are the Best Bet Diet, Vegan and Diabetic, and you can add your own from any cookbook. It catches shared-equipment warnings, works offline, installs to a home screen, and has views for phones, Meta Quest and Meta Ray-Ban Display glasses. Tested to Section 508 and for security with 42 automated tests."
+url = "https://github.com/gilbertanderson/gilbertanderson.github.io/tree/master/frontend/public/nutrition-scanner"
+link_label = "View the code"
+demos = [
+  { label = "Open it", hint = "Phone, Quest or Ray-Ban Display", url = "https://gilbertanderson.com/nutrition-scanner/" },
+]
+article_url = "https://gilbertanderson.com/nutrition-scanner/case-study.html"
+image = "/projects/nutrition-scanner.jpg"
+
+[[projects]]
 title = "Sightline XR"
 kind = "WebXR prototype"
 description = "A seat-booking prototype built for PC VR that also runs in the browser: pick one of 2,612 seats in a 3D concert hall, step into it to see your exact view, and watch a live broadcast from the stage before you book. Each seat gets a sightline score with a plain-language reason. Built with React Three Fiber, WebXR and TypeScript."

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-hgvlW+OHlfWFooO3fQ4tT6Tzynfk7hIu7Lxjr94xXTw='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.openfoodfacts.org https://static.openfoodfacts.org https://world.openfoodfacts.org; connect-src https://world.openfoodfacts.org; media-src 'self' blob: mediastream:; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'; worker-src 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#2f6b4f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mrbd-web-app-capable" content="yes">
+  <meta name="description" content="Scan a food barcode to see its nutrition facts and whether it fits your diet.">
+  <title>Nutrition Scanner</title>
+  <script>
+    // Apply the saved theme before the page paints, so it never flashes the wrong colors
+    // Start in dark until the visitor picks a theme. Browsers report "light" when the device
+    // has no setting, so "no choice" can't be detected; dark is the default instead.
+    (function () {
+      let t = null;
+      try { t = JSON.parse(localStorage.getItem("theme")); } catch {}
+      if (t === "light") document.documentElement.dataset.theme = "light";
+      else if (t !== "auto") document.documentElement.dataset.theme = "dark";
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #f6f5f1; --card: #ffffff; --ink: #1d2320; --muted: #5d6862; --line: #e2e0d8; --field: #ffffff; --field-line: #7c8680;
+      --accent: #2f6b4f; --accent-ink: #ffffff; --accent-soft: #e4efe8; --chip: #eef0ec;
+      --ok: #23704a; --ok-bg: #e4f3ea; --warn: #8a5a00; --warn-bg: #fcf0d4;
+      --bad: #a8261d; --bad-bg: #fbe8e5; --unk: #4f5a63; --unk-bg: #eceff1;
+      --mark-bad: #f8cfc9; --mark-warn: #f6e2a8; --focus: #1f5fbf;
+    }
+    /* Dark theme: used when the device prefers dark (theme "auto") or when "dark" is picked */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121614; --card: #1b201d; --ink: #e8ece9; --muted: #a3ada7; --line: #2e3531; --field: #141815; --field-line: #6f7a74;
+        --accent: #6fbf95; --accent-ink: #0f1a14; --accent-soft: #22362b; --chip: #252b27;
+        --ok: #7fd3a3; --ok-bg: #1d3328; --warn: #f0c062; --warn-bg: #3a2f17;
+        --bad: #ff9a8f; --bad-bg: #3d1f1c; --unk: #b8c2ca; --unk-bg: #262c31;
+        --mark-bad: #6b2a24; --mark-warn: #5c4a1c; --focus: #8ab4ff;
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #121614; --card: #1b201d; --ink: #e8ece9; --muted: #a3ada7; --line: #2e3531; --field: #141815; --field-line: #6f7a74;
+      --accent: #6fbf95; --accent-ink: #0f1a14; --accent-soft: #22362b; --chip: #252b27;
+      --ok: #7fd3a3; --ok-bg: #1d3328; --warn: #f0c062; --warn-bg: #3a2f17;
+      --bad: #ff9a8f; --bad-bg: #3d1f1c; --unk: #b8c2ca; --unk-bg: #262c31;
+      --mark-bad: #6b2a24; --mark-warn: #5c4a1c; --focus: #8ab4ff;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+           font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    a { color: var(--accent); }
+    main { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+    h1 { font-size: 1.6rem; margin: 0 0 2px; letter-spacing: -.01em; }
+    h2 { font-size: 1.15rem; margin: 0; }
+    h3 { font-size: 1rem; margin: 18px 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 18px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+    .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    /* Diet chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; border: 0; padding: 0; margin: 0; }
+    .chips legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .chip { position: relative; }
+    .chip input { position: absolute; inset: 0; width: 1px; height: 1px; min-height: 0; padding: 0; margin: 0; border: 0; opacity: 0; pointer-events: none; }
+    .chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 99px;
+                 background: var(--chip); border: 1.5px solid transparent; font-weight: 600; cursor: pointer; }
+    .chip.custom span { border-style: dashed; border-color: var(--line); }
+    .chip input:checked + span { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .diet-info { color: var(--muted); font-size: .9rem; margin-top: 12px; }
+
+    /* Disclosures */
+    details.panel { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 4px; }
+    details.panel > summary { cursor: pointer; font-weight: 600; color: var(--accent); min-height: 44px; display: flex; align-items: center; list-style: none; }
+    details.panel > summary::-webkit-details-marker { display: none; }
+    details.panel > summary::after { content: "+"; margin-left: auto; font-size: 1.3rem; font-weight: 400; }
+    details.panel[open] > summary::after { content: "−"; }
+
+    /* Buttons and fields */
+    button, .btn { font: inherit; font-weight: 600; border: 0; border-radius: 10px; min-height: 44px; padding: 10px 16px;
+             cursor: pointer; background: var(--accent); color: var(--accent-ink); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    button.secondary, .btn.secondary { background: var(--chip); color: var(--ink); }
+    button.big { width: 100%; padding: 14px; font-size: 1.05rem; }
+    input, select, textarea { width: 100%; font: inherit; color: var(--ink); background: var(--field);
+             padding: 10px 12px; min-height: 44px; border: 1px solid var(--field-line); border-radius: 10px; }
+    textarea { resize: vertical; }
+    ::placeholder { color: var(--muted); opacity: 1; }
+    .row { display: flex; gap: 8px; margin-top: 10px; }
+    .row input { flex: 1; min-width: 0; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .form { display: grid; gap: 8px; }
+    .hint { color: var(--muted); font-size: .85rem; margin: 0 0 8px; }
+    label.field { font-size: .85rem; font-weight: 600; display: grid; gap: 4px; }
+
+    #reader { margin-top: 12px; border-radius: 10px; overflow: hidden; }
+    #reader:empty { display: none; }
+    .scan-controls { display: flex; gap: 8px; margin-top: 8px; }
+    .scan-controls button { flex: 1; }
+    .scan-controls[hidden], [hidden] { display: none !important; }
+
+    /* Header and view switch */
+    .top { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; }
+    .top { flex-wrap: wrap; }
+    .switches { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; flex: 0 1 auto; max-width: 100%; }
+    .view-switch { flex-wrap: wrap; max-width: 100%; }
+    @media (max-width: 520px) {
+      .top { flex-direction: column; }
+      .switches { flex-direction: row; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+      .switches .view-switch button { padding: 6px 9px; }
+      .top .sub { margin-bottom: 0; }
+    }
+    .view-switch { display: inline-flex; background: var(--chip); border-radius: 12px; padding: 4px; flex: none; }
+    .view-switch button { background: transparent; color: var(--ink); min-height: 40px; padding: 6px 14px; border-radius: 9px; }
+    .view-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); box-shadow: inset 0 0 0 2px var(--accent); }
+    .empty-state { text-align: center; padding: 28px 16px; }
+
+    /* Headset view: Meta Quest Browser and other XR browsers.
+       Larger type, 60px primary and 48px+ secondary targets, two columns in a wide window. */
+    body.view-headset { font-size: 20px; }
+    .view-headset main { max-width: 1280px; padding: 32px 32px 64px; }
+    .view-headset h1 { font-size: 2.1rem; }
+    .view-headset .layout { display: grid; grid-template-columns: minmax(360px, 5fr) 7fr; gap: 24px; align-items: start; }
+    .view-headset .col-right { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; border-radius: 14px; }
+    .view-headset .card { padding: 24px; border-radius: 20px; }
+    .view-headset button, .view-headset .btn, .view-headset input, .view-headset select, .view-headset textarea { min-height: 56px; font-size: 1rem; }
+    .view-headset button.big { min-height: 72px; font-size: 1.2rem; }
+    .view-headset .chip span { min-height: 60px; padding: 10px 22px; }
+    .view-headset .view-switch button { min-height: 52px; padding: 8px 20px; }
+    .view-headset details.panel > summary, .view-headset .reasons details > summary { min-height: 60px; }
+    .view-headset .diet-list button { min-height: 48px; }
+    .view-headset .found, .view-headset .meta, .view-headset .cite, .view-headset .info, .view-headset .hint { font-size: .9rem; }
+    .view-headset .product img { width: 96px; height: 96px; }
+    /* Glasses view: Meta Ray-Ban Display web apps (600 x 600 additive display, where black is see-through).
+       Pure black background, bright text, large type, only what's needed at a glance. */
+    body.view-glasses { --bg: #000; --card: #000; --chip: #1c1c1c; --line: #3a3a3a; --field: #000; --field-line: #8a8a8a;
+      --ink: #ffffff; --muted: #cfcfcf; --accent: #7dffb0; --accent-ink: #000; --accent-soft: #0d2a1a;
+      --ok: #7dffb0; --ok-bg: #000; --warn: #ffd36b; --warn-bg: #000; --bad: #ff8a80; --bad-bg: #000; --unk: #d7dde2; --unk-bg: #000;
+      --mark-bad: #5a1c17; --mark-warn: #4d3b0f; --focus: #8ab4ff; font-size: 22px; background: #000; color-scheme: dark; }
+    .view-glasses main { max-width: 600px; padding: 12px 12px 32px; }
+    .view-glasses .sub, .view-glasses .sources-card, .view-glasses footer.note, .view-glasses #manage, .view-glasses #themeSwitch,
+    .view-glasses .diet-info, .view-glasses .legend, .view-glasses .actions .secondary { display: none !important; }
+    .view-glasses h1 { font-size: 1.2rem; }
+    .view-glasses .top { align-items: center; }
+    .view-glasses .card { border-color: #3a3a3a; padding: 12px; border-radius: 14px; }
+    .view-glasses .verdict { border: 2px solid currentColor; }
+    .view-glasses .verdict strong { font-size: 1.2rem; }
+    .view-glasses .verdict .icon { background: transparent; border: 2px solid currentColor; }
+    .view-glasses .verdict .icon b { color: currentColor; }
+    .view-glasses .tag { background: transparent !important; border: 1.5px solid currentColor; }
+    .view-glasses .v-avoid.tag { color: var(--bad); } .view-glasses .v-caution.tag { color: var(--warn); } .view-glasses .v-ok.tag { color: var(--ok); }
+    .view-glasses button, .view-glasses input, .view-glasses .btn { min-height: 56px; font-size: 1rem; }
+    .view-glasses .chip span { min-height: 56px; }
+    .view-glasses .product img { display: none; }
+    .view-glasses .label-check { border-color: var(--warn); }
+    @media (max-width: 760px) { .view-headset .layout { display: block; } .view-headset .col-right { position: static; max-height: none; } }
+
+    /* Result */
+    .product { display: flex; gap: 14px; align-items: center; }
+    .product img { width: 72px; height: 72px; object-fit: contain; border-radius: 8px; background: #fff; flex: none; }
+    .meta { color: var(--muted); font-size: .9rem; }
+    .verdict { display: flex; gap: 12px; align-items: flex-start; border-radius: 12px; padding: 12px 14px; margin: 14px 0 10px; }
+    .verdict .icon { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+                     font-weight: 800; background: currentColor; }
+    .verdict .icon b { color: var(--card); }
+    .verdict strong { display: block; font-size: 1.05rem; }
+    .verdict small { display: block; color: var(--ink); opacity: .85; }
+    .v-ok { background: var(--ok-bg); color: var(--ok); }
+    .v-caution { background: var(--warn-bg); color: var(--warn); }
+    .v-avoid { background: var(--bad-bg); color: var(--bad); }
+    .v-unknown { background: var(--unk-bg); color: var(--unk); }
+    .tag { display: inline-block; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 99px;
+           margin-right: 8px; text-transform: uppercase; letter-spacing: .03em; vertical-align: 1px; }
+    .reasons { list-style: none; padding: 0; margin: 0; }
+    .reasons > li { border-top: 1px solid var(--line); }
+    .reasons details > summary { cursor: pointer; padding: 10px 0; list-style: none; min-height: 44px; }
+    .reasons details > summary::-webkit-details-marker { display: none; }
+    .reasons details > summary .more { float: right; color: var(--accent); font-size: .85rem; font-weight: 600; }
+    .reasons details[open] > summary .more::after { content: "Hide"; }
+    .reasons details:not([open]) > summary .more::after { content: "Why"; }
+    .reasons .body { padding: 0 0 12px; }
+    .found { font-size: .9rem; color: var(--muted); }
+    .booklist { font-size: .9rem; margin-top: 6px; background: var(--bg); border-radius: 8px; padding: 8px 12px; }
+    .booklist span { font-weight: 600; }
+    .booklist ul { margin: 4px 0 0; padding-left: 18px; }
+    .cite { font-size: .82rem; color: var(--muted); margin-top: 6px; }
+    .info { font-size: .9rem; color: var(--muted); margin: 8px 0 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: .95rem; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 7px 4px; border-bottom: 1px solid var(--line); }
+    th { font-size: .8rem; color: var(--muted); font-weight: 600; }
+    th:not(:first-child), td:not(:first-child) { text-align: right; }
+    .ingredients { font-size: .92rem; line-height: 1.6; }
+    mark { border-radius: 3px; padding: 0 2px; color: var(--ink); }
+    mark.m-avoid { background: var(--mark-bad); text-decoration: underline 2px; text-underline-offset: 3px; font-weight: 600; }
+    mark.m-caution { background: var(--mark-warn); text-decoration: underline dotted 2px; text-underline-offset: 3px; }
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .legend { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+    .actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    .actions > * { flex: 1; }
+    .skeleton { height: 14px; border-radius: 6px; background: var(--chip); margin: 10px 0; animation: pulse 1.2s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .5; } }
+    @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+    /* About / manage */
+    .rules, .srclist, .diet-list { list-style: none; padding: 0; margin: 0; }
+    .rules > li, .srclist > li { padding: 10px 0; border-top: 1px solid var(--line); }
+    .diet-list li { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid var(--line); }
+    .diet-list li > span { flex: 1; }
+    .diet-list button { min-height: 36px; padding: 6px 10px; font-size: .85rem; }
+    .mine { font-size: .75rem; color: var(--muted); }
+    .msg { font-size: .9rem; margin-top: 8px; color: var(--accent); }
+    .msg.err { color: var(--bad); }
+    .sources-card .found { margin-top: 2px; }
+    .row-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+    .label-check, .label-note { border-radius: 12px; padding: 12px 14px; margin: 12px 0 4px; }
+    .label-check { border: 2px dashed var(--warn); background: var(--warn-bg); }
+    .label-note { border: 1px solid var(--line); background: var(--bg); }
+    .label-check p, .label-note p { margin: 0 0 10px; }
+    .label-check .chips { margin-bottom: 12px; }
+    .chips legend.label-q { position: static; width: auto; height: auto; overflow: visible; clip: auto; margin: 0 0 10px; padding: 0; font-weight: 600; }
+    .label-check .chip span { background: var(--card); border-color: var(--field-line); }
+    .label-check .chip input:checked + span { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .label-check .chip input:checked + span::before { content: "\2713\00a0"; }
+    .label-check .hint, .label-note .hint { margin: 10px 0 0; }
+    .row-buttons > button { flex: 1; }
+    .toggle { display: flex; align-items: center; gap: 10px; margin-top: 8px; min-height: 44px; font-size: .9rem; font-weight: 600; cursor: pointer; }
+    .toggle input { width: 22px; height: 22px; min-height: 0; margin: 0; accent-color: var(--accent); flex: none; }
+    .recent-list { list-style: none; padding: 0; margin: 0 0 10px; }
+    .recent-item { width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; text-align: left; align-items: center;
+                   background: transparent; color: var(--ink); border-top: 1px solid var(--line); border-radius: 0; padding: 10px 2px; font-weight: 400; }
+    .recent-item .recent-name { font-weight: 600; grid-column: 1; }
+    .recent-item .recent-meta { font-size: .85rem; color: var(--muted); grid-column: 1; }
+    .recent-item .tag { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+    .view-headset .toggle input { width: 28px; height: 28px; }
+    .view-headset .recent-item { min-height: 64px; }
+    footer.note { font-size: .82rem; color: var(--muted); margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="top">
+      <div>
+        <h1>Nutrition Scanner</h1>
+        <p class="sub">Scan a food barcode to see its nutrition facts and whether it fits your diet.</p>
+      </div>
+      <div class="switches">
+        <div class="view-switch" id="viewSwitch" role="group" aria-label="Layout">
+          <button type="button" data-view="phone" aria-pressed="true">Phone</button>
+          <button type="button" data-view="headset" aria-pressed="false">Headset</button>
+          <button type="button" data-view="glasses" aria-pressed="false">Glasses</button>
+        </div>
+        <div class="view-switch" id="themeSwitch" role="group" aria-label="Theme">
+          <button type="button" data-theme="auto" aria-pressed="true" title="Match device setting">Auto</button>
+          <button type="button" data-theme="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+    <div class="col-left">
+    <!-- 1. Diet -->
+    <section class="card" aria-labelledby="dietHeading">
+      <h2 class="eyebrow" id="dietHeading">Checking against</h2>
+      <fieldset class="chips" id="dietChips"><legend>Diet</legend></fieldset>
+      <div class="diet-info" id="dietInfo"></div>
+
+      <details class="panel" id="about">
+        <summary>About this diet and its sources</summary>
+        <div id="aboutBody"></div>
+      </details>
+
+      <details class="panel" id="manage">
+        <summary>Add or manage diets</summary>
+
+        <h3 id="formHeading">Create a diet from a cookbook or plan</h3>
+        <p class="hint">Copy the avoid and limit lists from your source, separated by commas or new lines.
+          Words like dairy, gluten, soy, legumes, eggs and sugar expand into the names used on labels.</p>
+        <div class="form">
+          <label class="field">Diet name<input id="fName" placeholder="e.g. Anti-inflammatory"></label>
+          <div class="row2">
+            <label class="field">Source title<input id="fSource" placeholder="Book or website name"></label>
+            <label class="field">Source link<input id="fSourceUrl" type="url" placeholder="https://"></label>
+          </div>
+          <label class="field">Foods to avoid<textarea id="fAvoid" rows="3" placeholder="dairy, gluten, peanuts, aspartame"></textarea></label>
+          <label class="field">Foods to limit<textarea id="fLimit" rows="2" placeholder="corn, eggs, yeast"></textarea></label>
+          <div class="row2">
+            <label class="field">Max sugar (g per 100 g)<input id="fSugar" type="number" min="0" step="0.1" inputmode="decimal"></label>
+            <label class="field">Max sodium (mg per 100 g)<input id="fSodium" type="number" min="0" step="1" inputmode="numeric"></label>
+          </div>
+          <div class="row-buttons">
+            <button id="createBtn">Save diet</button>
+            <button id="cancelEditBtn" class="secondary" hidden>Cancel editing</button>
+          </div>
+        </div>
+
+        <h3 id="uploadHeading">Upload a diet file</h3>
+        <p class="hint" id="uploadHint">A .json diet file up to 1 MB. Download any diet below to see the format, or to share one.</p>
+        <input type="file" id="dietFile" accept=".json,application/json" aria-labelledby="uploadHeading" aria-describedby="uploadHint">
+
+        <h3>All diets</h3>
+        <ul class="diet-list" id="dietList"></ul>
+        <div class="msg" id="manageMsg" role="status" aria-live="polite"></div>
+      </details>
+    </section>
+
+    <!-- 2. Scan -->
+    <section class="card" aria-label="Scan a product">
+      <button id="startBtn" class="big">Scan barcode</button>
+      <div id="reader"></div>
+      <div class="scan-controls" id="scanControls" hidden>
+        <button id="stopBtn" class="secondary">Stop camera</button>
+        <button id="switchCamBtn" class="secondary" hidden>Switch camera</button>
+      </div>
+      <form class="row" id="manualForm">
+        <label for="manual" class="sr-only">Barcode number</label>
+        <input id="manual" inputmode="numeric" autocomplete="off" placeholder="Or type a barcode number">
+        <button class="secondary" type="submit">Look up</button>
+      </form>
+
+      <details class="panel" id="recentPanel" hidden>
+        <summary>Recent scans <span id="recentCount" class="mine"></span></summary>
+        <p class="hint">Saved in this browser, so they open even when you're offline.</p>
+        <ul class="recent-list" id="recentList"></ul>
+        <button class="secondary" id="clearRecent">Clear recent scans</button>
+      </details>
+    </section>
+
+    </div>
+    <div class="col-right">
+    <!-- 3. Result -->
+    <p id="srStatus" class="sr-only" role="status" aria-live="polite"></p>
+    <section id="result" aria-label="Result">
+      <div class="card empty-state"><h2>No product yet</h2><p class="meta">Scan a barcode or type its number, and the result shows here.</p></div>
+    </section>
+    </div>
+    </div>
+
+    <!-- 4. Sources -->
+    <section class="card sources-card" aria-labelledby="sourcesHeading">
+      <h2 id="sourcesHeading">Sources</h2>
+      <p class="hint" style="margin-top:4px">Where the product data and diet rules come from.</p>
+      <ul class="srclist" id="sourcesList"></ul>
+    </section>
+    <footer class="note">Diet checks are a quick guide based on product labels, not medical advice. Always read the actual label. <a href="case-study.html">How this app was built</a></footer>
+  </main>
+
+  <!-- html5-qrcode 2.3.8 (Apache-2.0), self-hosted from the npm package -->
+  <script src="vendor/html5-qrcode.min.js" integrity="sha384-c9d8RFSL+u3exBOJ4Yp3HUJXS4znl9f+z66d1y54ig+ea249SpqR+w1wyvXz/lk+"></script>
+  <script src="config.js"></script>
+  <script src="diets.js"></script>
+  <script src="usda.js"></script>
+  <script src="diet-check.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

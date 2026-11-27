@@ -1,0 +1,12 @@
+{
+  "name": "nutrition-scanner-tests",
+  "private": true,
+  "description": "Rules, Section 508 / WCAG 2.1 AA, security and feature tests for Nutrition Scanner",
+  "scripts": {
+    "test": "node --test --test-concurrency=1"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "playwright": "1.63.0"
+  }
+}
