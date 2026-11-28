@@ -13,7 +13,7 @@ I'm a Forward Deployed Engineer and UI/UX & AI/Automation lead with 10+ years of
 
 I embed directly with mission customers, most recently on a U.S. Navy program at CACI, so I can turn analyst workflows into self-service tools where people search, filter, drill down, visualize, and securely export data without waiting on an engineer.
 
-My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, and REST/GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker and Kubernetes since 2016 and Podman more recently, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
+My strongest work is frontend and full-stack development with React, Angular, Vue, TypeScript, REST APIs with OpenAPI, and GraphQL, along with Grafana dashboards, and I also integrate LLMs and agentic tooling with Anthropic Claude, OpenAI GPT, and AWS Bedrock. I've used Docker and Kubernetes since 2016 and Podman more recently, and I'm a Certified ScrumMaster and Certified Scrum Professional who has worked as both a Scrum Master and a Scrum instructor. On top of that I bring general IT experience in cybersecurity, Linux, setting up AWS environments, and Tier 1 and Tier 2 support, and I hold an active TS/SCI clearance with CI polygraph.
 """
 url = "https://gilbertanderson.com/"
 accent = "#0B63CE"
@@ -134,7 +134,7 @@ highlights = [
   "Designed and deployed 15+ automated Grafana dashboards, connected to React interfaces and backend APIs for real-time operational metrics, so Navy stakeholders spend less time on manual reporting.",
   "Built self-service analytics portals that let 100+ non-technical users search, filter, drill down, and visualize mission data on their own instead of waiting on engineers.",
   "Built responsive React/TypeScript and HTML/CSS/SCSS UI components with MUI theming and Figma design systems, tested them with Playwright, and released them through Jenkins CI/CD pipelines.",
-  "Worked across the full stack of a React/TypeScript app with a Go backend, supported server-side code in Java, Python, and Go, and worked with Chainguard secure container images and Podman.",
+  "Worked across the full stack of a React/TypeScript app with a Go backend and OpenAPI-defined REST APIs, supported server-side code in Java, Python, and Go, and worked with Chainguard secure container images and Podman.",
   "Added Okta single sign-on (SSO) with SAML to the MVP dashboard app and set up OAuth 2.0 authorization for its API.",
   "Brought Anthropic Claude, OpenAI GPT, and AWS Bedrock into our engineering workflow alongside Microsoft Copilot to automate documentation and code review, and increased my own output 10x with generative AI.",
   "Supported CACI's AI modernization work with LLMs, including Claude, Codex, Grok, Gemini, Ollama, and OpenCode, and taught my team and members of CACI's shared knowledge groups how to use generative AI in their own work.",
@@ -568,7 +568,7 @@ items = ["Grafana", "Neo4j", "Google Analytics", "Cloudflare", "D3.js", "Chart.j
 
 [[tools]]
 group = "Backend & data"
-items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST", "OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
+items = ["GraphQL", "PostgreSQL", "Spring Boot", "REST API with OpenAPI", "FastAPI", "SQL Server", "MongoDB", "Redis", "Elasticsearch", "Firebase", "Asynchronous events", "Distributed systems", "OAuth 2.0", "SAML", "Okta SSO"]
 
 [[tools]]
 group = "Cloud & DevOps"
